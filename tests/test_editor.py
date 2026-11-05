@@ -239,6 +239,7 @@ def test_row_controls_and_editable_contour_handles(session, server, tmp_path):
         errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
         page.goto(server);page.wait_for_function('()=>window.editorReady')
         page.locator('#shape').select_option('custom')
+        assert not page.locator('#scroll-controls').is_visible()
         handle=page.locator('[data-handle="contour-0-0"]');handle.wait_for()
         before=json.loads(page.locator('#advanced').input_value())['contour']['curves'][0][0]
         box=handle.bounding_box();page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2)
