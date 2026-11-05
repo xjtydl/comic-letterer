@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0
+
+- `layout-proof` compares authored layouts using intact narrative art and real Unicode lettering with a single uniform transform per panel.
+- Source hashes, exact panel coverage/order, aspect-preserving slots, conservative overlap/reading/crop/type checks and new diagnostic outputs.
+- Real opening-story page versus segmented reading, with a reversed/small-panel counterexample and a corrected subpixel grouping false positive. See docs/v08-validation.md.
+
 ## 0.7.0
 
 - Explicit `book-revise` plans with book/page hashes, exact prior values, reasons, targeted inherited-style edits and separate rule updates.

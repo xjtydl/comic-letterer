@@ -206,3 +206,19 @@ Plan version 1 contains:
 At least one change is required. Unknown fields, duplicate targets, absent reasons and unchanged values are rejected. `before` for style/audit fields is the resolved effective value including existing defaults; for layout arrays it is the explicit value, or `null` if absent. `reading_width` defaults to canvas width. Multiple fields on the same item compare to the original state, then apply together. A nested item override copies inherited siblings before changing its leaf, preserving unrelated settings. Words, speakers, sound types, source anchors, art and panel structure are outside this command's edit scope.
 
 `book.json` and `pages/` are the new editable version; `before-book.json` and `before-pages/` preserve the prior inputs. `before/` and `after/` contain complete proofs. `plan.json`, `revision.json` and `index.html` contain reasons, hashes, diagnostics, exact exceptions and visual comparison. Asset maps remain external; supply the same local licensed fonts/art for a later render. The viewer offers 450/600/900px preview widths; only the configured `reading_width` is measured for font-size checks. No acceptance is inferred from preview controls or clean output. See `examples/theatre-revision-600.json` for the real bilingual revision.
+
+## Layout proofs
+
+```sh
+comic-letterer layout-proof page.json --layouts layouts.json \
+  --font /path/to/body.ttf --font-map local-fonts.json \
+  --background unlettered.png --out new-layout-proof --strict
+```
+
+A version-1 layout plan contains `source_sha256` (exact input page bytes) and nonempty `variants`. Each variant has `id`, nonempty `title`, positive `width`, `height`, optional `reading_width` (defaults to width), and `placements`. Each placement is `{panel, box:[x,y,w,h], beat}`. `beat` describes the panel's narrative change. Placement IDs must equal the source panel order, with every panel once. Canvas dimensions are capped at 50000; existing PNG size limits also apply.
+
+A source panel and all its lettering are uniformly scaled to fit its slot, centered, and clipped to its original panel rectangle. There is no nonuniform stretch, independent text movement, auto-crop, new drawing or inferred script. Unused slot space remains paper. The report includes actual placed boxes, scales and reading font sizes. Compare source glyphs/voice marks, shell boxes and tail tips against the extraction boundary; known clipping is an error even for a previously intentional cross-border caption. Exact arbitrary curve/stroke extents are not covered by these bounds checks.
+
+Panels overlapping in the composed image and obvious reversed LTR/RTL ordering are errors. Staggered overlapping vertical spans can produce a grouping-review warning. Center-fit edge differences up to max(1px, 1% of the shorter panel height) are ignored for that warning only. This heuristic cannot certify sophisticated inset or blocking-panel reading order. Source issues are retained; no clean report implies reader/user acceptance.
+
+Output contains `source.json`, `source.svg`, `plan.json`, `layout.json`, per-variant SVG/report/reading PNG and `index.html`. The HTML uses a fixed600px comparison width, while font-size checks use each variant's configured reading width. SVG references one complete source with prefixed IDs and uses uniform transforms/clips; Unicode stays editable. Fonts are not bundled in SVG. Input and background bytes are checked unchanged after rendering. Existing outputs are refused; rendering exceptions remove staging. Exit 1 retains diagnostic layouts; `--strict` also fails warnings. See `examples/theatre-layouts.json` and `docs/v08-validation.md`.

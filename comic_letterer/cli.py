@@ -12,9 +12,9 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.7.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.8.0")
     sub = parser.add_subparsers(dest="command", required=True)
-    for command in ("check", "render", "edit"):
+    for command in ("check", "render", "edit", "layout-proof"):
         p = sub.add_parser(command)
         p.add_argument("input", type=Path)
         p.add_argument("--font", type=Path)
@@ -25,7 +25,9 @@ def main(argv=None):
         p.add_argument(
             "--strict", action="store_true", help="Fail on warnings as well as errors"
         )
-        if command in ("render", "edit"):
+        if command == "layout-proof":
+            p.add_argument("--layouts", type=Path, required=True)
+        if command in ("render", "edit", "layout-proof"):
             p.add_argument("--out", type=Path, required=True, help="Output directory")
             p.add_argument(
                 "--background",
@@ -102,6 +104,13 @@ def main(argv=None):
         from .fonts import read_font_map
 
         fonts = {**read_font_map(args.font_map), **(fonts or {})}
+        if args.command == "layout-proof":
+            from .layout import layout_proof
+            if args.background is None: raise ValueError("layout-proof requires a background")
+            report = layout_proof(args.input, json.loads(args.layouts.read_text()), font,
+                                  args.font_index, fonts, args.background, args.out)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 0 if report["ok"] and not (args.strict and report["issues"]) else 1
         if args.command == "edit":
             from .editor import serve
 
