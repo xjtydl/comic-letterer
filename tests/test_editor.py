@@ -230,3 +230,30 @@ def test_decorative_controls_roundtrip_and_export(session, server, tmp_path):
         assert len(list(tmp_path.glob('exports/*/reading.png')))==1
         assert not errors
         browser.close()
+
+@pytest.mark.skipif(os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1',reason='optional browser integration')
+def test_row_controls_and_editable_contour_handles(session, server, tmp_path):
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as pw:
+        browser=pw.chromium.launch();page=browser.new_page(viewport={'width':1450,'height':1200})
+        errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+        page.goto(server);page.wait_for_function('()=>window.editorReady')
+        page.locator('#shape').select_option('custom')
+        handle=page.locator('[data-handle="contour-0-0"]');handle.wait_for()
+        before=json.loads(page.locator('#advanced').input_value())['contour']['curves'][0][0]
+        box=handle.bounding_box();page.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2)
+        page.mouse.down();page.mouse.move(box['x']-12,box['y']+box['height']/2);page.mouse.up()
+        page.wait_for_function('()=>!document.querySelector("#status").textContent.includes("正在")')
+        after=json.loads(page.locator('#advanced').input_value())
+        assert after['contour']['curves'][0][0]!=before
+        page.locator('summary',has_text='字体特性与逐行宽度').click()
+        page.locator('#type-language').fill('en')
+        page.locator('#type-scales').fill('[0.97]');page.locator('#apply-type').click()
+        page.wait_for_function('()=>JSON.parse(document.querySelector("#advanced").value).line_scales?.[0]===0.97')
+        page.locator('#save').click();page.wait_for_function('()=>document.querySelector("#status").textContent.includes("drafts")')
+        page.reload();page.wait_for_function('()=>window.editorReady')
+        value=json.loads(page.locator('#advanced').input_value())
+        assert value['line_scales']==[.97] and value['language']=='en'
+        assert value['contour']==after['contour'] and value['text']==session.frozen['a']
+        assert not errors
+        browser.close()

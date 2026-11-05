@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "width": 1024,
+  "height": 1536,
+  "reading_width": 900,
+  "min_reading_font": 18,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        6,
+        6,
+        501,
+        756
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        518,
+        6,
+        500,
+        756
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        6,
+        773,
+        501,
+        753
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        518,
+        773,
+        500,
+        753
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "weak",
+      "panel": "p1",
+      "kind": "weak",
+      "order": 1,
+      "text": "I'm forgetting my own voice.",
+      "expected_text": "I'm forgetting my own voice.",
+      "box": [
+        175,
+        45,
+        315,
+        155
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "ghost",
+      "target": [
+        315,
+        387
+      ],
+      "breaks": [
+        15
+      ],
+      "line_scales": [
+        0.98,
+        1.02
+      ],
+      "line_widths": [
+        220,
+        210
+      ],
+      "tail": {
+        "length": 95,
+        "gap": 15
+      }
+    },
+    {
+      "id": "song",
+      "panel": "p2",
+      "kind": "speech",
+      "order": 1,
+      "text": "The evening breeze will take you home.",
+      "expected_text": "The evening breeze will take you home.",
+      "box": [
+        535,
+        38,
+        370,
+        175
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "courier",
+      "target": [
+        716,
+        380
+      ],
+      "voice": "singing",
+      "baseline": {
+        "mode": "wave",
+        "amplitude": 2,
+        "group": 1
+      },
+      "breaks": [
+        19
+      ],
+      "tail": {
+        "length": 80,
+        "gap": 14
+      }
+    },
+    {
+      "id": "chime",
+      "panel": "p3",
+      "kind": "sfx",
+      "order": 1,
+      "text": "DING—",
+      "expected_text": "DING—",
+      "box": [
+        70,
+        830,
+        310,
+        140
+      ],
+      "font_size": 64,
+      "language": "en",
+      "font_role": "narrator",
+      "padding": 10,
+      "surface": [
+        [
+          80,
+          850
+        ],
+        [
+          365,
+          823
+        ],
+        [
+          380,
+          955
+        ],
+        [
+          85,
+          990
+        ]
+      ],
+      "text_color": "#F8D988",
+      "material": {
+        "gradient": [
+          "#FFF5CC",
+          "#C88E36"
+        ],
+        "wear": 0.012,
+        "seed": 4
+      },
+      "outlines": [
+        {
+          "color": "#412C20",
+          "width": 1.2
+        }
+      ],
+      "sound": {
+        "event": "final piano note",
+        "source": [
+          370,
+          1430
+        ],
+        "material": "piano strings and wooden soundboard",
+        "intensity": "quiet",
+        "duration": "soft attack, sustained decay",
+        "direction": [
+          0,
+          -1
+        ]
+      },
+      "breaks": []
+    },
+    {
+      "id": "close",
+      "panel": "p4",
+      "kind": "caption",
+      "order": 1,
+      "text": "This time, she heard the ending.",
+      "expected_text": "This time, she heard the ending.",
+      "box": [
+        490,
+        790,
+        455,
+        88
+      ],
+      "font_size": 24,
+      "language": "en",
+      "font_role": "narrator",
+      "shape": "flat",
+      "corner": 0.1,
+      "padding": 12,
+      "fill": "#F4E6CA",
+      "breaks": [],
+      "cross_border": [
+        "left"
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "id": "ghost1",
+      "box": [
+        248,
+        299,
+        105,
+        131
+      ]
+    },
+    {
+      "id": "boy2",
+      "box": [
+        595,
+        257,
+        164,
+        171
+      ]
+    },
+    {
+      "id": "ghost2",
+      "box": [
+        850,
+        356,
+        95,
+        128
+      ]
+    },
+    {
+      "id": "ghost3",
+      "box": [
+        25,
+        1003,
+        175,
+        190
+      ]
+    },
+    {
+      "id": "hand3",
+      "box": [
+        190,
+        1266,
+        220,
+        115
+      ]
+    },
+    {
+      "id": "boy4",
+      "box": [
+        639,
+        1140,
+        83,
+        200
+      ]
+    },
+    {
+      "id": "ticket",
+      "box": [
+        726,
+        1390,
+        216,
+        93
+      ]
+    }
+  ]
+}

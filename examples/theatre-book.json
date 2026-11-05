@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1-zh",
+      "path": "theatre-p1.json",
+      "edition": "zh"
+    },
+    {
+      "id": "p2-zh",
+      "path": "theatre-p2.json",
+      "edition": "zh"
+    },
+    {
+      "id": "p1-en",
+      "path": "theatre-p1-en.json",
+      "edition": "en"
+    },
+    {
+      "id": "p2-en",
+      "path": "theatre-p2-en.json",
+      "edition": "en"
+    }
+  ],
+  "rules": [
+    {
+      "id": "zh-caption",
+      "match": {
+        "edition": "zh",
+        "kind": "caption"
+      },
+      "expect": {
+        "font_size": 26,
+        "font_role": "narrator",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-speech",
+      "match": {
+        "edition": "zh",
+        "kind": "speech"
+      },
+      "expect": {
+        "font_size": 26,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-thought",
+      "match": {
+        "edition": "zh",
+        "kind": "thought"
+      },
+      "expect": {
+        "font_size": 26,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-whisper",
+      "match": {
+        "edition": "zh",
+        "kind": "whisper"
+      },
+      "expect": {
+        "font_size": 26,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-weak",
+      "match": {
+        "edition": "zh",
+        "kind": "weak"
+      },
+      "expect": {
+        "font_size": 26,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-floating",
+      "match": {
+        "edition": "zh",
+        "kind": "floating"
+      },
+      "expect": {
+        "font_size": 100,
+        "font_role": "hand",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "zh-sfx",
+      "match": {
+        "edition": "zh",
+        "kind": "sfx"
+      },
+      "expect": {
+        "font_size": 72,
+        "font_role": "narrator",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-caption",
+      "match": {
+        "edition": "en",
+        "kind": "caption"
+      },
+      "expect": {
+        "font_size": 24,
+        "font_role": "narrator",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-speech",
+      "match": {
+        "edition": "en",
+        "kind": "speech"
+      },
+      "expect": {
+        "font_size": 24,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-thought",
+      "match": {
+        "edition": "en",
+        "kind": "thought"
+      },
+      "expect": {
+        "font_size": 24,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-whisper",
+      "match": {
+        "edition": "en",
+        "kind": "whisper"
+      },
+      "expect": {
+        "font_size": 24,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-weak",
+      "match": {
+        "edition": "en",
+        "kind": "weak"
+      },
+      "expect": {
+        "font_size": 24,
+        "font_role": "body",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-floating",
+      "match": {
+        "edition": "en",
+        "kind": "floating"
+      },
+      "expect": {
+        "font_size": 100,
+        "font_role": "hand",
+        "stroke_width": 2
+      }
+    },
+    {
+      "id": "en-sfx",
+      "match": {
+        "edition": "en",
+        "kind": "sfx"
+      },
+      "expect": {
+        "font_size": 64,
+        "font_role": "narrator",
+        "stroke_width": 2
+      }
+    }
+  ]
+}

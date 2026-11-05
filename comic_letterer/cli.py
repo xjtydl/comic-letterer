@@ -12,7 +12,7 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.5.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.6.0")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("check", "render", "edit"):
         p = sub.add_parser(command)
@@ -49,9 +49,28 @@ def main(argv=None):
     p = sub.add_parser("book-check", help="Read-only audit against explicit book style rules")
     p.add_argument("input", type=Path)
     p.add_argument("--strict", action="store_true")
+    p = sub.add_parser("book-proof", help="Render a new continuous book proof without rewriting sources")
+    p.add_argument("input", type=Path)
+    p.add_argument("--assets", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--strict", action="store_true")
+    p = sub.add_parser("font-build", help="Build an authored pressure-stroke display alphabet")
+    p.add_argument("input", type=Path)
+    p.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         job = json.loads(args.input.read_text(encoding="utf-8"))
+        if args.command == "book-proof":
+            from .proof import proof_book
+            report = proof_book(job, args.input.resolve().parent, json.loads(args.assets.read_text()), args.assets.resolve().parent, args.out)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 0 if report["ok"] and not (args.strict and report["issues"]) else 1
+        if args.command == "font-build":
+            from .letterforms import build_font
+            if args.out.exists(): raise ValueError("font output exists; choose a new file")
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            print(json.dumps(build_font(job, args.out), ensure_ascii=False, indent=2))
+            return 0
         if args.command == "book-check":
             from .book import audit_book
             report = audit_book(job, args.input.resolve().parent)

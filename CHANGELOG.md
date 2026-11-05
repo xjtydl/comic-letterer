@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+- Feature-aware OpenType measurement/rendering, authored per-line widths/scales, and non-destructive language advice.
+- Editable cubic/flat shells, exact-path tail attachment, intentional independent stacking and explicit shell border crossings.
+- Corrected breath/telepathy/music marks with actual glyph/shell checks; narrative validation of all these voices and double outlines.
+- Projective in-world lettering/SFX, bounded gradient/wear, sound-event metadata, and original pressure-stroke font generation with kerning/alternates.
+- Two-page Last Ticket story in Chinese and English, actual editor controls and regression of delayed-preview field loss.
+- Rendered book proofs with continuous reading pages, rules/exceptions, actual font identity checks and source preservation. See docs/v06-validation.md.
+
+
 ## 0.5.0 — 2026-11-05
 
 Adds mechanical three-stroke/notched balloons, arc-length sawtooth and flame contours with controlled density, scroll captions with reserved fold space, and real-font dropped initials with actual multi-line wraparound. All new operations have editor controls, persistence and PNG export coverage. Verified on the original six-panel Lightkeeper Chinese and English story, retaining exact words and unchanged artwork.

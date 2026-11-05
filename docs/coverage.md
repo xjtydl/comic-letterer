@@ -1,3 +1,7 @@
+# Latest v0.6 narrative pass
+
+[The Last Ticket actual-page evidence](v06-validation.md) covers the remaining type/path/voice operations, projective materials and authored handwriting. Independent stacking and border crossing were added and visually checked before extending D04 to real book proofs. Earlier tables remain historical; consult WORK_INDEX for present limits.
+
 # Latest v0.5 increment
 
 Mechanical three-stroke contours, arc-length sawtooth/flame density, scroll captions and measured Chinese/Latin dropped initials are implemented, editable and checked in a complete narrative. [Actual evidence](v05-validation.md). After these five operations passed, D04 gained `book-check` for explicit read-only style rules. Remaining broader gaps are kept in [the work index](WORK_INDEX.md).

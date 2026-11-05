@@ -6,6 +6,7 @@ import unicodedata
 from PIL import ImageFont
 from .validation import fields, number, color
 from .initials import layout_initial
+from .type_options import options, row_options
 
 OPEN = set("（【《「『〔〈([{“‘")
 CLOSE = set("，。！？；：、）》」』】〕〉,.;:!?)]}”’")
@@ -154,6 +155,7 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
         )
         for size, _, role, _ in styles
     }
+    shaping = options(item, bank, {role for _, _, role, _ in styles})
     forbidden = set()
     keeps = item.get("keep_together", [])
     if not isinstance(keeps, list):
@@ -181,8 +183,8 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             seg = text[i:j]
             visible = seg.replace("\n", "")
             f = fonts[size, role]
-            l, t, r, b = f.getbbox(visible, anchor="ls")
-            advance = f.getlength(visible) * hscale
+            l, t, r, b = f.getbbox(visible, anchor="ls", **shaping)
+            advance = f.getlength(visible, **shaping) * hscale
             out.append((seg, size, ink, role, advance, (l * hscale, t, r * hscale, b), shift))
             i = j
         return out
@@ -195,11 +197,15 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
         )
 
     if item.get("drop_cap") is not None:
+        if item.get("line_widths") or item.get("line_scales") or item.get("features"):
+            raise ValueError("drop_cap currently uses its own wraparound; row/OpenType overrides must be omitted")
         return layout_initial(item, box, pad, lh, bank, styles, fonts, runs, measure, forbidden, legal_break)
 
     inner = max(1, box[2] - 2 * pad)
     if item["kind"] not in ("caption", "sfx", "floating"):
         inner *= 0.9 if item.get("shape") == "tv" else 0.78
+    widths, scales = row_options(item, inner)
+    def row_width(row): return (widths[row] if row < len(widths) else inner) / (scales[row] if row < len(scales) else 1)
     hints = item.get("breaks")
     if hints is not None:
         if (
@@ -221,14 +227,14 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             if b > a:
                 lines.append(text[a:b])
                 a = b
-    elif flow == "legacy" and not keeps and not spans and not tracking and hscale == 1 and mode == "straight":
+    elif flow == "legacy" and not keeps and not spans and not tracking and hscale == 1 and mode == "straight" and not shaping and not widths and not scales:
         lines = wrap_fn(text, fonts[fs, base_role], inner)
     else:
         maxsize = max(size for size, role in fonts)
         maxlines = max(1, int((box[3] - 2 * pad) / (maxsize * lh)))
         lines = (
             balanced_lines(text, measure, inner, maxlines, forbidden)
-            if flow == "balanced" and "\n" not in text
+            if flow == "balanced" and "\n" not in text and not widths and not scales
             else None
         )
         if lines is None:
@@ -242,10 +248,12 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
                     for i in range(start + 1, limit + 1)
                     if i not in forbidden and (i == limit or legal_break(text, i))
                 ]
-                fitting = [i for i in ends if measure(start, i) <= inner]
+                fitting = [i for i in ends if measure(start, i) <= row_width(len(lines))]
                 end = max(fitting) if fitting else ends[0]
                 lines.append(text[start:end])
                 start = end
+    if len(widths) > len(lines) or len(scales) > len(lines):
+        raise ValueError("row overrides exceed actual line count")
     min_shift = min(0, *(s[3] for s in styles))
     max_shift = max(0, *(s[3] for s in styles))
     ascent = max(f.getmetrics()[0] for f in fonts.values()) - min_shift
@@ -258,19 +266,24 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
     segments = []
     glyphboxes = []
     offset = 0
+    row_overflows = []
     for j, line in enumerate(lines):
         rowruns = runs(offset, offset + len(line))
-        w = measure(offset, offset + len(line))
+        scale = scales[j] if j < len(scales) else 1
+        row_inner = widths[j] if j < len(widths) else inner
+        w = measure(offset, offset + len(line)) * scale
+        if w > row_inner + .01: row_overflows.append(j+1)
         x = (
-            box[0] + pad
+            box[0] + (box[2] - row_inner) / 2
             if align == "left"
-            else box[0] + box[2] - pad - w
+            else box[0] + (box[2] + row_inner) / 2 - w
             if align == "right"
             else box[0] + (box[2] - w) / 2
         )
         y = baseline + j * step
         positions.append((x, y, line))
         for seg, size, ink, role, advance, (l, t, r, b), shift in rowruns:
+            advance *= scale; l *= scale; r *= scale
             segments.append(
                 {
                     "x": x,
@@ -281,17 +294,18 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
                     "font_role": role,
                     "family": bank[role]["family"],
                     "advance": advance,
-                    "horizontal_scale": hscale,
+                    "horizontal_scale": hscale * scale,
                 }
             )
             glyphboxes.append(
                 [x + min(0, l), y + shift + t, max(advance, r) - min(0, l), b - t]
             )
-            x += advance + (tracking if seg != "\n" else 0)
+            x += advance + (tracking * scale if seg != "\n" else 0)
         offset += len(line)
     return {
         "lines": lines,
         "positions": positions,
         "segments": segments,
         "glyphboxes": glyphboxes,
+        "row_overflows": row_overflows,
     }

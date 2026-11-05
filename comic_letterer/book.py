@@ -5,8 +5,8 @@ from .narrative import resolve_item
 from .decorative import prepare_decoration
 from .validation import fields, ident, number
 
-MATCH = 'speaker kind style voice caption_type edition'
-EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voice caption_type '
+MATCH = 'speaker kind style voice caption_type edition language'
+EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voice caption_type features language '
               'line_height padding tracking horizontal_scale reading_font_size '
               'tail.width tail.gap baseline.mode baseline.amplitude '
               'edge.spacing edge.depth mechanical.band mechanical.dash mechanical.gap mechanical.notch '
@@ -19,7 +19,7 @@ def value(item, page, key):
               'caption_type':None,'line_height':1.25,'padding':fs*.6,'tracking':0,
               'horizontal_scale':1,'stroke':'#20202A','text_color':'#20202A',
               'fill':'#FFF4D8' if item.get('kind')=='caption' else '#FFFFFF',
-              'baseline.mode':'straight','tail.gap':0}
+              'baseline.mode':'straight','tail.gap':0,'features':{},'language':None}
     if key=='reading_font_size':
         width=number(page['width'],'page width',True)
         return number(fs,'font size',True)*number(page.get('reading_width',width),'reading_width',True)/width

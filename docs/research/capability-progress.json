@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "active_phase": "requested_five_operations_verified_then_D04",
+  "active_phase": "lettering_gap_pass_verified_then_rendered_book_proof",
   "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
   "modules": [
     {
@@ -409,16 +409,16 @@
         "evidence": "comic-lettering / comic-letterer"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "已实现并有连续漫画验证；语义断句待补"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "语义词组由AI/排字者选择并保护；新增逐行宽度/比例和标点断句建议，两页中英文剧情已验证；通用自动语义理解未声称实现"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -437,16 +437,16 @@
         "evidence": "comic-lettering / comic-letterer"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "真实字体强调、对白跳动/波形及片段基线已有；OpenType、逐行字宽待做，见实施流水账"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "真实字体、基线、OpenType度量/渲染及替代字形、逐行字宽已实现；中文/英文实页验证，复杂脚本/竖排仍不支持"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -465,16 +465,16 @@
         "evidence": "comic-lettering"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "有原文和禁则检查；完整语法建议器未做"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "新增按语言的只读标点/引号/I建议和剧情语法工作流；不自动改文，37项传统保留上下文人工/AI判断"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -493,16 +493,16 @@
         "evidence": "comic-letterer / comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "椭圆／TV／自然形、锯齿/火焰及弧长密度已实现并实页验证；任意手工路径/平边细化待补"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "新增圆角平边、可拖控制点的闭合曲线及实际尾根/留白检查，剧院标题和耳语实页验证；病态路径不作精确几何保证"
       },
       "automated_validation": {
-        "status": "partial_module_requested_operations_passed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "requested_operations_reviewed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -521,16 +521,16 @@
         "evidence": "comic-visual-language / comic-letterer"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "机械分层虚线已在《守灯人》实页验证；其他基本声线部分仍缺合适剧情验证"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "两页剧院补证咳嗽、心灵、思想、耳语、弱声、歌唱；修复标记不可见，守灯人另验证双轮廓；机械和粗糙声沿用既有实页"
       },
       "automated_validation": {
-        "status": "partial_module_requested_operations_passed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "requested_operations_reviewed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -549,16 +549,16 @@
         "evidence": "comic-letterer / comic-lettering"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "主要操作已有整页验证；全书一致性检查待补"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "实际尾根/认主/间隙已有实页；自定义路径新增射线交点；跨页样式核对进入D04"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -577,16 +577,16 @@
         "evidence": "comic-lettering / comic-letterer"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "连泡和中断案例已有；叠放策略库待完善"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "连泡/插话沿用既有剧情证据；新增显式前后叠放、独立完整壳层与遮字拒绝，剧院思想后耳语实页验证"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -605,16 +605,16 @@
         "evidence": "comic-letterer / comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "旁白类型、浮动字、破损/卷轴框、中文/拉丁下沉首字及绕排已实现并实页验证"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "旁白类型、浮动字、破损/卷轴、首字已有实页；新增平边/手修旁白在连续剧院页面验证"
       },
       "automated_validation": {
-        "status": "partial_module_requested_operations_passed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "requested_operations_reviewed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -633,16 +633,16 @@
         "evidence": "comic-letterer / comic-lettering"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "手工遮罩贴边已有；自动识图与全局空间判断待补"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "前景蒙版、贴边沿用既有证据；新增显式跨边壳且文字仍留在格内，剧院结尾实页验证；自动图像分割仍未实现"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -661,16 +661,16 @@
         "evidence": "comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "基本 SFX 有漫画验证；系统声音设计语料未建"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "新增声音事件/源点/材质/力度/持续性元数据；琴声根据剧情修轻，与既有撞击形成对照；大规模声音语料未建立"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -689,16 +689,16 @@
         "evidence": "comic-letterer / comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "多描边空心逐字弧形厚度已有；透视／材质未做"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "新增四角透视字形路径、双色渐变和有限可复现磨损，门牌/琴声实页验证；任意布尔编辑/复杂塑形非本工具能力"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -717,16 +717,16 @@
         "evidence": "comic-visual-language（新增字体创作参考）"
       },
       "implementation": {
-        "status": "not_established_in_independent_program",
-        "detail": "未实现字体制作；已能加载与测量外部字体"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "新增原创笔触字形到TTF、字偶距与ss01；HOME小字库实际用于剧院门牌；不宣称完整中文/拉丁字族已制作"
       },
       "automated_validation": {
-        "status": "not_established",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -745,16 +745,16 @@
         "evidence": "comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "有逐字参数；完整手写和轨迹系统未做"
+        "status": "implemented_with_explicit_scope_boundaries",
+        "detail": "笔触坐标/压力/方向保留，生成有限变化轮廓并实际制成门牌；完整数位板应用/自动手写识别仍未实现"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_current_operations",
+        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -969,16 +969,16 @@
         "evidence": "comic-production-entry / comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "页样式已有；新增只读全书样式规则/精确例外检查；批量样式更新、完整书籍管理待做"
+        "status": "partial_with_actual_proof",
+        "detail": "先完成本轮排字补缺再新增真实全书校样：规则/例外、字体哈希、逐页渲染、连续阅读与输入保护；四页20项及故障副本验证；不自动代签视觉验收"
       },
       "automated_validation": {
-        "status": "partial_module_requested_operations_passed",
-        "evidence": "../v05-validation.md"
+        "status": "verified_named_operations",
+        "evidence": "../v06-validation.md"
       },
       "narrative_visual_review": {
-        "status": "metadata_audit_only",
-        "evidence": "../v05-validation.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -1249,16 +1249,16 @@
         "evidence": "现有制作验收扩展"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "已有 87 个 Letterer 测试和少量整页；全绘画评测未建"
+        "status": "partial_with_actual_proof",
+        "detail": "164项Letterer测试及多部完整剧情页；新增四页全书校样和字号/字体故障对照；全绘画评测与AI训练未建立"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v06-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"

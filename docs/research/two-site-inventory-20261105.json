@@ -603,7 +603,7 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
+      "review": "public text reviewed; image/video review may remain",
       "capabilities": [
         "B04",
         "D04"
@@ -734,7 +734,7 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
+      "review": "public text reviewed; image/video review may remain",
       "capabilities": [
         "B05"
       ],
@@ -823,7 +823,7 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
+      "review": "public text reviewed; image/video review may remain",
       "capabilities": [
         "B08"
       ],
@@ -2162,6 +2162,24 @@
       "id": "B-fonts",
       "url": "https://blambot.com/collections/all-fonts",
       "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    }
+  ],
+  "implementation_sources_v06": [
+    {
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition",
+      "scope": "Public voice/type text revisited; new narrative application, not all illustrations viewed"
+    },
+    {
+      "url": "https://balloontales.com/font-and-character-usage/",
+      "scope": "Public text read; alternate/width methods, not historical OS shortcuts as current guidance"
+    },
+    {
+      "url": "https://pillow.readthedocs.io/en/stable/reference/ImageFont.html",
+      "scope": "Feature-aware metrics and libraqm API checked; actual installed API tested"
+    },
+    {
+      "source": "installed fontTools FontBuilder / pens code",
+      "scope": "Actual local APIs exercised; documentation web URL inaccessible, not claimed read"
     }
   ]
 }

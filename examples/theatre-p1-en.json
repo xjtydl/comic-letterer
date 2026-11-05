@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "width": 1024,
+  "height": 1536,
+  "reading_width": 900,
+  "min_reading_font": 18,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        6,
+        6,
+        501,
+        756
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        518,
+        6,
+        500,
+        756
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        6,
+        773,
+        501,
+        753
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        518,
+        773,
+        500,
+        753
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "title",
+      "panel": "p1",
+      "kind": "caption",
+      "order": 1,
+      "text": "The final ticket.",
+      "expected_text": "The final ticket.",
+      "box": [
+        24,
+        30,
+        250,
+        90
+      ],
+      "font_size": 24,
+      "language": "en",
+      "shape": "custom",
+      "contour": {
+        "start": [
+          0.12,
+          0
+        ],
+        "curves": [
+          [
+            0.4,
+            0.02,
+            0.8,
+            0,
+            0.9,
+            0.04
+          ],
+          [
+            1,
+            0.12,
+            1,
+            0.84,
+            0.91,
+            0.94
+          ],
+          [
+            0.75,
+            1,
+            0.25,
+            0.96,
+            0.09,
+            1
+          ],
+          [
+            0,
+            0.88,
+            0,
+            0.15,
+            0.12,
+            0
+          ]
+        ]
+      },
+      "font_role": "narrator",
+      "fill": "#F4E6CA",
+      "padding": 10,
+      "breaks": [],
+      "features": {
+        "liga": 1,
+        "kern": 1
+      }
+    },
+    {
+      "id": "sign",
+      "panel": "p1",
+      "kind": "floating",
+      "order": 2,
+      "text": "HOME",
+      "expected_text": "HOME",
+      "box": [
+        82,
+        190,
+        330,
+        200
+      ],
+      "font_size": 100,
+      "language": "en",
+      "font_role": "hand",
+      "padding": 6,
+      "text_color": "#E2CDA0",
+      "surface": [
+        [
+          88,
+          297
+        ],
+        [
+          399,
+          190
+        ],
+        [
+          399,
+          293
+        ],
+        [
+          88,
+          383
+        ]
+      ],
+      "material": {
+        "wear": 0.04,
+        "seed": 11
+      },
+      "breaks": []
+    },
+    {
+      "id": "cough",
+      "panel": "p2",
+      "kind": "speech",
+      "order": 1,
+      "text": "Cough...",
+      "expected_text": "Cough...",
+      "box": [
+        580,
+        180,
+        280,
+        130
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "courier",
+      "target": [
+        805,
+        517
+      ],
+      "voice": "breath",
+      "tail": {
+        "length": 85,
+        "gap": 16
+      },
+      "breaks": []
+    },
+    {
+      "id": "mind",
+      "panel": "p3",
+      "kind": "thought",
+      "order": 1,
+      "text": "Don't be afraid. I'm waiting for the ending.",
+      "expected_text": "Don't be afraid. I'm waiting for the ending.",
+      "box": [
+        60,
+        805,
+        390,
+        165
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "ghost",
+      "target": [
+        290,
+        1160
+      ],
+      "voice": "telepathic",
+      "breaks": [
+        17,
+        33
+      ],
+      "tail": {
+        "length": 120,
+        "gap": 14
+      }
+    },
+    {
+      "id": "thought",
+      "panel": "p4",
+      "kind": "thought",
+      "order": 1,
+      "text": "This tune... Mum sang it.",
+      "expected_text": "This tune... Mum sang it.",
+      "box": [
+        545,
+        800,
+        310,
+        125
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "courier",
+      "target": [
+        710,
+        1120
+      ],
+      "breaks": [
+        13
+      ],
+      "tail": {
+        "length": 90,
+        "gap": 16
+      }
+    },
+    {
+      "id": "whisper",
+      "panel": "p4",
+      "kind": "whisper",
+      "order": 2,
+      "text": "I remember.",
+      "expected_text": "I remember.",
+      "box": [
+        780,
+        890,
+        225,
+        105
+      ],
+      "font_size": 24,
+      "language": "en",
+      "speaker": "courier",
+      "target": [
+        712,
+        1222
+      ],
+      "shape": "flat",
+      "corner": 0.2,
+      "tail": {
+        "length": 72,
+        "gap": 20
+      },
+      "breaks": [],
+      "overlap_with": [
+        "thought"
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "id": "boy1",
+      "box": [
+        65,
+        422,
+        160,
+        175
+      ]
+    },
+    {
+      "id": "boy2",
+      "box": [
+        727,
+        395,
+        160,
+        150
+      ]
+    },
+    {
+      "id": "girl",
+      "box": [
+        245,
+        1120,
+        80,
+        96
+      ]
+    },
+    {
+      "id": "boy4",
+      "box": [
+        588,
+        1035,
+        196,
+        249
+      ]
+    },
+    {
+      "id": "ticket",
+      "box": [
+        653,
+        1380,
+        179,
+        140
+      ]
+    }
+  ]
+}

@@ -133,6 +133,11 @@ def scroll_geometry(box, spec):
 
 def prepare_decoration(item, box):
     shape=item.get('shape')
+    if shape in ("flat", "custom"):
+        from .custom_path import prepare_path
+        if item.get("voice") in ("rough","telepathic") or item.get("double_outline"):
+            raise ValueError("custom/flat contour conflicts with voice or double outline")
+        return prepare_path(item, box)
     for key,valid in [('edge',('sawtooth','flame')),('mechanical',('mechanical',)),('scroll',('scroll',))]:
         if item.get(key) is not None and shape not in valid:
             raise ValueError(key+' parameters require their matching shape')

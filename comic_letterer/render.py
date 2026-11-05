@@ -55,6 +55,8 @@ def font_css(svg, font_bank):
     leaves = []
 
     def collect(node, role="body"):
+        if node.get("display") == "none":
+            return  # Projected outlines retain a hidden editable Unicode source.
         role = node.get("data-font-role", role)
         if node.tag.endswith("}tspan"):
             leaves.append((node, role))
@@ -81,7 +83,8 @@ def font_css(svg, font_bank):
 @lru_cache(maxsize=8)
 def subset_font(path, index, chars):
     with TTFont(path, fontNumber=index) as font:
-        sub = subset.Subsetter(options=subset.Options())
+        opts = subset.Options(); opts.layout_features = ["*"]
+        sub = subset.Subsetter(options=opts)
         sub.populate(text=chars)
         sub.subset(font)
         font.flavor = "woff"
