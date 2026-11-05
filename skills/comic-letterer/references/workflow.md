@@ -4,7 +4,7 @@
 
 Record each item as: panel, exact words, speaker/source, sequence, narrative purpose, voice kind and protected subject. Use established book style. If only lettering is authorized, keep panel crops and artwork fixed. Work from final page-global coordinates, not uncropped panel coordinates.
 
-Use speech for a normal voice; thought for unspoken thinking; shout only when the performance supports it; whisper and weak describe different situations; electronic points to the transmitting device. Caption is a container, so record whether the source is a location/time note, narrator, internal monologue or editor. The schema does not enforce those caption subtypes.
+Use speech for a normal voice; thought for unspoken thinking; shout only when the performance supports it; whisper and weak describe different situations; electronic points to the transmitting device. Caption is a container, so record whether the source is a location/time note, narrator, internal monologue or editor. Use explicit caption_type for the supported semantic subtypes; inner/spoken captions require a speaker.
 
 SFX represents an actual sound event. Its placement and size should clarify the event without obscuring its cause. Punctuation and language belong to the approved text; do not import English capitalization or letter-I conventions into Chinese. Preserving silence may be the right decision.
 
@@ -36,7 +36,7 @@ For loud metallic impact, use a heavy display font with `hollow`, multiple outli
 
 ## Unsupported techniques
 
-Telepathy decorations, music baselines, breath marks, perspective signs, a dedicated decorative-title workflow, arbitrary glyph distortion and prepress output require another tool or future implementation. Choose those techniques on story grounds, then disclose the implementation gap. Never describe an indexed tutorial as tested software support.
+Telepathy/music/breath decorations exist, but still need their own narrative validation. Dialogue bounce/wave baselines and organic/tattered contours exist in v0.4. Perspective signs, a dedicated decorative-title workflow, arbitrary glyph distortion and prepress output remain future implementation. Choose those techniques on story grounds, then disclose the implementation gap. Never describe an indexed tutorial as tested software support.
 
 ## Local editor
 
@@ -57,3 +57,15 @@ Record actual font family/index/hash, master and reading sizes, CLI result, imag
 Configure real font files with `--font-map` before choosing emphasis roles. Chinese validation uses Heiti body, Noto Black for stronger words, and Songti Regular for captions; English uses Arial regular/bold/italic/bold-italic. These are local choices, not compulsory style or bundled fonts. Do not mechanically italicize Chinese text. Explicit phrase ranges preserve words during reflow; ambiguous semantic breaks still require editorial judgment.
 
 The continuous station-office page distinguishes time caption, inner caption, a caretaker speaking, and distorted speech from a telephone receiver. The first page now gives the later connected balloon the identifying tail. Check the whole sequence at reading width. In the English version, the telephone sentence needed three lines; keep the words and font size, then correct the breaks.
+
+## v0.4 expressive lettering decisions
+
+Use small bounce/wave baseline offsets only for an intended vocal effect. The verified station-office revision uses a 2.5px wave on the distorted receiver, a -2px emphasis shift on the reassurance, subtly organic speech and a tattered inner-caption frame. It preserves every word and the original art. Enlarging the final organic balloon solved a measured overflow without reducing type size.
+
+The editor exposes mode, amplitude, group size and emphasis baseline shift. These are measured effects with glyph bounds; a clean report still needs a reading-size inspection. Wave on this telephone scene is visually reviewed; bounce, song, breath and telepathy are not thereby narratively accepted. The tattered frame is not a scroll or decorative initial.
+
+## v0.4 expressive lettering decisions
+
+Use small bounce/wave baseline offsets only for an intended vocal effect. The verified station-office revision uses a 2.5px wave on the distorted receiver, a -2px emphasis shift on the reassurance, subtly organic speech and a tattered inner-caption frame. It preserves every word and the original art. Enlarging the final organic balloon solved a measured overflow without reducing type size.
+
+The editor exposes mode, amplitude, group size and emphasis baseline shift. These are measured effects with glyph bounds; a clean report still needs a reading-size inspection. Wave on this telephone scene is visually reviewed; bounce, song, breath and telepathy are not thereby narratively accepted. The tattered frame is not a scroll or decorative initial.

@@ -1,0 +1,1267 @@
+{
+  "updated": "2026-11-05",
+  "active_phase": "balloons_and_text_first",
+  "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
+  "modules": [
+    {
+      "id": "A01",
+      "title": "整本制作与工序",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "已有制作入口；独立程序尚未接通整本工序"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A02",
+      "title": "剧本与文字交接",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry / comic-lettering"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "已有 JSON 与原文冻结；富文本导入待做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A03",
+      "title": "叙事与阅读时间",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "american-comic-layout / comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "已有原则；系统案例与评测待补"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A04",
+      "title": "缩略草图与方案探索",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "american-comic-layout"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "已有 Skill 方法；独立程序未实现"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A05",
+      "title": "整页构图与分格",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "american-comic-layout"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "已有 Skill；程序仅显式分格与初步读序检查"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A06",
+      "title": "单格构图与图文协同",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "american-comic-layout / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "保护区及局部摆位已有；画面理解待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A07",
+      "title": "连续动作与镜头",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-continuity-acting / cinematography"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "项目已有方法；两站不能提供完整课程，另补来源"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A08",
+      "title": "人物表演与造型",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-continuity-acting / comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "项目有方法；绘画课程与系统训练集待补"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A09",
+      "title": "角色与道具连续性",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-continuity-acting"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "项目已有参考流程；不是 Letterer v0.3 能力"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A10",
+      "title": "场景、透视与空间",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry / comic-continuity-acting"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "项目已有原画先行和白模规则；基础透视另补来源"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A11",
+      "title": "铅笔、墨线与笔触",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "Skill 有线面原则；绘画引擎与完整训练待补"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A12",
+      "title": "平涂与区域蒙版",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "尚未在独立程序实现"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A13",
+      "title": "光影、色彩与明度",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "已有固定填色；配色系统与绘画光影课程待补"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "A14",
+      "title": "材质与复古漫画外观",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "未实现"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B01",
+      "title": "文字形状与适配",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "已实现并有连续漫画验证；语义断句待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B02",
+      "title": "真实字体与高级排版",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "真实字体强调、对白跳动/波形及片段基线已有；OpenType、逐行字宽待做，见实施流水账"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B03",
+      "title": "语言与漫画标点",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "有原文和禁则检查；完整语法建议器未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B04",
+      "title": "气泡形状与自然度",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-letterer / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "椭圆／TV／自然不对称和基础声线已有；火焰、锯齿密度等未完成"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B05",
+      "title": "特殊声音体系",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "基本预设已有；多数缺完整剧情验收，机械分层样式未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B06",
+      "title": "尾巴与声源",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-letterer / comic-lettering"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "主要操作已有整页验证；全书一致性检查待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B07",
+      "title": "连泡、插话与层叠",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "连泡和中断案例已有；叠放策略库待完善"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B08",
+      "title": "旁白与装饰框",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-letterer / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "旁白类型、浮动字及破损框已有；首字与卷轴框未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B09",
+      "title": "边框、遮挡与空间层次",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-letterer / comic-lettering"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "手工遮罩贴边已有；自动识图与全局空间判断待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B10",
+      "title": "拟声字的叙事设计",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "基本 SFX 有漫画验证；系统声音设计语料未建"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B11",
+      "title": "拟声字造型与渲染",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-letterer / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "多描边空心逐字弧形厚度已有；透视／材质未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B12",
+      "title": "字体创作与虚构文字",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language（新增字体创作参考）"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "未实现字体制作；已能加载与测量外部字体"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "B13",
+      "title": "手写工具与自然变化",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "有逐字参数；完整手写和轨迹系统未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "C01",
+      "title": "标题页与署名构图",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "american-comic-layout / comic-visual-language"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "没有专用系统，基础字形操作可复用"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "C02",
+      "title": "封面与 Logo",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language / american-comic-layout"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "尚无专门能力与验收样本"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "C03",
+      "title": "场景内文字",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language / comic-lettering"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "普通文字可放；表面透视未做"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "C04",
+      "title": "出版与衍生平面设计",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language（平面设计参考）"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "未做；服务案例只有展示，不等于完整教学"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D01",
+      "title": "字体笔刷资产",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "字体加载已有；笔刷系统未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D02",
+      "title": "软件工具操作",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "独立编辑器已有；外部工具适配与完整课程待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D03",
+      "title": "校样、修改与本地化",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry / comic-letterer"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "保存重载／导出／冻结已有；整本校样和翻译工作流待补"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D04",
+      "title": "全书一致性",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry / comic-visual-language"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "页样式已有；书籍级管理未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D05",
+      "title": "文件、扫描与数字交付",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering / comic-production-entry"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "JSON／SVG／PNG 已有；扫描与 PDF 等未做"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "partial",
+        "evidence": "IMPLEMENTATION_LEDGER.md"
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D06",
+      "title": "印前与成品尺寸",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-lettering（印前参考）"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "未实现完整印前；历史参数须按当前介质重核"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D07",
+      "title": "出版、协作与职业流程",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry（出版协作参考）"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "未实现；历史公司／费率不能当现行标准"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D08",
+      "title": "历史、审美与案例批评",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-visual-language / comic-production-entry"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "已有少量原则；全部文章尚需逐篇提炼"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "D09",
+      "title": "来源、授权与使用方式",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "目前不附带商业字体；完整资产授权台账待做"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "E01",
+      "title": "可检索知识库",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "沿用入口及专项 Skill"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "本轮建立全站发现索引；未声称全内容掌握"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "E02",
+      "title": "模仿人类的制作过程记录",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "comic-production-entry"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "现有 JSON／输出可作为起点；完整过程语料未建"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "E03",
+      "title": "练习课程与反例",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "现有专项 Skill 加训练参考"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "本轮规划；未训练新模型"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "E04",
+      "title": "AI 训练与数据",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "新增训练规范应独立于制作 Skill"
+      },
+      "implementation": {
+        "status": "not_established_in_independent_program",
+        "detail": "待建；模型与训练方式依据目标另选，未启动训练"
+      },
+      "automated_validation": {
+        "status": "not_established",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    },
+    {
+      "id": "E05",
+      "title": "评测与回归",
+      "discovery": "scope_recorded",
+      "study": {
+        "status": "source_specific_partial",
+        "evidence": "two-site-inventory-20261105.json",
+        "note": "Read each source review field; external-source modules still require sources."
+      },
+      "method": {
+        "status": "partial_project_skill_or_research",
+        "evidence": "现有制作验收扩展"
+      },
+      "implementation": {
+        "status": "partial",
+        "detail": "已有 87 个 Letterer 测试和少量整页；全绘画评测未建"
+      },
+      "automated_validation": {
+        "status": "partial",
+        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+      },
+      "narrative_visual_review": {
+        "status": "not_established_for_full_module",
+        "evidence": null
+      },
+      "user_acceptance": "not_recorded_for_full_module",
+      "model_training": "not_started"
+    }
+  ]
+}

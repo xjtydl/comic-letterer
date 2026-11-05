@@ -1,4 +1,10 @@
+# Latest v0.4 increment
+
+Measured dialogue bounce/wave and emphasis baseline shifts, organic speech and tattered captions are implemented. See [actual page evidence](research/IMPLEMENTATION_LEDGER.md) and [complete scope](WORK_INDEX.md). This supersedes older “unsupported” rows for these specific operations; other gaps remain.
+
 # Tutorial coverage and implementation boundaries
+
+> 2026-11-05 expanded scope: [two-site discovery inventory and 45-module comic-creation roadmap](research/TWO_SITE_MASTER_SCOPE_20261105.md) now includes composition, drawing/color workflow, design, production and AI learning/evaluation. The roadmap distinguishes source discovery, reading, implementation and actual-page evidence; it does not change the v0.3 implementation claims below.
 
 **Current v0.3:** real-font runs, tracking/scaling, manual phrase protection, text-first box fit, independent tails/later attribution, caption types and reusable styles are implemented and tested on continuous Chinese pages plus an English treatment. Rough telephone speech has actual-page evidence; breath/music/telepathy marks and double outlines are only executable/unit-tested. Wavy singing baselines remain missing. See [v0.3 evidence](v03-validation.md). Earlier tables are historical snapshots.
 

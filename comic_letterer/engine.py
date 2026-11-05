@@ -13,7 +13,10 @@ from xml.etree import ElementTree as ET
 from fontTools.ttLib import TTFont
 from .validation import number, vector, fields, ident, color
 from .typography import typeset
-from .narrative import resolve_item, rough_contour, rough_tail, near_ink_edges
+from .narrative import (
+    resolve_item, rough_contour, rough_tail, near_ink_edges,
+    organic_radius, tattered_contour, tattered_depth,
+)
 from .geometry import (
     edge_target,
     intersection,
@@ -150,7 +153,16 @@ def contour(box, kind, shape=None):
     x, y, w, h = box
     cx, cy = center(box)
     if kind == "caption":
+        if shape == "tattered":
+            return tattered_contour(box)
         return f"M{x},{y} h{w} v{h} h{-w} Z"
+    if shape == "organic":
+        pts = []
+        for j in range(160):
+            a = math.tau * j / 160
+            r = organic_radius(a)
+            pts.append((cx + w / 2 * r * math.cos(a), cy + h / 2 * r * math.sin(a)))
+        return "M" + " L".join(f"{a:.4f},{b:.4f}" for a, b in pts) + " Z"
     if shape == "tv":
         pts = []
         for j in range(160):
@@ -202,6 +214,9 @@ def tail_geometry(
             1 / power
         )
     bx, by = cx + dx / q, cy + dy / q
+    if shape == "organic":
+        radius = organic_radius(math.atan2((by - cy) / (box[3] / 2), (bx - cx) / (box[2] / 2)))
+        bx, by = cx + (bx - cx) * radius, cy + (by - cy) * radius
     # Shorten against the first enclosing source-region boundary, preserving the
     # source direction. Unrelated obstacles remain reported rather than hidden.
     available = 1.0
@@ -393,7 +408,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     for raw in job.get("items", []):
         fields(
             raw,
-            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail",
+            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline",
             "item",
         )
         item = resolve_item(raw, job.get("styles", {}))
@@ -442,10 +457,13 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
         for flag in ("hollow", "allow_interruption"):
             if flag in item and not isinstance(item[flag], bool):
                 raise ValueError(f"{flag} must be boolean")
-        if item.get("shape") not in (None, "ellipse", "tv"):
-            raise ValueError("shape must be ellipse or tv")
-        if item.get("shape") and kind not in ("speech", "whisper"):
-            raise ValueError("shape override supports speech and whisper")
+        shape = item.get("shape")
+        if shape not in (None, "ellipse", "tv", "organic", "tattered"):
+            raise ValueError("unknown shape")
+        if shape == "tattered" and kind != "caption":
+            raise ValueError("tattered shape requires caption")
+        if shape in ("ellipse", "tv", "organic") and kind not in ("speech", "whisper"):
+            raise ValueError("balloon shape override supports speech and whisper")
         butt = item.get("butt", [])
         if (
             not isinstance(butt, list)
@@ -600,12 +618,13 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
         positions = layout["positions"]
         overflow = False
         for glyphbox in layout["glyphboxes"]:
+            contour_pad = max(pad, tattered_depth(box)) if shape == "tattered" else pad
             if not contains(
                 [
-                    box[0] + pad,
-                    box[1] + pad,
-                    max(0, box[2] - 2 * pad),
-                    max(0, box[3] - 2 * pad),
+                    box[0] + contour_pad,
+                    box[1] + contour_pad,
+                    max(0, box[2] - 2 * contour_pad),
+                    max(0, box[3] - 2 * contour_pad),
                 ],
                 glyphbox,
             ):
@@ -614,7 +633,9 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 overflow = True
             if kind not in ("caption", "sfx", "floating"):
                 inset = (
-                    0.79
+                    0.94
+                    if shape == "organic"
+                    else 0.79
                     if kind == "shout"
                     else 0.91
                     if kind in ("thought", "weak", "electronic")
@@ -1312,6 +1333,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                         "shape",
                         "voice",
                         "caption_type",
+                        "baseline",
                     )
                     if k in p
                 },

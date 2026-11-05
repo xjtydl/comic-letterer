@@ -3,7 +3,7 @@
 import math
 from .validation import fields, ident, number, vector
 
-STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline"
+STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline"
 CAPTIONS = ("location", "time", "inner", "spoken", "editorial")
 VOICES = ("normal", "rough", "breath", "singing", "telepathic")
 
@@ -65,6 +65,37 @@ def rough_contour(box):
         pts.append(
             (x + w / 2 + w / 2 * r * math.cos(a), y + h / 2 + h / 2 * r * math.sin(a))
         )
+    return "M" + " L".join(f"{x:.4f},{y:.4f}" for x, y in pts) + " Z"
+
+
+def organic_radius(angle):
+    """Subtle deterministic asymmetry, entirely inside the declared ellipse."""
+    return 0.97 + 0.018 * math.sin(3 * angle + 0.7) + 0.012 * math.sin(5 * angle)
+
+
+def tattered_depth(box):
+    return min(4, min(box[2:]) * 0.06)
+
+
+def tattered_contour(box):
+    """Small inward wear and occasional divots; never expands the outer box."""
+    x, y, w, h = box
+    corners = [(x, y), (x + w, y), (x + w, y + h), (x, y + h)]
+    inward = [(0, 1), (-1, 0), (0, -1), (1, 0)]
+    pts = []
+    depth = tattered_depth(box)
+    for side, (a, b) in enumerate(zip(corners, corners[1:] + corners[:1])):
+        length = math.dist(a, b)
+        count = max(3, math.ceil(length / 7))
+        nx, ny = inward[side]
+        for i in range(count):
+            t = i / count
+            wear = 0 if i == 0 else depth * (
+                1 if (i + side * 3) % 13 == 5
+                else 0.18 + 0.3 * (0.5 + 0.5 * math.sin(i * 2.39 + side))
+            )
+            pts.append((a[0] + (b[0] - a[0]) * t + nx * wear,
+                        a[1] + (b[1] - a[1]) * t + ny * wear))
     return "M" + " L".join(f"{x:.4f},{y:.4f}" for x, y in pts) + " Z"
 
 

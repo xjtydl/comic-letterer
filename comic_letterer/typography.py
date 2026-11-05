@@ -93,13 +93,40 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
     hscale = number(item.get("horizontal_scale", 1), "horizontal_scale", True)
     if not 0.9 <= hscale <= 1.1:
         raise ValueError("horizontal_scale must be 0.9..1.1")
+    baseline_effect = item.get("baseline", {})
+    fields(baseline_effect, "mode amplitude group", "baseline")
+    mode = baseline_effect.get("mode", "straight")
+    if mode not in ("straight", "bounce", "wave"):
+        raise ValueError("baseline mode must be straight, bounce or wave")
+    amplitude = number(baseline_effect.get("amplitude", fs * 0.08), "baseline amplitude")
+    group = baseline_effect.get("group", 2)
+    if not 0 <= amplitude <= fs * 0.25:
+        raise ValueError("baseline amplitude must be 0..0.25 em")
+    if type(group) is not int or not 1 <= group <= 12:
+        raise ValueError("baseline group must be an integer 1..12")
+    if item["kind"] == "sfx" and mode != "straight":
+        raise ValueError("SFX uses arc/glyphs, not dialogue baseline")
+    shifts = []
+    cluster = -1
+    for i, char in enumerate(text):
+        # Keep combining marks with their base; no bidi/shaping claim is made.
+        if not unicodedata.combining(char):
+            cluster += 1
+        phase = max(0, cluster) // group
+        shifts.append(
+            amplitude * (-1 if phase % 2 == 0 else 1)
+            if mode == "bounce"
+            else amplitude * math.sin(math.tau * phase / 6)
+            if mode == "wave"
+            else 0
+        )
     spans = item.get("emphasis", [])
     if not isinstance(spans, list):
         raise ValueError("emphasis must be an array")
-    styles = [(fs, None, base_role)] * len(text)
+    styles = [(fs, None, base_role, shift) for shift in shifts]
     used = set()
     for span in spans:
-        fields(span, "start end scale color font_role", "emphasis")
+        fields(span, "start end scale color font_role baseline_shift", "emphasis")
         a, b = span.get("start"), span.get("end")
         if type(a) is not int or type(b) is not int or not 0 <= a < b <= len(text):
             raise ValueError("invalid emphasis range")
@@ -107,7 +134,7 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             raise ValueError("overlapping emphasis ranges")
         used.update(range(a, b))
         scale = number(
-            span.get("scale", 1 if "font_role" in span else 1.2), "emphasis scale", True
+            span.get("scale", 1 if "font_role" in span or "baseline_shift" in span else 1.2), "emphasis scale", True
         )
         if scale > 3:
             raise ValueError("emphasis scale exceeds 3")
@@ -115,13 +142,16 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
         if not isinstance(role, str) or role not in bank:
             raise ValueError("emphasis font_role is not configured")
         ink = color(span["color"]) if "color" in span else None
+        shift = number(span.get("baseline_shift", 0), "emphasis baseline_shift")
+        if abs(shift) > fs:
+            raise ValueError("emphasis baseline_shift must be within one em")
         for i in range(a, b):
-            styles[i] = (max(1, round(fs * scale)), ink, role)
+            styles[i] = (max(1, round(fs * scale)), ink, role, shifts[i] + shift)
     fonts = {
         (size, role): ImageFont.truetype(
             bank[role]["path"], size, index=bank[role].get("index", 0)
         )
-        for size, _, role in styles
+        for size, _, role, _ in styles
     }
     forbidden = set()
     keeps = item.get("keep_together", [])
@@ -146,13 +176,13 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             j = i + 1
             while j < end and styles[j] == styles[i] and not tracking:
                 j += 1
-            size, ink, role = styles[i]
+            size, ink, role, shift = styles[i]
             seg = text[i:j]
             visible = seg.replace("\n", "")
             f = fonts[size, role]
             l, t, r, b = f.getbbox(visible, anchor="ls")
             advance = f.getlength(visible) * hscale
-            out.append((seg, size, ink, role, advance, (l * hscale, t, r * hscale, b)))
+            out.append((seg, size, ink, role, advance, (l * hscale, t, r * hscale, b), shift))
             i = j
         return out
 
@@ -187,7 +217,7 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             if b > a:
                 lines.append(text[a:b])
                 a = b
-    elif flow == "legacy" and not keeps and not spans and not tracking and hscale == 1:
+    elif flow == "legacy" and not keeps and not spans and not tracking and hscale == 1 and mode == "straight":
         lines = wrap_fn(text, fonts[fs, base_role], inner)
     else:
         maxsize = max(size for size, role in fonts)
@@ -212,9 +242,11 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
                 end = max(fitting) if fitting else ends[0]
                 lines.append(text[start:end])
                 start = end
-    ascent = max(f.getmetrics()[0] for f in fonts.values())
-    descent = max(f.getmetrics()[1] for f in fonts.values())
-    step = max(size for size, role in fonts) * lh
+    min_shift = min(0, *(s[3] for s in styles))
+    max_shift = max(0, *(s[3] for s in styles))
+    ascent = max(f.getmetrics()[0] for f in fonts.values()) - min_shift
+    descent = max(f.getmetrics()[1] for f in fonts.values()) + max_shift
+    step = max(size for size, role in fonts) * lh + max_shift - min_shift
     baseline = (
         box[1] + (box[3] - (ascent + descent + (len(lines) - 1) * step)) / 2 + ascent
     )
@@ -234,11 +266,11 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
         )
         y = baseline + j * step
         positions.append((x, y, line))
-        for seg, size, ink, role, advance, (l, t, r, b) in rowruns:
+        for seg, size, ink, role, advance, (l, t, r, b), shift in rowruns:
             segments.append(
                 {
                     "x": x,
-                    "y": y,
+                    "y": y + shift,
                     "text": seg,
                     "font_size": size,
                     "color": ink,
@@ -249,7 +281,7 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
                 }
             )
             glyphboxes.append(
-                [x + min(0, l), y + t, max(advance, r) - min(0, l), b - t]
+                [x + min(0, l), y + shift + t, max(advance, r) - min(0, l), b - t]
             )
             x += advance + (tracking if seg != "\n" else 0)
         offset += len(line)

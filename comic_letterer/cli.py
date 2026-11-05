@@ -12,7 +12,7 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.3.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.4.0")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("check", "render", "edit"):
         p = sub.add_parser(command)

@@ -1,0 +1,604 @@
+[
+  {
+    "id": "A01",
+    "title": "整本制作与工序",
+    "scope": "剧本→缩略草图→铅笔／墨线→排字与上色→校样→交付",
+    "program": "工序状态、版本、依赖与资产追溯",
+    "skill": "comic-production-entry",
+    "current": "已有制作入口；独立程序尚未接通整本工序",
+    "sources": [
+      "C502"
+    ]
+  },
+  {
+    "id": "A02",
+    "title": "剧本与文字交接",
+    "scope": "页格编号、角色、动作说明、台词、参考链接、旁白、拟声、强调",
+    "program": "富文本导入、冻结原文、稳定 ID",
+    "skill": "comic-production-entry / comic-lettering",
+    "current": "已有 JSON 与原文冻结；富文本导入待做",
+    "sources": [
+      "B-script",
+      "B-TIP-023"
+    ]
+  },
+  {
+    "id": "A03",
+    "title": "叙事与阅读时间",
+    "scope": "思想与独白的用途、悬念、反差、信息揭示、停顿与对白节奏",
+    "program": "叙事意图字段、读序图、对照方案",
+    "skill": "american-comic-layout / comic-visual-language",
+    "current": "已有原则；系统案例与评测待补",
+    "sources": [
+      "C385",
+      "C411"
+    ]
+  },
+  {
+    "id": "A04",
+    "title": "缩略草图与方案探索",
+    "scope": "整页缩略草图、多个构图方案、保留修改过程",
+    "program": "缩略稿画板、方案比较与版本",
+    "skill": "american-comic-layout",
+    "current": "已有 Skill 方法；独立程序未实现",
+    "sources": [
+      "C502",
+      "C478"
+    ]
+  },
+  {
+    "id": "A05",
+    "title": "整页构图与分格",
+    "scope": "格框、留白、主次、阅读路线、跨格、跨页与翻页节奏",
+    "program": "布局编辑与阅读路线检测",
+    "skill": "american-comic-layout",
+    "current": "已有 Skill；程序仅显式分格与初步读序检查",
+    "sources": [
+      "C502",
+      "CL4",
+      "C418",
+      "EXT-layout-depth"
+    ]
+  },
+  {
+    "id": "A06",
+    "title": "单格构图与图文协同",
+    "scope": "人物、动作、背景、负空间、对白与 SFX 共同构图；避免贴纸感",
+    "program": "构图区域、焦点／保护区与候选布局",
+    "skill": "american-comic-layout / comic-visual-language",
+    "current": "保护区及局部摆位已有；画面理解待补",
+    "sources": [
+      "B-TIP-003",
+      "B-TIP-004",
+      "B-TIP-014",
+      "CL4"
+    ]
+  },
+  {
+    "id": "A07",
+    "title": "连续动作与镜头",
+    "scope": "景别、角度、轴线、方向、动作因果、相邻格时间关系",
+    "program": "相邻格状态与空间检查",
+    "skill": "comic-continuity-acting / cinematography",
+    "current": "项目已有方法；两站不能提供完整课程，另补来源",
+    "sources": [
+      "EXT-continuity"
+    ]
+  },
+  {
+    "id": "A08",
+    "title": "人物表演与造型",
+    "scope": "人体、重心、手势、表情、视线、动作剪影",
+    "program": "身份／表演参考管理与局部诊断",
+    "skill": "comic-continuity-acting / comic-visual-language",
+    "current": "项目有方法；绘画课程与系统训练集待补",
+    "sources": [
+      "EXT-drawing"
+    ]
+  },
+  {
+    "id": "A09",
+    "title": "角色与道具连续性",
+    "scope": "身份、服装、比例、道具状态、多人一致性",
+    "program": "角色／道具资产版本与检查",
+    "skill": "comic-continuity-acting",
+    "current": "项目已有参考流程；不是 Letterer v0.3 能力",
+    "sources": [
+      "EXT-continuity"
+    ]
+  },
+  {
+    "id": "A10",
+    "title": "场景、透视与空间",
+    "scope": "场景布局、透视、机位、遮挡、光源、必要白模",
+    "program": "原画关联、空间导图与状态约束",
+    "skill": "comic-production-entry / comic-continuity-acting",
+    "current": "项目已有原画先行和白模规则；基础透视另补来源",
+    "sources": [
+      "EXT-perspective"
+    ]
+  },
+  {
+    "id": "A11",
+    "title": "铅笔、墨线与笔触",
+    "scope": "草稿清稿、墨线层级、黑白形状、笔锋及干湿笔触",
+    "program": "分层画稿、路径和笔刷接口",
+    "skill": "comic-visual-language",
+    "current": "Skill 有线面原则；绘画引擎与完整训练待补",
+    "sources": [
+      "C502",
+      "B-TIP-022",
+      "EXT-inking"
+    ]
+  },
+  {
+    "id": "A12",
+    "title": "平涂与区域蒙版",
+    "scope": "线稿与颜色分离、平涂区域、选择蒙版、保留高分辨率线稿",
+    "program": "区域 ID、平涂层与可重选蒙版",
+    "skill": "comic-visual-language",
+    "current": "尚未在独立程序实现",
+    "sources": [
+      "C413"
+    ]
+  },
+  {
+    "id": "A13",
+    "title": "光影、色彩与明度",
+    "scope": "上色、阴影、色板、图文对比、灰阶与多背景检查",
+    "program": "色板与对比检查、渐变及着色层",
+    "skill": "comic-visual-language",
+    "current": "已有固定填色；配色系统与绘画光影课程待补",
+    "sources": [
+      "C413",
+      "C392",
+      "C389",
+      "B-TIP-021",
+      "B-logo"
+    ]
+  },
+  {
+    "id": "A14",
+    "title": "材质与复古漫画外观",
+    "scope": "网点、纸张老化、折痕、磨损、混合模式",
+    "program": "独立纹理层、强度与媒介预览",
+    "skill": "comic-visual-language",
+    "current": "未实现",
+    "sources": [
+      "C371",
+      "C386",
+      "C774"
+    ]
+  },
+  {
+    "id": "B01",
+    "title": "文字形状与适配",
+    "scope": "断行、词组、长词、行距、字距、负空间、局部字宽",
+    "program": "字体度量、断行与轮廓适配",
+    "skill": "comic-lettering / comic-letterer",
+    "current": "已实现并有连续漫画验证；语义断句待补",
+    "sources": [
+      "C378",
+      "B-TIP-005",
+      "B-TIP-007",
+      "B-TIP-012"
+    ]
+  },
+  {
+    "id": "B02",
+    "title": "真实字体与高级排版",
+    "scope": "粗斜体、字偶距、基线、OpenType、替代字形、跨行强调",
+    "program": "字形塑形、每行／片段基线及字体特性",
+    "skill": "comic-lettering / comic-letterer",
+    "current": "真实字体强调、对白跳动/波形及片段基线已有；OpenType、逐行字宽待做，见实施流水账",
+    "sources": [
+      "C376",
+      "C408",
+      "C401",
+      "C406",
+      "C398",
+      "B-TIP-002",
+      "B-TIP-020"
+    ]
+  },
+  {
+    "id": "B03",
+    "title": "语言与漫画标点",
+    "scope": "37 项语法传统；外语、数字、引号、拖音、中断、注释、审查符号",
+    "program": "按语言和书籍样式检查；保留原文、修改另列建议",
+    "skill": "comic-lettering",
+    "current": "有原文和禁则检查；完整语法建议器未做",
+    "sources": [
+      "B-grammar",
+      "C406",
+      "C729"
+    ]
+  },
+  {
+    "id": "B04",
+    "title": "气泡形状与自然度",
+    "scope": "椭圆、TV、自然不对称、爆炸、锯齿、火焰、平边；齿距保持",
+    "program": "可编辑路径、可缩放样式与轮廓密度",
+    "skill": "comic-letterer / comic-visual-language",
+    "current": "椭圆／TV／自然不对称和基础声线已有；火焰、锯齿密度等未完成",
+    "sources": [
+      "C407",
+      "C373",
+      "C403",
+      "C394",
+      "C786",
+      "B-TIP-016",
+      "B-TIP-019"
+    ]
+  },
+  {
+    "id": "B05",
+    "title": "特殊声音体系",
+    "scope": "思想、弱声、耳语、设备、怪物、心灵、喘息、歌唱、机械虚线",
+    "program": "声线形状、装饰及匹配文字表现",
+    "skill": "comic-visual-language / comic-letterer",
+    "current": "基本预设已有；多数缺完整剧情验收，机械分层样式未做",
+    "sources": [
+      "B-grammar",
+      "C384",
+      "C402",
+      "C391",
+      "C401"
+    ]
+  },
+  {
+    "id": "B06",
+    "title": "尾巴与声源",
+    "scope": "嘴／头／设备、根宽、长度、间隙、曲线、隐藏声源、画外",
+    "program": "尾巴编辑、认主与交叉检查",
+    "skill": "comic-letterer / comic-lettering",
+    "current": "主要操作已有整页验证；全书一致性检查待补",
+    "sources": [
+      "C372",
+      "C396",
+      "B-TIP-004",
+      "B-TIP-006"
+    ]
+  },
+  {
+    "id": "B07",
+    "title": "连泡、插话与层叠",
+    "scope": "连贯发言、连接桥、打断、叠放顺序、人物前后层次",
+    "program": "显式连接关系、叠放模式、读序验证",
+    "skill": "comic-lettering / comic-letterer",
+    "current": "连泡和中断案例已有；叠放策略库待完善",
+    "sources": [
+      "C397",
+      "B-TIP-013"
+    ]
+  },
+  {
+    "id": "B08",
+    "title": "旁白与装饰框",
+    "scope": "时地、内心、说话、编辑、无框旁白、首字、破损／卷轴框",
+    "program": "旁白语义、首字排版、装饰轮廓",
+    "skill": "comic-letterer / comic-visual-language",
+    "current": "旁白类型、浮动字及破损框已有；首字与卷轴框未做",
+    "sources": [
+      "C409",
+      "C369",
+      "B-grammar"
+    ]
+  },
+  {
+    "id": "B09",
+    "title": "边框、遮挡与空间层次",
+    "scope": "贴边、跨边、前景遮罩、避免气泡成为错误实体、相切",
+    "program": "裁切与遮罩、墨线相切检查、图层顺序",
+    "skill": "comic-letterer / comic-lettering",
+    "current": "手工遮罩贴边已有；自动识图与全局空间判断待补",
+    "sources": [
+      "C404",
+      "C382",
+      "C390",
+      "C405",
+      "B-TIP-015"
+    ]
+  },
+  {
+    "id": "B10",
+    "title": "拟声字的叙事设计",
+    "scope": "声音来源、力度、节奏、材质、方向与力线",
+    "program": "声音元数据、字形布局与源点",
+    "skill": "comic-visual-language",
+    "current": "基本 SFX 有漫画验证；系统声音设计语料未建",
+    "sources": [
+      "CL2",
+      "B-TIP-003",
+      "C782"
+    ]
+  },
+  {
+    "id": "B11",
+    "title": "拟声字造型与渲染",
+    "scope": "手绘、字体变形、逐字、空心、多描边、阴影、透视、渐变、磨损",
+    "program": "字形编辑、透视与材质、路径布尔运算",
+    "skill": "comic-letterer / comic-visual-language",
+    "current": "多描边空心逐字弧形厚度已有；透视／材质未做",
+    "sources": [
+      "C400",
+      "C383",
+      "C374",
+      "C389",
+      "C771",
+      "C778",
+      "CL3"
+    ]
+  },
+  {
+    "id": "B12",
+    "title": "字体创作与虚构文字",
+    "scope": "手写采样、矢量化、字形结构、基准线、字偶距、家族、虚构字母",
+    "program": "字形编辑与字体导出、字库来源",
+    "skill": "comic-visual-language（新增字体创作参考）",
+    "current": "未实现字体制作；已能加载与测量外部字体",
+    "sources": [
+      "C393",
+      "C420",
+      "C415",
+      "CL1",
+      "B-black-parade"
+    ]
+  },
+  {
+    "id": "B13",
+    "title": "手写工具与自然变化",
+    "scope": "笔尖、方向、Ames 辅助线、有限变化、保留活力",
+    "program": "笔触／轨迹记录、替代字形与自然路径",
+    "skill": "comic-visual-language",
+    "current": "有逐字参数；完整手写和轨迹系统未做",
+    "sources": [
+      "B-TIP-022",
+      "CL5",
+      "C408",
+      "B-hand"
+    ]
+  },
+  {
+    "id": "C01",
+    "title": "标题页与署名构图",
+    "scope": "标题与故事气质、主次词、画面融合、署名、装饰首字",
+    "program": "标题画板、文字形状与署名模块",
+    "skill": "american-comic-layout / comic-visual-language",
+    "current": "没有专用系统，基础字形操作可复用",
+    "sources": [
+      "CL3",
+      "C412",
+      "B-graphic"
+    ]
+  },
+  {
+    "id": "C02",
+    "title": "封面与 Logo",
+    "scope": "轮廓识别、草图方案、字形重叠、远读、小图、黑白和多背景",
+    "program": "Logo／封面编辑及多尺寸对照",
+    "skill": "comic-visual-language / american-comic-layout",
+    "current": "尚无专门能力与验收样本",
+    "sources": [
+      "C478",
+      "B-logo",
+      "B-logo-gallery"
+    ]
+  },
+  {
+    "id": "C03",
+    "title": "场景内文字",
+    "scope": "路牌、报纸、屏幕、信件、容器标签、建筑文字",
+    "program": "表面锚点、透视和材质合成",
+    "skill": "comic-visual-language / comic-lettering",
+    "current": "普通文字可放；表面透视未做",
+    "sources": [
+      "C502",
+      "C418",
+      "CP241"
+    ]
+  },
+  {
+    "id": "C04",
+    "title": "出版与衍生平面设计",
+    "scope": "扉页、目录、署名页、宣传图、衣服／海报等载体",
+    "program": "多尺寸画板、版式模板与输出",
+    "skill": "comic-visual-language（平面设计参考）",
+    "current": "未做；服务案例只有展示，不等于完整教学",
+    "sources": [
+      "B-graphic",
+      "B-logo-gallery"
+    ]
+  },
+  {
+    "id": "D01",
+    "title": "字体笔刷资产",
+    "scope": "设计／对白／SFX 字体；气泡／SFX／磨损／粉彩笔刷；安装和角点故障",
+    "program": "资产清单、外部资源加载、笔刷和描边参数",
+    "skill": "comic-lettering / comic-visual-language",
+    "current": "字体加载已有；笔刷系统未做",
+    "sources": [
+      "B-brushes",
+      "B-brush-faq",
+      "B-fonts"
+    ]
+  },
+  {
+    "id": "D02",
+    "title": "软件工具操作",
+    "scope": "Illustrator／Photoshop／Procreate／排版软件；页面、字体、尾巴、效果、遮罩",
+    "program": "操作接口与可回放工具调用",
+    "skill": "comic-production-entry / comic-letterer",
+    "current": "独立编辑器已有；外部工具适配与完整课程待补",
+    "sources": [
+      "CP241",
+      "C793",
+      "C748",
+      "C757",
+      "C759",
+      "C764",
+      "C767",
+      "C771",
+      "C778",
+      "C782",
+      "C786",
+      "C789"
+    ]
+  },
+  {
+    "id": "D03",
+    "title": "校样、修改与本地化",
+    "scope": "读稿、全页校样、局部纠错、翻译后重排、不损坏原画",
+    "program": "差异、修订、撤销重做与语言版本",
+    "skill": "comic-production-entry / comic-letterer",
+    "current": "保存重载／导出／冻结已有；整本校样和翻译工作流待补",
+    "sources": [
+      "C502",
+      "B-hand",
+      "C541"
+    ]
+  },
+  {
+    "id": "D04",
+    "title": "全书一致性",
+    "scope": "角色声线、字体、尾根、描边、齿距、色板与版本",
+    "program": "全书样式库、依赖更新、例外记录",
+    "skill": "comic-production-entry / comic-visual-language",
+    "current": "页样式已有；书籍级管理未做",
+    "sources": [
+      "B-TIP-006",
+      "B-TIP-016",
+      "C394",
+      "CL2"
+    ]
+  },
+  {
+    "id": "D05",
+    "title": "文件、扫描与数字交付",
+    "scope": "扫描线稿、分辨率、位图／矢量、可编辑母版、低清校样和高清合成",
+    "program": "文件导入、分辨率检查、多格式导出",
+    "skill": "comic-lettering / comic-production-entry",
+    "current": "JSON／SVG／PNG 已有；扫描与 PDF 等未做",
+    "sources": [
+      "C375",
+      "C379",
+      "C399",
+      "C388",
+      "C380",
+      "C387"
+    ]
+  },
+  {
+    "id": "D06",
+    "title": "印前与成品尺寸",
+    "scope": "原稿尺寸、出血、裁切、安全区、分色、黑版、叠印、陷印、浅字增益",
+    "program": "印前预检、色彩配置与输出配置",
+    "skill": "comic-lettering（印前参考）",
+    "current": "未实现完整印前；历史参数须按当前介质重核",
+    "sources": [
+      "B-dimensions",
+      "C381",
+      "C413",
+      "B-TIP-024"
+    ]
+  },
+  {
+    "id": "D07",
+    "title": "出版、协作与职业流程",
+    "scope": "作品集、编辑反馈、职责、排期、报价、署名、印刷发行推广",
+    "program": "项目计划、交付单、署名与预算数据",
+    "skill": "comic-production-entry（出版协作参考）",
+    "current": "未实现；历史公司／费率不能当现行标准",
+    "sources": [
+      "C377",
+      "C370",
+      "C395",
+      "C424",
+      "C425"
+    ]
+  },
+  {
+    "id": "D08",
+    "title": "历史、审美与案例批评",
+    "scope": "大小写争论、思想泡选择、手写／数字、作品复盘、访谈经验",
+    "program": "案例索引与比较展示",
+    "skill": "comic-visual-language / comic-production-entry",
+    "current": "已有少量原则；全部文章尚需逐篇提炼",
+    "sources": [
+      "C416",
+      "C417",
+      "C411",
+      "C419",
+      "C421",
+      "C532",
+      "B-hand"
+    ]
+  },
+  {
+    "id": "D09",
+    "title": "来源、授权与使用方式",
+    "scope": "字体／笔刷使用、嵌入、商业范围；教程与训练资料分别记账",
+    "program": "来源、许可证、允许用途和素材版本",
+    "skill": "comic-production-entry",
+    "current": "目前不附带商业字体；完整资产授权台账待做",
+    "sources": [
+      "B-licenses",
+      "B-brush-licenses"
+    ]
+  },
+  {
+    "id": "E01",
+    "title": "可检索知识库",
+    "scope": "索引→核读→方法→适用条件／反例→程序／Skill→实图证据",
+    "program": "来源版本与能力台账",
+    "skill": "沿用入口及专项 Skill",
+    "current": "本轮建立全站发现索引；未声称全内容掌握",
+    "sources": [
+      "PROJECT-ai"
+    ]
+  },
+  {
+    "id": "E02",
+    "title": "模仿人类的制作过程记录",
+    "scope": "输入、意图、操作、前后图、失败诊断、修订与验收",
+    "program": "工具轨迹、图层／矢量状态及阶段资产记录",
+    "skill": "comic-production-entry",
+    "current": "现有 JSON／输出可作为起点；完整过程语料未建",
+    "sources": [
+      "PROJECT-ai"
+    ]
+  },
+  {
+    "id": "E03",
+    "title": "练习课程与反例",
+    "scope": "从局部到单格、连续页、整章；同剧情多方案和纠错",
+    "program": "任务集、难度、失败类别、评审表",
+    "skill": "现有专项 Skill 加训练参考",
+    "current": "本轮规划；未训练新模型",
+    "sources": [
+      "PROJECT-ai"
+    ]
+  },
+  {
+    "id": "E04",
+    "title": "AI 训练与数据",
+    "scope": "原创／授权样本；分镜、构图、动作、线稿、平涂、文字图层与修订配对",
+    "program": "数据集版本、按作品切分、训练适配接口",
+    "skill": "新增训练规范应独立于制作 Skill",
+    "current": "待建；模型与训练方式依据目标另选，未启动训练",
+    "sources": [
+      "PROJECT-ai"
+    ]
+  },
+  {
+    "id": "E05",
+    "title": "评测与回归",
+    "scope": "故事可读性、构图、身份／空间连续性、声源、文字正确性、印刷表现",
+    "program": "客观检查＋盲评＋跨页回归；与不使用 Skill 基线比较",
+    "skill": "现有制作验收扩展",
+    "current": "已有 87 个 Letterer 测试和少量整页；全绘画评测未建",
+    "sources": [
+      "PROJECT-ai"
+    ]
+  }
+]

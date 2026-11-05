@@ -156,6 +156,12 @@ def test_editor_phrase_tail_and_contour_controls(session, server):
         page = browser.new_page(viewport={"width": 1400, "height": 1000})
         page.goto(server)
         page.wait_for_function("() => window.editorReady")
+        page.locator("#shape").select_option("organic")
+        page.wait_for_function("()=>document.querySelector('#fill-a').getAttribute('d').includes(' L')")
+        page.locator("#baseline-mode").select_option("wave")
+        page.wait_for_function(
+            "()=>new Set([...document.querySelectorAll('#lettering tspan')].map(n=>n.getAttribute('y'))).size>1"
+        )
         page.locator("#source-text").evaluate(
             "(el)=>{el.focus();el.setSelectionRange(4,8)}"
         )
@@ -180,6 +186,8 @@ def test_editor_phrase_tail_and_contour_controls(session, server):
         page.wait_for_function("()=>window.editorReady")
         value = json.loads(page.locator("#advanced").input_value())
         assert value["keep_together"] == [{"start": 4, "end": 8}]
+        assert value["shape"] == "organic"
+        assert value["baseline"]["mode"] == "wave"
         assert value["tail"]["width"] == 24 and "curve" in value["tail"]
         assert value["text"] == session.frozen["a"]
         browser.close()

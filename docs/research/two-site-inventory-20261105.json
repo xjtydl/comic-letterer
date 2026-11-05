@@ -1,0 +1,2164 @@
+{
+  "date": "2026-11-05",
+  "scope": "All 94 current Comicraft WordPress public posts indexed, 4 pages and 6 known legacy tutorial entries; Blambot canonical sitemap pages/products/collections/blogs indexed with locale duplicates removed, 24 Better Letterer cards OCR-read and 37 grammar headings indexed. This is discovery coverage, not full video/book/illustration review or implementation. No training assets copied.",
+  "comicraft_posts": [
+    {
+      "id": "C793",
+      "title": "Lettering in Procreate #11 – Masking Balloons & Objects",
+      "url": "https://balloontales.com/lettering-in-procreate-11-masking-balloons-objects/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C789",
+      "title": "Lettering in Procreate #10 – oval & jagged burst balloons",
+      "url": "https://balloontales.com/lettering-in-procreate-10-oval-jagged-burst-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C786",
+      "title": "Lettering in Procreate #9 – flat-edged “evil” balloons",
+      "url": "https://balloontales.com/lettering-in-procreate-9-flat-edged-evil-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B04",
+        "D02"
+      ]
+    },
+    {
+      "id": "C782",
+      "title": "Lettering in Procreate #8 – creating pen-drawn FX",
+      "url": "https://balloontales.com/lettering-in-procreate-8-creating-pen-drawn-fx/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B10",
+        "D02"
+      ]
+    },
+    {
+      "id": "C778",
+      "title": "Lettering in Procreate #7 – Easy outline, shadow & color FX",
+      "url": "https://balloontales.com/lettering-in-procreate-7-easy-outline-shadow-color-fx/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B11",
+        "D02"
+      ]
+    },
+    {
+      "id": "C771",
+      "title": "Lettering in Procreate #6 – creating FX with type",
+      "url": "https://balloontales.com/lettering-in-procreate-6-creating-fx-with-type/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B11",
+        "D02"
+      ]
+    },
+    {
+      "id": "C774",
+      "title": "Creating Authentic Comic Pages – John on the Adobe Fonts Show",
+      "url": "https://balloontales.com/creating-authentic-comic-pages-john-on-the-adobe-fonts-show/",
+      "categories": [
+        "Lettering",
+        "Production",
+        "Tips"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "A14"
+      ]
+    },
+    {
+      "id": "C767",
+      "title": "Lettering in Procreate #5 – drawing tails",
+      "url": "https://balloontales.com/lettering-in-procreate-5-drawing-tails/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C764",
+      "title": "Lettering in Procreate #4 – drawing word balloons",
+      "url": "https://balloontales.com/lettering-in-procreate-4-drawing-word-balloons/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C759",
+      "title": "Lettering in Procreate #3 – word arrangement",
+      "url": "https://balloontales.com/lettering-in-procreate-3-word-arrangement/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C757",
+      "title": "Lettering in Procreate #2 – text import & point size",
+      "url": "https://balloontales.com/lettering-in-procreate-2-text-import-point-size/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C748",
+      "title": "Lettering in Procreate #1 – page setup & loading fonts",
+      "url": "https://balloontales.com/lettering-in-procreate-1-page-setup-loading-fonts/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D02"
+      ]
+    },
+    {
+      "id": "C729",
+      "title": "Why the Crossbar I Rule?",
+      "url": "https://balloontales.com/why-the-crossbar-i-rule/",
+      "categories": [
+        "Lettering"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "C528",
+      "title": "Extensis interview",
+      "url": "https://balloontales.com/extensis-interview/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C525",
+      "title": "MyFonts “Creative Characters” interview",
+      "url": "https://balloontales.com/myfonts-creative-characters-interview/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C532",
+      "title": "Vox.com: Where the ‘comic book font’ came from",
+      "url": "https://balloontales.com/vox-com-where-the-comic-book-font-came-from/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C541",
+      "title": "Lettering Dos and Don’ts for Comixology",
+      "url": "https://balloontales.com/lettering-dos-and-donts/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D03"
+      ]
+    },
+    {
+      "id": "C502",
+      "title": "The Making of a Comic Book Page, Start to Finish",
+      "url": "https://balloontales.com/the-making-of-a-comic-book-page-start-to-finish/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A01",
+        "A04",
+        "A05",
+        "A11",
+        "C03",
+        "D03"
+      ]
+    },
+    {
+      "id": "C478",
+      "title": "How I created the Angry Birds Logo",
+      "url": "https://balloontales.com/how-i-created-the-angry-birds-logo/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A04",
+        "C02"
+      ]
+    },
+    {
+      "id": "C579",
+      "title": "“Why is lettering an invisible art?”",
+      "url": "https://balloontales.com/why-is-lettering-an-invisible-art/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C577",
+      "title": "“What makes a good logo?”",
+      "url": "https://balloontales.com/what-makes-a-good-logo/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C575",
+      "title": "“Why did you create Hip Flask?”",
+      "url": "https://balloontales.com/why-did-you-create-hip-flask/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C573",
+      "title": "“Who are your favorite creators and collaborators?”",
+      "url": "https://balloontales.com/who-are-your-favorite-creators-and-collaborators/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C571",
+      "title": "“How do you kern an all-uppercase font?”",
+      "url": "https://balloontales.com/how-do-you-kern-an-all-uppercase-font/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C569",
+      "title": "“What’s the secret to great comic book lettering?”",
+      "url": "https://balloontales.com/whats-the-secret-to-great-comic-book-lettering/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C567",
+      "title": "Thoughts on Thought Balloons!",
+      "url": "https://balloontales.com/thoughts-on-thought-balloons/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C565",
+      "title": "“Where do you get ideas for new fonts?”",
+      "url": "https://balloontales.com/where-do-you-get-ideas-for-new-fonts/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C563",
+      "title": "“What is the difference between pen and computer lettering?”",
+      "url": "https://balloontales.com/what-is-the-difference-between-pen-and-computer-lettering/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C561",
+      "title": "“What question are you asked most often”",
+      "url": "https://balloontales.com/what-question-are-you-asked-most-often/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C559",
+      "title": "“How do you design a logo?”",
+      "url": "https://balloontales.com/how-do-you-design-a-logo/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C557",
+      "title": "“What do you like most about comic book lettering?”",
+      "url": "https://balloontales.com/what-do-you-like-most-about-comic-book-lettering/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C420",
+      "title": "Tutorial: Font Creation",
+      "url": "https://balloontales.com/tutorial-font-creation/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B12"
+      ]
+    },
+    {
+      "id": "C427",
+      "title": "Has the rise of technology ruined the craft of typography?",
+      "url": "https://balloontales.com/has-the-rise-of-technology-ruined-the-craft-of-typography/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C410",
+      "title": "Interview with artist R. Sikoryak",
+      "url": "https://balloontales.com/interview-with-artist-r-sikoryak/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C415",
+      "title": "Tutorial: Creating the Moritat font",
+      "url": "https://balloontales.com/tutorial-creating-the-moritat-font/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "page/topic indexed; full video not watched",
+      "capabilities": [
+        "B12"
+      ]
+    },
+    {
+      "id": "C386",
+      "title": "Aged Comic Cover",
+      "url": "https://balloontales.com/aged-comic-cover/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A14"
+      ]
+    },
+    {
+      "id": "C385",
+      "title": "Seven Uses for Thought Balloons",
+      "url": "https://balloontales.com/seven-uses-for-thought-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A03"
+      ]
+    },
+    {
+      "id": "C384",
+      "title": "Creating Thought Balloons",
+      "url": "https://balloontales.com/creating-thought-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B05"
+      ]
+    },
+    {
+      "id": "C376",
+      "title": "Opentype Ligatures",
+      "url": "https://balloontales.com/opentype-ligatures/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B02"
+      ]
+    },
+    {
+      "id": "C430",
+      "title": "Heroes Comics",
+      "url": "https://balloontales.com/heroes-comics/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C377",
+      "title": "Getting Started in the Industry",
+      "url": "https://balloontales.com/getting-started-in-the-industry/",
+      "categories": [
+        "Publishing",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D07"
+      ]
+    },
+    {
+      "id": "C392",
+      "title": "Gradients in Illustrator",
+      "url": "https://balloontales.com/gradients-in-illustrator/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A13"
+      ]
+    },
+    {
+      "id": "C425",
+      "title": "Establishing a Career in Comics",
+      "url": "https://balloontales.com/establishing-a-career-in-comics/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D07"
+      ]
+    },
+    {
+      "id": "C402",
+      "title": "Rough Balloons",
+      "url": "https://balloontales.com/rough-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B05"
+      ]
+    },
+    {
+      "id": "C401",
+      "title": "Bouncy Text",
+      "url": "https://balloontales.com/bouncy-text/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B02",
+        "B05"
+      ]
+    },
+    {
+      "id": "C389",
+      "title": "Shaded fills in Photoshop",
+      "url": "https://balloontales.com/shaded-fills-in-photoshop/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A13",
+        "B11"
+      ]
+    },
+    {
+      "id": "C423",
+      "title": "Origins of Digital Lettering",
+      "url": "https://balloontales.com/origins-of-digital-lettering/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C394",
+      "title": "Sawtooth Balloons",
+      "url": "https://balloontales.com/sawtooth-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B04",
+        "D04"
+      ]
+    },
+    {
+      "id": "C378",
+      "title": "Word Arrangement",
+      "url": "https://balloontales.com/word-arrangement/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B01"
+      ]
+    },
+    {
+      "id": "C400",
+      "title": "Multiple Outline SFX",
+      "url": "https://balloontales.com/multiple-outline-sfx/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B11"
+      ]
+    },
+    {
+      "id": "C409",
+      "title": "Floating Text & Captions",
+      "url": "https://balloontales.com/floating-text-captions/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B08"
+      ]
+    },
+    {
+      "id": "C390",
+      "title": "The Layer Method",
+      "url": "https://balloontales.com/the-layer-method/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B09"
+      ]
+    },
+    {
+      "id": "C393",
+      "title": "Eight Steps to Creating a Lettering Font",
+      "url": "https://balloontales.com/eight-steps-to-creating-a-lettering-font/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B12"
+      ]
+    },
+    {
+      "id": "C422",
+      "title": "Tutorial: Pop-Up Letters",
+      "url": "https://balloontales.com/tutorial-pop-up-letters/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C411",
+      "title": "Lettering Roundtable: Thinking About Thought Balloons, and Other Abandoned Storytelling Techniques",
+      "url": "https://balloontales.com/lettering-roundtable-thinking-about-thought-balloons/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "A03",
+        "D08"
+      ]
+    },
+    {
+      "id": "C383",
+      "title": "Working With Open FX Fonts",
+      "url": "https://balloontales.com/working-with-open-fx-fonts/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B11"
+      ]
+    },
+    {
+      "id": "C418",
+      "title": "The Comicraft Glossary of Lettering Terms",
+      "url": "https://balloontales.com/the-comicraft-glossary-of-lettering-terms/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "A05",
+        "C03"
+      ]
+    },
+    {
+      "id": "C391",
+      "title": "Dashed Iron Man Balloons",
+      "url": "https://balloontales.com/dashed-iron-man-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B05"
+      ]
+    },
+    {
+      "id": "C421",
+      "title": "Lettering Showcase: Ferran Delgado",
+      "url": "https://balloontales.com/lettering-showcase-ferran-delgado/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C375",
+      "title": "Files and Formats",
+      "url": "https://balloontales.com/files-and-formats/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C412",
+      "title": "Kurt Busiek on Will Eisner",
+      "url": "https://balloontales.com/kurt-busiek-on-will-eisner/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "C01"
+      ]
+    },
+    {
+      "id": "C424",
+      "title": "Q&A With MCAD Students",
+      "url": "https://balloontales.com/qa-with-mcad-students/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D07"
+      ]
+    },
+    {
+      "id": "C403",
+      "title": "Jagged Burst Balloons",
+      "url": "https://balloontales.com/jagged-burst-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B04"
+      ]
+    },
+    {
+      "id": "C387",
+      "title": "Preparing Lettering Files for Output",
+      "url": "https://balloontales.com/preparing-lettering-files-for-output/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C369",
+      "title": "Tattered Captions",
+      "url": "https://balloontales.com/tattered-captions/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B08"
+      ]
+    },
+    {
+      "id": "C397",
+      "title": "Overlapping Balloons",
+      "url": "https://balloontales.com/overlapping-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B07"
+      ]
+    },
+    {
+      "id": "C408",
+      "title": "Alternate Characters",
+      "url": "https://balloontales.com/alternate-characters/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B02",
+        "B13"
+      ]
+    },
+    {
+      "id": "C370",
+      "title": "The Business of Comics",
+      "url": "https://balloontales.com/the-business-of-comics/",
+      "categories": [
+        "Publishing",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D07"
+      ]
+    },
+    {
+      "id": "C406",
+      "title": "Font and Character Usage",
+      "url": "https://balloontales.com/font-and-character-usage/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B02",
+        "B03"
+      ]
+    },
+    {
+      "id": "C373",
+      "title": "TV Shape Balloon",
+      "url": "https://balloontales.com/tv-shape-balloon/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B04"
+      ]
+    },
+    {
+      "id": "C416",
+      "title": "Lettering Roundtable: The Case Regarding Upper & Lower Case Lettering Part Two",
+      "url": "https://balloontales.com/lettering-roundtable-the-case-regarding-upper-lower-case-lettering-part-two/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C417",
+      "title": "Lettering Roundtable: The Case Regarding Upper & Lower Case Lettering",
+      "url": "https://balloontales.com/lettering-roundtable-the-case-regarding-upper-lower-case-lettering/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C399",
+      "title": "Print Resolution",
+      "url": "https://balloontales.com/print-resolution/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C379",
+      "title": "Scanning Tips",
+      "url": "https://balloontales.com/scanning-tips/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C398",
+      "title": "Emphasis Techniques",
+      "url": "https://balloontales.com/emphasis-techniques/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B02"
+      ]
+    },
+    {
+      "id": "C388",
+      "title": "Pasteup in Photoshop",
+      "url": "https://balloontales.com/pasteup-in-photoshop/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C426",
+      "title": "Like a Chained Elephant",
+      "url": "https://balloontales.com/like-a-chained-elephant/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C371",
+      "title": "Giving Artwork the ‘Comic Book Look’",
+      "url": "https://balloontales.com/giving-artwork-the-comic-book-look/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "A14"
+      ]
+    },
+    {
+      "id": "C372",
+      "title": "Creating Tails and Joins",
+      "url": "https://balloontales.com/creating-tails-and-joins/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B06"
+      ]
+    },
+    {
+      "id": "C396",
+      "title": "‘Trapped Inside’ Balloon",
+      "url": "https://balloontales.com/trapped-inside-balloon/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "B06"
+      ]
+    },
+    {
+      "id": "C419",
+      "title": "Richard Starkings’ Five Favorite Silver Age Letterers",
+      "url": "https://balloontales.com/richard-starkings-five-favorite-silver-age-letterers/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C404",
+      "title": "Butting Balloons",
+      "url": "https://balloontales.com/butting-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B09"
+      ]
+    },
+    {
+      "id": "C382",
+      "title": "Masking Behind Objects",
+      "url": "https://balloontales.com/masking-behind-objects/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B09"
+      ]
+    },
+    {
+      "id": "C395",
+      "title": "Printed Comics",
+      "url": "https://balloontales.com/printed-comics/",
+      "categories": [
+        "Publishing",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D07"
+      ]
+    },
+    {
+      "id": "C405",
+      "title": "Layer Control",
+      "url": "https://balloontales.com/layer-control/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "B09"
+      ]
+    },
+    {
+      "id": "C413",
+      "title": "Tutorial: Computer Color, Step by Step",
+      "url": "https://balloontales.com/tutorial-computer-color-step-by-step/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "A12",
+        "A13",
+        "D06"
+      ]
+    },
+    {
+      "id": "C381",
+      "title": "Overprinting and Trapping EPS Lettering Files",
+      "url": "https://balloontales.com/overprinting-and-trapping-eps-lettering-files/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "public text reviewed; image/video review may remain",
+      "capabilities": [
+        "D06"
+      ]
+    },
+    {
+      "id": "C380",
+      "title": "Pasteup in QuarkXPress",
+      "url": "https://balloontales.com/pasteup-in-quarkxpress/",
+      "categories": [
+        "Production",
+        "Tips"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D05"
+      ]
+    },
+    {
+      "id": "C428",
+      "title": "Letters from America",
+      "url": "https://balloontales.com/letters-from-america/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C407",
+      "title": "Making Word Balloons",
+      "url": "https://balloontales.com/making-word-balloons/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B04"
+      ]
+    },
+    {
+      "id": "C374",
+      "title": "Curved Type",
+      "url": "https://balloontales.com/curved-type/",
+      "categories": [
+        "Lettering",
+        "Tips"
+      ],
+      "review": "text reviewed in earlier implementation research",
+      "capabilities": [
+        "B11"
+      ]
+    },
+    {
+      "id": "C429",
+      "title": "On Typography",
+      "url": "https://balloontales.com/on-typography/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C681",
+      "title": "Crafting the Comics",
+      "url": "https://balloontales.com/crafting-the-comics/",
+      "categories": [
+        "Interviews"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    },
+    {
+      "id": "C431",
+      "title": "A Beginners Guide to Computer Lettering",
+      "url": "https://balloontales.com/a-beginners-guide-to-computer-lettering/",
+      "categories": [
+        "Articles"
+      ],
+      "review": "title/category indexed; detailed review pending",
+      "capabilities": [
+        "D08"
+      ]
+    }
+  ],
+  "blambot_tip_cards": [
+    {
+      "id": "B-TIP-001",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl001_20322a29-29ff-46de-8c8d-6900ec9a8817_800x800.jpg?v=1723484600",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "英文横杠 I 与上下文选择",
+      "training_media": "not copied",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "B-TIP-002",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl002_1000x1000.jpg?v=1613697838",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "字偶间距 Kerning",
+      "training_media": "not copied",
+      "capabilities": [
+        "B02"
+      ]
+    },
+    {
+      "id": "B-TIP-003",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl003_1200x1200.jpg?v=1613697838",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "拟声字从声音源与力线构图",
+      "training_media": "not copied",
+      "capabilities": [
+        "A06",
+        "B10"
+      ]
+    },
+    {
+      "id": "B-TIP-004",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl004_5b1c5103-7b5e-447b-8df2-ed88cf593b2c_1200x1200.jpg?v=1723732413",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "尾巴交叉与隐含交叉",
+      "training_media": "not copied",
+      "capabilities": [
+        "A06",
+        "B06"
+      ]
+    },
+    {
+      "id": "B-TIP-005",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl005_1200x1200.jpg?v=1613697838",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "文字堆叠与长词布局",
+      "training_media": "not copied",
+      "capabilities": [
+        "B01"
+      ]
+    },
+    {
+      "id": "B-TIP-006",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl006_dad23de0-cc02-44a3-9a2a-125621428ca3_1200x1200.jpg?v=1724087239",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "全页尾根宽度一致、防针尖尾",
+      "training_media": "not copied",
+      "capabilities": [
+        "B06",
+        "D04"
+      ]
+    },
+    {
+      "id": "B-TIP-007",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl007_6bdc7889-5253-439f-8767-b058e719f600_1200x1200.jpg?v=1724174065",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "行距与气泡负空间",
+      "training_media": "not copied",
+      "capabilities": [
+        "B01"
+      ]
+    },
+    {
+      "id": "B-TIP-008",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl008_65c553bd-83b0-4ac8-9f52-2408e0d21393_1000x1000.jpg?v=1724252381",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "外语对白与特殊字形",
+      "training_media": "not copied",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "B-TIP-009",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl009_9ec084c7-dbb2-4781-a018-713b5f76e0a2_1200x1200.jpg?v=1724338062",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "对白和连续旁白的引号",
+      "training_media": "not copied",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "B-TIP-010",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl010_027df8ab-366c-4e35-8c30-5e1fd4bf0fae_1000x1000.jpg?v=1724418961",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "斜体的叙事用途",
+      "training_media": "not copied",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "B-TIP-011",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl011_a6b47b47-f689-4176-b97c-7b85e5b2c873_800x800.jpg?v=1724691013",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "拖音与中断标点",
+      "training_media": "not copied",
+      "capabilities": [
+        "B03"
+      ]
+    },
+    {
+      "id": "B-TIP-012",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl012_c9779c21-2e34-44e7-882d-e26480ae6950_800x800.jpg?v=1724768546",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "局部行宽压缩",
+      "training_media": "not copied",
+      "capabilities": [
+        "B01"
+      ]
+    },
+    {
+      "id": "B-TIP-013",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl013_8df524db-d27e-4334-96cb-c318a473f5f3_800x800.jpg?v=1724860421",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "对话气泡叠放与节奏／景深",
+      "training_media": "not copied",
+      "capabilities": [
+        "B07"
+      ]
+    },
+    {
+      "id": "B-TIP-014",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl014_45c9d01c-93f2-4d66-b7f6-db7d5e43f200_800x800.jpg?v=1724940045",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "阅读顺序、保护人物、图文统一",
+      "training_media": "not copied",
+      "capabilities": [
+        "A06"
+      ]
+    },
+    {
+      "id": "B-TIP-015",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl015_57c02468-c56c-4465-b9e8-2354d65ae5f8_1200x1200.jpg?v=1725029175",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "图层法与复合描边法",
+      "training_media": "not copied",
+      "capabilities": [
+        "B09"
+      ]
+    },
+    {
+      "id": "B-TIP-016",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl016_9a98f0c7-0722-48d9-87b3-b2f58af228c8_800x800.jpg?v=1725371538",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "设备声尖齿／思想泡瓣随尺寸保持一致",
+      "training_media": "not copied",
+      "capabilities": [
+        "B04",
+        "D04"
+      ]
+    },
+    {
+      "id": "B-TIP-017",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl017_5b9ffa8a-c8d2-46d3-8289-ecef7a4f9342_1200x1200.jpg?v=1725457078",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "字号的视觉差异与实尺寸试印",
+      "training_media": "not copied",
+      "capabilities": [
+        "E01"
+      ]
+    },
+    {
+      "id": "B-TIP-018",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl018_800x800.jpg?v=1613745639",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "字形结构术语",
+      "training_media": "not copied",
+      "capabilities": [
+        "E01"
+      ]
+    },
+    {
+      "id": "B-TIP-019",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl019_1200x1200.jpg?v=1615305833",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "自然不对称气泡",
+      "training_media": "not copied",
+      "capabilities": [
+        "B04"
+      ]
+    },
+    {
+      "id": "B-TIP-020",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl020_1321d6f4-b153-4d9e-9859-13e220410fd7_800x800.jpg?v=1725632218",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "OpenType 连字与上下文替代",
+      "training_media": "not copied",
+      "capabilities": [
+        "B02"
+      ]
+    },
+    {
+      "id": "B-TIP-021",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl021_1200x1200.jpg?v=1673975806",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "拟声字色板与画面配色",
+      "training_media": "not copied",
+      "capabilities": [
+        "A13"
+      ]
+    },
+    {
+      "id": "B-TIP-022",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl022_1600x1600.jpg?v=1691592407",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "手写笔尖与笔画方向",
+      "training_media": "not copied",
+      "capabilities": [
+        "A11",
+        "B13"
+      ]
+    },
+    {
+      "id": "B-TIP-023",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl023_e9b52159-aff2-4bb0-b95e-8763a64ac2be_800x800.jpg?v=1726149897",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "排字前的脚本整理",
+      "training_media": "not copied",
+      "capabilities": [
+        "A02"
+      ]
+    },
+    {
+      "id": "B-TIP-024",
+      "url": "https://cdn.shopify.com/s/files/1/0152/5779/6662/files/bl024_1200x1200.jpg?v=1728321324",
+      "parent": "https://blambot.com/pages/lettering-tips",
+      "review": "OCR text reviewed 2026-11-05; full visual example comparison pending",
+      "topic_zh": "浅字深底的小字印刷增益",
+      "training_media": "not copied",
+      "capabilities": [
+        "D06"
+      ]
+    }
+  ],
+  "blambot_sitemap": {
+    "agentic": [
+      "https://blambot.com/agents.md"
+    ],
+    "products": [
+      "https://blambot.com/",
+      "https://blambot.com/products/10-cent-comics",
+      "https://blambot.com/products/10-cent-soviet",
+      "https://blambot.com/products/acme-secret-agent",
+      "https://blambot.com/products/action-figure",
+      "https://blambot.com/products/adversary",
+      "https://blambot.com/products/after-dark",
+      "https://blambot.com/products/afterlife",
+      "https://blambot.com/products/alter-ego",
+      "https://blambot.com/products/always-angry",
+      "https://blambot.com/products/anime-ace-2",
+      "https://blambot.com/products/anime-ace-3",
+      "https://blambot.com/products/anti-hero",
+      "https://blambot.com/products/antigrav",
+      "https://blambot.com/products/architext",
+      "https://blambot.com/products/armor-piercing",
+      "https://blambot.com/products/armor-piercing-2",
+      "https://blambot.com/products/arr-matey",
+      "https://blambot.com/products/artists-alley",
+      "https://blambot.com/products/ashcan",
+      "https://blambot.com/products/astounder-round",
+      "https://blambot.com/products/astounder-squared",
+      "https://blambot.com/products/astrogator",
+      "https://blambot.com/products/atland",
+      "https://blambot.com/products/atland-sketches",
+      "https://blambot.com/products/ave-ave",
+      "https://blambot.com/products/back-issues",
+      "https://blambot.com/products/badaboom",
+      "https://blambot.com/products/badaboom-pro",
+      "https://blambot.com/products/bar-brawl",
+      "https://blambot.com/products/bearded-lady",
+      "https://blambot.com/products/beelzebrush",
+      "https://blambot.com/products/belizarius",
+      "https://blambot.com/products/betty-noir",
+      "https://blambot.com/products/big-bad-bold",
+      "https://blambot.com/products/big-bloke",
+      "https://blambot.com/products/big-whoop",
+      "https://blambot.com/products/billy-the-flying-robot",
+      "https://blambot.com/products/black-hole",
+      "https://blambot.com/products/blam-blam",
+      "https://blambot.com/products/blambastic",
+      "https://blambot.com/products/blambot-balloon-brushes-v-1",
+      "https://blambot.com/products/blambot-casual",
+      "https://blambot.com/products/blambot-classic",
+      "https://blambot.com/products/blambot-fxpro",
+      "https://blambot.com/products/blambot-gift-card",
+      "https://blambot.com/products/blambot-sound-effect-brushes-vol-1",
+      "https://blambot.com/products/blambot-sound-effect-brushes-vol-2",
+      "https://blambot.com/products/blamdude",
+      "https://blambot.com/products/bloody-murder",
+      "https://blambot.com/products/blowhole",
+      "https://blambot.com/products/boogers",
+      "https://blambot.com/products/bottix",
+      "https://blambot.com/products/bottle-rocket",
+      "https://blambot.com/products/boxer-shorts",
+      "https://blambot.com/products/braaains",
+      "https://blambot.com/products/brain-freezer",
+      "https://blambot.com/products/brushzerker",
+      "https://blambot.com/products/budrick",
+      "https://blambot.com/products/bullet-proof",
+      "https://blambot.com/products/buried-before",
+      "https://blambot.com/products/caeldera",
+      "https://blambot.com/products/catholic-school-girls",
+      "https://blambot.com/products/catholic-school-girls-international",
+      "https://blambot.com/products/chainsawz",
+      "https://blambot.com/products/char",
+      "https://blambot.com/products/chewed-pen",
+      "https://blambot.com/products/circling-vultures",
+      "https://blambot.com/products/clairvoyant",
+      "https://blambot.com/products/cloud-splitter",
+      "https://blambot.com/products/clown-teeth",
+      "https://blambot.com/products/cockroacher-brushes",
+      "https://blambot.com/products/collect-em-all",
+      "https://blambot.com/products/collect-em-now",
+      "https://blambot.com/products/comic-book-lettering-templates",
+      "https://blambot.com/products/comsignal-bb",
+      "https://blambot.com/products/copy-of-comic-book-lettering-templates-v-2",
+      "https://blambot.com/products/crash-landing",
+      "https://blambot.com/products/creative-block",
+      "https://blambot.com/products/creator-credits",
+      "https://blambot.com/products/crime-fighter",
+      "https://blambot.com/products/crimewave",
+      "https://blambot.com/products/crypt-creep",
+      "https://blambot.com/products/damn-noisy-kids",
+      "https://blambot.com/products/dark-arts",
+      "https://blambot.com/products/dead-ringer",
+      "https://blambot.com/products/dearly-departed",
+      "https://blambot.com/products/deathrattle",
+      "https://blambot.com/products/decofex",
+      "https://blambot.com/products/destroy-earth",
+      "https://blambot.com/products/destructo-beam",
+      "https://blambot.com/products/detectives-inc",
+      "https://blambot.com/products/digital-strip",
+      "https://blambot.com/products/digital-strip-2",
+      "https://blambot.com/products/disposable-digi",
+      "https://blambot.com/products/dominatrix",
+      "https://blambot.com/products/double-life",
+      "https://blambot.com/products/dracufrankenwolf",
+      "https://blambot.com/products/dragon-bones",
+      "https://blambot.com/products/drawing-board",
+      "https://blambot.com/products/dunce-cap",
+      "https://blambot.com/products/dungeon-dweller",
+      "https://blambot.com/products/duty-calls",
+      "https://blambot.com/products/dwarf-spirits",
+      "https://blambot.com/products/dwarven-axe",
+      "https://blambot.com/products/ear-splitting",
+      "https://blambot.com/products/earthman",
+      "https://blambot.com/products/earthman-extended",
+      "https://blambot.com/products/earthman-heavy",
+      "https://blambot.com/products/elder-gods",
+      "https://blambot.com/products/elevations",
+      "https://blambot.com/products/entrails",
+      "https://blambot.com/products/euro-comic",
+      "https://blambot.com/products/evil-genius",
+      "https://blambot.com/products/faded-frontiers",
+      "https://blambot.com/products/famous-last-words",
+      "https://blambot.com/products/feast-of-flesh",
+      "https://blambot.com/products/feedback",
+      "https://blambot.com/products/fight-to-the-finish",
+      "https://blambot.com/products/firefight",
+      "https://blambot.com/products/firepower",
+      "https://blambot.com/products/flannel-shirt",
+      "https://blambot.com/products/flunkies",
+      "https://blambot.com/products/flyboy",
+      "https://blambot.com/products/fold-staple",
+      "https://blambot.com/products/fresh-meat",
+      "https://blambot.com/products/friend-or-foe",
+      "https://blambot.com/products/friend-or-foe-tall",
+      "https://blambot.com/products/full-bleed",
+      "https://blambot.com/products/fundead",
+      "https://blambot.com/products/gamma-rays",
+      "https://blambot.com/products/giant-sized-spectacular",
+      "https://blambot.com/products/glass-jaw",
+      "https://blambot.com/products/gone-fission",
+      "https://blambot.com/products/government-agent",
+      "https://blambot.com/products/graveside",
+      "https://blambot.com/products/heavy-mettle",
+      "https://blambot.com/products/hijinks",
+      "https://blambot.com/products/home-planet",
+      "https://blambot.com/products/hometown-hero",
+      "https://blambot.com/products/honey-mead",
+      "https://blambot.com/products/hundred-watt",
+      "https://blambot.com/products/imaginary-friend",
+      "https://blambot.com/products/indie-star",
+      "https://blambot.com/products/inhuman",
+      "https://blambot.com/products/inkcantation",
+      "https://blambot.com/products/inkslinger",
+      "https://blambot.com/products/invulnerable",
+      "https://blambot.com/products/irezumi",
+      "https://blambot.com/products/irish-stout",
+      "https://blambot.com/products/jack-armstrong",
+      "https://blambot.com/products/jack-lantern",
+      "https://blambot.com/products/keelhauled",
+      "https://blambot.com/products/keep-dreaming",
+      "https://blambot.com/products/kid-kosmic",
+      "https://blambot.com/products/killcrazy",
+      "https://blambot.com/products/krak-head",
+      "https://blambot.com/products/ladylike",
+      "https://blambot.com/products/letter-o-matic",
+      "https://blambot.com/products/lifeform",
+      "https://blambot.com/products/lint-mccree",
+      "https://blambot.com/products/longbow",
+      "https://blambot.com/products/longbox",
+      "https://blambot.com/products/lowrider",
+      "https://blambot.com/products/mainframe",
+      "https://blambot.com/products/man-machine",
+      "https://blambot.com/products/maneater",
+      "https://blambot.com/products/manga-master",
+      "https://blambot.com/products/manly-men",
+      "https://blambot.com/products/mark-of-the-beast",
+      "https://blambot.com/products/marooned-on-mars",
+      "https://blambot.com/products/mean-streets",
+      "https://blambot.com/products/mecheffects-one",
+      "https://blambot.com/products/mecheffects-two",
+      "https://blambot.com/products/midnight-snack",
+      "https://blambot.com/products/might-makes-right",
+      "https://blambot.com/products/mighty-zeo-2",
+      "https://blambot.com/products/milk-mustache",
+      "https://blambot.com/products/miskatonic",
+      "https://blambot.com/products/mjollnir",
+      "https://blambot.com/products/mondo-beyondo",
+      "https://blambot.com/products/monsterific",
+      "https://blambot.com/products/mortuary",
+      "https://blambot.com/products/mumble-grumble",
+      "https://blambot.com/products/musashi",
+      "https://blambot.com/products/mutant-academy",
+      "https://blambot.com/products/myth-maker",
+      "https://blambot.com/products/nerves-of-steel",
+      "https://blambot.com/products/newsflash",
+      "https://blambot.com/products/nightmark",
+      "https://blambot.com/products/nightwatcher",
+      "https://blambot.com/products/ninjutsu",
+      "https://blambot.com/products/off-worlder",
+      "https://blambot.com/products/one-two-punch",
+      "https://blambot.com/products/orange-fizz",
+      "https://blambot.com/products/orc-horde",
+      "https://blambot.com/products/out-of-line",
+      "https://blambot.com/products/palooka",
+      "https://blambot.com/products/panic-button",
+      "https://blambot.com/products/paperboy",
+      "https://blambot.com/products/perihelion",
+      "https://blambot.com/products/perilous-pastel",
+      "https://blambot.com/products/piekos-fx",
+      "https://blambot.com/products/piekos-fx-rough",
+      "https://blambot.com/products/piekos-professional",
+      "https://blambot.com/products/piekos-toons",
+      "https://blambot.com/products/pistolero",
+      "https://blambot.com/products/pixel-panels",
+      "https://blambot.com/products/plot-holes",
+      "https://blambot.com/products/polyhedral",
+      "https://blambot.com/products/population-zero",
+      "https://blambot.com/products/potty-mouth",
+      "https://blambot.com/products/praetorium",
+      "https://blambot.com/products/project-tracker-for-comic-book-freelancers",
+      "https://blambot.com/products/protest-paint",
+      "https://blambot.com/products/psiphoon",
+      "https://blambot.com/products/pythia",
+      "https://blambot.com/products/quahog",
+      "https://blambot.com/products/rackum-frackum",
+      "https://blambot.com/products/raging-red-lotus",
+      "https://blambot.com/products/raw-bones",
+      "https://blambot.com/products/ready-for-anything",
+      "https://blambot.com/products/ready-for-more",
+      "https://blambot.com/products/red-state-blue-state",
+      "https://blambot.com/products/restless-soul",
+      "https://blambot.com/products/revenger",
+      "https://blambot.com/products/ripsnort",
+      "https://blambot.com/products/rock-steady",
+      "https://blambot.com/products/rocket-down",
+      "https://blambot.com/products/roswell-wreckage",
+      "https://blambot.com/products/samurai-cab-co",
+      "https://blambot.com/products/sangre",
+      "https://blambot.com/products/sanitarium",
+      "https://blambot.com/products/sans-sanity",
+      "https://blambot.com/products/santas-big-secret",
+      "https://blambot.com/products/saucer",
+      "https://blambot.com/products/scream-queen",
+      "https://blambot.com/products/secret-origins",
+      "https://blambot.com/products/self-destruct-button",
+      "https://blambot.com/products/sequentialist",
+      "https://blambot.com/products/seven-monkey-fury",
+      "https://blambot.com/products/seven-swordsmen",
+      "https://blambot.com/products/shallow-grave",
+      "https://blambot.com/products/shock-therapy",
+      "https://blambot.com/products/shore-leave",
+      "https://blambot.com/products/shrunken-head",
+      "https://blambot.com/products/silver-age",
+      "https://blambot.com/products/silver-bullet",
+      "https://blambot.com/products/skin-deep",
+      "https://blambot.com/products/skyclad-gothic",
+      "https://blambot.com/products/sleuth-serif",
+      "https://blambot.com/products/smack-attack",
+      "https://blambot.com/products/smells-like-tacos",
+      "https://blambot.com/products/snake-oil-salesman",
+      "https://blambot.com/products/sound-check",
+      "https://blambot.com/products/spellbreaker",
+      "https://blambot.com/products/spinner-rack",
+      "https://blambot.com/products/square-jaw",
+      "https://blambot.com/products/squiznor",
+      "https://blambot.com/products/stake-through-the-heart",
+      "https://blambot.com/products/straight-jacket",
+      "https://blambot.com/products/straight-to-hell",
+      "https://blambot.com/products/stronghold",
+      "https://blambot.com/products/stupidhead",
+      "https://blambot.com/products/suckerpunch",
+      "https://blambot.com/products/sunday-comics",
+      "https://blambot.com/products/superstrong",
+      "https://blambot.com/products/susurrus",
+      "https://blambot.com/products/swingset",
+      "https://blambot.com/products/tavernlore",
+      "https://blambot.com/products/the-essential-guide-to-comic-book-lettering-signed",
+      "https://blambot.com/products/thunderclap",
+      "https://blambot.com/products/thunderclap-condensed-extended",
+      "https://blambot.com/products/ticking-timebomb",
+      "https://blambot.com/products/tight-spot-bb",
+      "https://blambot.com/products/tip-jar-app",
+      "https://blambot.com/products/tire-swing",
+      "https://blambot.com/products/tone-deaf",
+      "https://blambot.com/products/toonacious",
+      "https://blambot.com/products/torn-asunder",
+      "https://blambot.com/products/tough-as-nails",
+      "https://blambot.com/products/trash-cinema",
+      "https://blambot.com/products/turntablz",
+      "https://blambot.com/products/two-fisted",
+      "https://blambot.com/products/typeface-team-up-font-pack-1",
+      "https://blambot.com/products/typeface-team-up-font-pack-2",
+      "https://blambot.com/products/typeface-team-up-font-pack-3",
+      "https://blambot.com/products/typeface-team-up-font-pack-4",
+      "https://blambot.com/products/ultra-violent",
+      "https://blambot.com/products/umberto",
+      "https://blambot.com/products/unearthed",
+      "https://blambot.com/products/unmasked",
+      "https://blambot.com/products/upchucked",
+      "https://blambot.com/products/vaporized",
+      "https://blambot.com/products/vengeful-gods",
+      "https://blambot.com/products/village-idiot",
+      "https://blambot.com/products/voice-activated",
+      "https://blambot.com/products/warhorse",
+      "https://blambot.com/products/warmonger",
+      "https://blambot.com/products/we-come-in-peace",
+      "https://blambot.com/products/web-letterer",
+      "https://blambot.com/products/web-letterer-pro",
+      "https://blambot.com/products/whitechapel",
+      "https://blambot.com/products/whoopass",
+      "https://blambot.com/products/wicked-queen",
+      "https://blambot.com/products/wishful-thinker",
+      "https://blambot.com/products/wizardspeak",
+      "https://blambot.com/products/worlds-at-war",
+      "https://blambot.com/products/wretched-remains",
+      "https://blambot.com/products/xenotribal",
+      "https://blambot.com/products/yankee-ghosts",
+      "https://blambot.com/products/you-murderer",
+      "https://blambot.com/products/zooom"
+    ],
+    "pages": [
+      "https://blambot.com/pages/about",
+      "https://blambot.com/pages/already-subscribed-to-newsletter",
+      "https://blambot.com/pages/blambot-brush-licenses",
+      "https://blambot.com/pages/brush-faq",
+      "https://blambot.com/pages/comic-book-grammar-tradition",
+      "https://blambot.com/pages/comic-lettering",
+      "https://blambot.com/pages/comic-script-basics",
+      "https://blambot.com/pages/contact",
+      "https://blambot.com/pages/custom-fonts",
+      "https://blambot.com/pages/data-sharing-opt-out",
+      "https://blambot.com/pages/graphic-design",
+      "https://blambot.com/pages/hire-blambot",
+      "https://blambot.com/pages/installing-brushes",
+      "https://blambot.com/pages/installing-fonts",
+      "https://blambot.com/pages/lettering-tips",
+      "https://blambot.com/pages/license-options",
+      "https://blambot.com/pages/licenses",
+      "https://blambot.com/pages/logo-design",
+      "https://blambot.com/pages/nates-top-10-blambot-fonts",
+      "https://blambot.com/pages/newsletter-confirmation",
+      "https://blambot.com/pages/newsletter-signup-success",
+      "https://blambot.com/pages/not-subscribed-to-newsletter",
+      "https://blambot.com/pages/original-art-dimensions-for-american-standard-comics",
+      "https://blambot.com/pages/recover-password",
+      "https://blambot.com/pages/social-links",
+      "https://blambot.com/pages/successful-logo-design",
+      "https://blambot.com/pages/the-blambot-inner-circle-secret-society-enamel-pin",
+      "https://blambot.com/pages/the-essential-guide-to-comic-book-lettering",
+      "https://blambot.com/pages/the-language-of-the-black-parade",
+      "https://blambot.com/pages/unsubscribed-from-newsletter",
+      "https://blambot.com/pages/what-happened-to-hand-lettering"
+    ],
+    "collections": [
+      "https://blambot.com/collections/all-brushes",
+      "https://blambot.com/collections/all-fonts",
+      "https://blambot.com/collections/balloon-brushes",
+      "https://blambot.com/collections/design-fonts",
+      "https://blambot.com/collections/dialogue-fonts",
+      "https://blambot.com/collections/featured",
+      "https://blambot.com/collections/font-packs",
+      "https://blambot.com/collections/frontpage",
+      "https://blambot.com/collections/gift-card",
+      "https://blambot.com/collections/indie-brush",
+      "https://blambot.com/collections/indie-fonts",
+      "https://blambot.com/collections/pro-brushes",
+      "https://blambot.com/collections/pro-fonts",
+      "https://blambot.com/collections/sound-effect-fonts",
+      "https://blambot.com/collections/sound-effects-brushes"
+    ],
+    "blogs": [
+      "https://blambot.com/blogs/news"
+    ]
+  },
+  "comicraft_pages": [
+    {
+      "id": "CP651",
+      "title": "Fonts",
+      "url": "https://balloontales.com/fonts/",
+      "review": "landing page indexed"
+    },
+    {
+      "id": "CP253",
+      "title": "Book",
+      "url": "https://balloontales.com/book/",
+      "review": "landing page indexed"
+    },
+    {
+      "id": "CP241",
+      "title": "Online course",
+      "url": "https://balloontales.com/online-course/",
+      "review": "landing page indexed"
+    },
+    {
+      "id": "CP2",
+      "title": "Welcome",
+      "url": "https://balloontales.com/",
+      "review": "landing page indexed"
+    }
+  ],
+  "comicraft_legacy_tutorial": [
+    {
+      "id": "CL0",
+      "title": "Introduction",
+      "url": "https://balloontales.com/articles/tutorial/index.html",
+      "review": "entry indexed; detailed review pending"
+    },
+    {
+      "id": "CL1",
+      "title": "Character Study",
+      "url": "https://balloontales.com/articles/tutorial/part1.html",
+      "review": "text reviewed; illustrations not fully inspected"
+    },
+    {
+      "id": "CL2",
+      "title": "Fighting Words",
+      "url": "https://balloontales.com/articles/tutorial/part2.html",
+      "review": "text reviewed; illustrations not fully inspected"
+    },
+    {
+      "id": "CL3",
+      "title": "Title Deeds",
+      "url": "https://balloontales.com/articles/tutorial/part3.html",
+      "review": "text reviewed; illustrations not fully inspected"
+    },
+    {
+      "id": "CL4",
+      "title": "Electronic Lettering Composition",
+      "url": "https://balloontales.com/articles/tutorial/part4.html",
+      "review": "text reviewed; illustrations not fully inspected"
+    },
+    {
+      "id": "CL5",
+      "title": "Hand Lettering",
+      "url": "https://balloontales.com/articles/tutorial/part5.html",
+      "review": "text reviewed; illustrations not fully inspected"
+    }
+  ],
+  "blambot_grammar_topics": [
+    {
+      "id": "B-G-01",
+      "title": "Asterisks",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-02",
+      "title": "Balloon Tails",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-03",
+      "title": "Bold Italic",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-04",
+      "title": "Breaking Borders",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-05",
+      "title": "Breath Marks (AKA, Whiskers, Fireflies, Crow's Feet)",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-06",
+      "title": "Burst Balloons (AKA, Shout Balloons)",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-07",
+      "title": "Butting Balloons (AKA, Anchoring, Top-lining, Side-lining)",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-08",
+      "title": "Captions",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-09",
+      "title": "Crossbar \"I\"",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-10",
+      "title": "Double Dash",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-11",
+      "title": "Double Outline Balloons",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-12",
+      "title": "Drop Caps / Decorative Caps",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-13",
+      "title": "Ellipses",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-14",
+      "title": "Foreign Languages",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-15",
+      "title": "Hollow Sound Effects",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-16",
+      "title": "Hyphenating",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-17",
+      "title": "Italic",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-18",
+      "title": "Joining Balloon-to-Balloon",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-19",
+      "title": "Joining Balloons with Connectors",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-20",
+      "title": "Music / Singing",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-21",
+      "title": "Numbers",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-22",
+      "title": "Off-Panel Dialogue",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-23",
+      "title": "Overlapping Panel Borders",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-24",
+      "title": "Question Mark / Exclamation Point",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-25",
+      "title": "Quotation Marks",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-26",
+      "title": "Radio Balloons (AKA, Electric Balloons, Broadcast Balloons)",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-27",
+      "title": "Roach Chew",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-28",
+      "title": "Rough Balloons",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-29",
+      "title": "Sentence Spacing",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-30",
+      "title": "Small Dialogue / Big Balloon",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-31",
+      "title": "Sound Effects (and Sound Effects Punctuation)",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-32",
+      "title": "Squink",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-33",
+      "title": "Tangents",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-34",
+      "title": "Telepathic Balloons",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-35",
+      "title": "Thought Balloons",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-36",
+      "title": "Wavy Balloons",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    },
+    {
+      "id": "B-G-37",
+      "title": "Whispering",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition"
+    }
+  ],
+  "source_aliases": [
+    {
+      "id": "B-script",
+      "url": "https://blambot.com/pages/comic-script-basics",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-grammar",
+      "url": "https://blambot.com/pages/comic-book-grammar-tradition",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-dimensions",
+      "url": "https://blambot.com/pages/original-art-dimensions-for-american-standard-comics",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-logo",
+      "url": "https://blambot.com/pages/successful-logo-design",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-logo-gallery",
+      "url": "https://blambot.com/pages/logo-design",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-graphic",
+      "url": "https://blambot.com/pages/graphic-design",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-black-parade",
+      "url": "https://blambot.com/pages/the-language-of-the-black-parade",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-hand",
+      "url": "https://blambot.com/pages/what-happened-to-hand-lettering",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-brush-faq",
+      "url": "https://blambot.com/pages/brush-faq",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-brush-licenses",
+      "url": "https://blambot.com/pages/blambot-brush-licenses",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-licenses",
+      "url": "https://blambot.com/pages/licenses",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-brushes",
+      "url": "https://blambot.com/collections/all-brushes",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    },
+    {
+      "id": "B-fonts",
+      "url": "https://blambot.com/collections/all-fonts",
+      "notes": "METHOD_NOTES_20261105.md; source-specific reading depth retained separately"
+    }
+  ]
+}

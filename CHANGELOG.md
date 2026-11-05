@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 — 2026-11-05
+
+Adds measured bounce/wave dialogue baselines, independent emphasis baseline shifts, subtle organic speech contours and tattered caption borders. Editor controls, saved JSON and SVG glyph positions share the same fields. Original narrative-page validation caught and corrected a contour overflow while preserving wording and artwork.
+
+Archives the two-site research, source-level reading states, 45-module scope, method notes and continuation index. This is a further lettering increment; OpenType, mechanical multi-layer balloons, scrolls/drop caps, full-book production and AI training remain open.
+
+
 ## 0.3.0 — 2026-11-05
 
 Adds actual-font emphasis runs and local font maps, tracking/controlled horizontal scale, explicit phrase protection, reusable styles and caption source types. Tail roots, width, length, source gaps and curves are independent; a continuation can own the identifying tail. Optional short-tail and manually marked ink-edge warnings. Adds rough contours/tails, double outlines and explicit voice marks. Editor exposes these controls and bounded text-first contour fitting while retaining frozen wording.

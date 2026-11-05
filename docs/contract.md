@@ -129,3 +129,13 @@ Page `min_tail_length` enables a reading-pixel warning (default 0 for compatibil
 Page `styles` maps IDs to appearance/semantic definitions: kind, font role/size, padding, line height, fill/stroke/text color, stroke width, shape, tracking, horizontal scale, flow, alignment, voice, caption type and double outline. Styles can be copied between pages; there is no central book manager yet. Metadata preserves original style references, reports expose resolved values.
 
 Editor additions: choose an actual face for a selected emphasis range; protect a selected phrase; adjust tracking/scale; choose caption/voice types; control tail width/length/gap/root angle and drag its orange curve handle; edit shared styles and marked ink edges. Fit searches bounded box dimensions at the current origin with frozen words and the same font size, accepting only candidates without item errors. It may fail and ask for repositioning; it is not whole-page optimization.
+
+## v0.4 expressive lettering
+
+- `baseline`: `{mode, amplitude, group}`. `mode` is `straight` (default), `bounce` or `wave`. `amplitude` is page pixels, default `0.08 × font_size`, bounded to `0..0.25 × font_size`; `group` is an integer `1..12` (default 2). Bounce alternates groups, wave follows a six-group cycle. Use on dialogue/captions; SFX retains its separate `arc`/`glyphs` system. Combining marks follow their base. This is not complex-script shaping or an OpenType replacement; splitting runs can change kerning across a group boundary, and the compiler measures those same runs.
+- `emphasis[].baseline_shift`: explicit pixel offset; negative moves up, positive down, within ±one base em. When present without `scale`, size stays unchanged. Shifted glyph bounds and extra line spacing are measured and checked. Centering includes the added ascent/descent, so the final block also recenters inside the balloon.
+- `shape: organic`: speech/whisper only. Subtle deterministic asymmetry within the specified bounds. Tail length starts at the actual radial contour; text uses a conservative inner envelope.
+- `shape: tattered`: caption only. Small inward roughness and divots, bounded by the declared rectangle. Text checks include edge wear. This does not implement scroll ends or drop caps.
+- `baseline` may be inherited from a page style. The editor exposes baseline mode/amplitude/group, emphasis shift and both contours. Saving/reloading retains these fields and frozen words.
+
+These effects are choices, not automatic voice classification. The actual Echo Station page uses a small wave for the distorted receiver, organic speech and a worn inner-caption frame. Bounce has automated coverage; song/drunkenness/telepathy narrative treatments are still separately pending.
