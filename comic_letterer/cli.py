@@ -12,23 +12,33 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.1.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.2.0")
     sub = parser.add_subparsers(dest="command", required=True)
-    for command in ("check", "render"):
+    for command in ("check", "render", "edit"):
         p = sub.add_parser(command)
         p.add_argument("input", type=Path)
         p.add_argument("--font", type=Path)
         p.add_argument("--font-index", type=int, default=0)
+        p.add_argument("--display-font", type=Path)
+        p.add_argument("--display-font-index", type=int, default=0)
         p.add_argument(
             "--strict", action="store_true", help="Fail on warnings as well as errors"
         )
-        if command == "render":
+        if command in ("render", "edit"):
             p.add_argument("--out", type=Path, required=True, help="Output directory")
             p.add_argument(
                 "--background",
                 type=Path,
                 help="Local PNG/JPEG matching canvas dimensions",
             )
+        if command == "edit":
+            p.add_argument(
+                "--port",
+                type=int,
+                default=0,
+                help="Loopback port; 0 chooses an available port",
+            )
+        if command == "render":
             p.add_argument(
                 "--png", action="store_true", help="Render master.png and reading.png"
             )
@@ -39,6 +49,23 @@ def main(argv=None):
     try:
         job = json.loads(args.input.read_text(encoding="utf-8"))
         font = str(args.font or find_font())
+        fonts = (
+            {
+                "display": {
+                    "path": str(args.display_font),
+                    "index": args.display_font_index,
+                }
+            }
+            if args.display_font
+            else None
+        )
+        if args.command == "edit":
+            from .editor import serve
+
+            serve(
+                job, args.out, font, args.font_index, fonts, args.background, args.port
+            )
+            return 0
         background = None
         if args.command == "render" and args.background:
             with Image.open(args.background) as im:
@@ -51,7 +78,7 @@ def main(argv=None):
             background = f"data:image/{mime};base64," + base64.b64encode(
                 args.background.read_bytes()
             ).decode("ascii")
-        svg, report = compile_page(job, font, args.font_index, background)
+        svg, report = compile_page(job, font, args.font_index, background, fonts)
         if args.command == "render":
             names = ["page.svg", "report.json", "source.json"] + (
                 ["master.png", "reading.png"] if args.png else []
@@ -61,11 +88,13 @@ def main(argv=None):
                     "output exists; choose another directory or use --force"
                 )
             # Prevent output flags from overwriting the source image or JSON.
-            inputs = {args.input.resolve()}
+            inputs = {args.input.resolve(), Path(font).resolve()}
             if args.background:
                 inputs.add(args.background.resolve())
             if args.font:
                 inputs.add(args.font.resolve())
+            if args.display_font:
+                inputs.add(args.display_font.resolve())
             if any((args.out / n).resolve() in inputs for n in names):
                 raise ValueError("output would overwrite an input")
             args.out.mkdir(parents=True, exist_ok=True)
@@ -82,6 +111,7 @@ def main(argv=None):
                     round(job["width"]),
                     font,
                     args.font_index,
+                    fonts,
                 )
                 render_png(
                     svg,
@@ -89,6 +119,7 @@ def main(argv=None):
                     round(report["reading_width"]),
                     font,
                     args.font_index,
+                    fonts,
                 )
                 report["raster"] = {
                     "master": "master.png",

@@ -1,0 +1,453 @@
+{
+  "version": 1,
+  "width": 1086,
+  "height": 1448,
+  "reading_width": 900,
+  "min_reading_font": 17,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        10,
+        8,
+        1066,
+        443
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        10,
+        469,
+        530,
+        454
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        556,
+        469,
+        520,
+        454
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        10,
+        942,
+        530,
+        493
+      ]
+    },
+    {
+      "id": "p5",
+      "box": [
+        556,
+        942,
+        520,
+        493
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "narration",
+      "panel": "p1",
+      "kind": "floating",
+      "order": 1,
+      "text": "末班车开走后，旧站台还在响。",
+      "expected_text": "末班车开走后，旧站台还在响。",
+      "box": [
+        28,
+        21,
+        450,
+        58
+      ],
+      "font_size": 23,
+      "padding": 12,
+      "flow": "balanced",
+      "text_color": "#FFF4D8",
+      "align": "left",
+      "breaks": []
+    },
+    {
+      "id": "lin_question",
+      "panel": "p1",
+      "kind": "speech",
+      "order": 2,
+      "text": "你也听见了？",
+      "expected_text": "你也听见了？",
+      "box": [
+        40,
+        85,
+        235,
+        85
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        292,
+        254
+      ],
+      "shape": "tv"
+    },
+    {
+      "id": "keeper_answer",
+      "panel": "p1",
+      "kind": "speech",
+      "order": 3,
+      "text": "从那扇门后传来的。",
+      "expected_text": "从那扇门后传来的。",
+      "box": [
+        389,
+        80,
+        290,
+        115
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        777,
+        246
+      ],
+      "shape": "tv",
+      "breaks": [
+        5
+      ],
+      "emphasis": [
+        {
+          "start": 1,
+          "end": 4,
+          "scale": 1.12
+        }
+      ]
+    },
+    {
+      "id": "lin_whisper",
+      "panel": "p2",
+      "kind": "whisper",
+      "order": 1,
+      "text": "里面有声音。",
+      "expected_text": "里面有声音。",
+      "box": [
+        40,
+        488,
+        260,
+        90
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        397,
+        719
+      ],
+      "shape": "tv"
+    },
+    {
+      "id": "keeper_off",
+      "panel": "p2",
+      "kind": "speech",
+      "order": 2,
+      "text": "先别碰门。",
+      "expected_text": "先别碰门。",
+      "box": [
+        333,
+        479,
+        220,
+        92
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        660,
+        600
+      ],
+      "off_panel": true,
+      "butt": [
+        "right"
+      ]
+    },
+    {
+      "id": "keeper_power",
+      "panel": "p3",
+      "kind": "speech",
+      "order": 1,
+      "text": "电源已经断了。",
+      "expected_text": "电源已经断了。",
+      "box": [
+        575,
+        483,
+        240,
+        82
+      ],
+      "font_size": 24,
+      "padding": 10,
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        879,
+        704
+      ],
+      "shape": "tv"
+    },
+    {
+      "id": "keeper_open",
+      "panel": "p3",
+      "kind": "speech",
+      "order": 2,
+      "text": "现在开门。",
+      "expected_text": "现在开门。",
+      "box": [
+        842,
+        483,
+        215,
+        82
+      ],
+      "font_size": 24,
+      "padding": 10,
+      "flow": "balanced",
+      "speaker": "keeper",
+      "join_to": "keeper_power",
+      "join_curve": [
+        835,
+        502
+      ],
+      "shape": "tv"
+    },
+    {
+      "id": "door_clang",
+      "panel": "p4",
+      "kind": "sfx",
+      "order": 1,
+      "text": "哐当",
+      "expected_text": "哐当",
+      "box": [
+        90,
+        958,
+        330,
+        155
+      ],
+      "font_size": 70,
+      "padding": 4,
+      "flow": "balanced",
+      "hollow": true,
+      "arc": 15,
+      "glyphs": [
+        {
+          "index": 0,
+          "scale": 1.12,
+          "rotate": -12
+        },
+        {
+          "index": 1,
+          "scale": 1.25,
+          "rotate": 7,
+          "dy": 8
+        }
+      ],
+      "outlines": [
+        {
+          "color": "#171E28",
+          "width": 6
+        },
+        {
+          "color": "#FFF1C7",
+          "width": 2.5
+        }
+      ],
+      "shadow": {
+        "dx": 4,
+        "dy": 5,
+        "steps": 5,
+        "color": "#171E28"
+      },
+      "font_role": "display"
+    },
+    {
+      "id": "lin_reveal",
+      "panel": "p5",
+      "kind": "speech",
+      "order": 1,
+      "text": "原来是你。",
+      "expected_text": "原来是你。",
+      "box": [
+        575,
+        960,
+        205,
+        100
+      ],
+      "font_size": 25,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        701,
+        1275
+      ],
+      "shape": "tv"
+    },
+    {
+      "id": "keeper_kind",
+      "panel": "p5",
+      "kind": "speech",
+      "order": 2,
+      "text": "别怕，我们带你回家。",
+      "expected_text": "别怕，我们带你回家。",
+      "box": [
+        805,
+        955,
+        245,
+        140
+      ],
+      "font_size": 25,
+      "padding": 12,
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        960,
+        1273
+      ],
+      "shape": "tv",
+      "breaks": [
+        3,
+        7
+      ],
+      "emphasis": [
+        {
+          "start": 7,
+          "end": 9,
+          "scale": 1.16
+        }
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "id": "lin1",
+      "box": [
+        193,
+        190,
+        125,
+        130
+      ]
+    },
+    {
+      "id": "keeper1",
+      "box": [
+        700,
+        162,
+        110,
+        130
+      ]
+    },
+    {
+      "id": "lin2",
+      "box": [
+        246,
+        590,
+        165,
+        190
+      ]
+    },
+    {
+      "id": "latch",
+      "box": [
+        408,
+        718,
+        115,
+        150
+      ]
+    },
+    {
+      "id": "keeper3",
+      "box": [
+        800,
+        565,
+        245,
+        230
+      ]
+    },
+    {
+      "id": "switch_hand",
+      "box": [
+        644,
+        642,
+        120,
+        110
+      ]
+    },
+    {
+      "id": "lin4",
+      "box": [
+        14,
+        1126,
+        125,
+        180
+      ]
+    },
+    {
+      "id": "keeper4",
+      "box": [
+        125,
+        1115,
+        170,
+        195
+      ]
+    },
+    {
+      "id": "impact",
+      "box": [
+        461,
+        1156,
+        70,
+        110
+      ]
+    },
+    {
+      "id": "lin5",
+      "box": [
+        597,
+        1145,
+        130,
+        190
+      ]
+    },
+    {
+      "id": "keeper5",
+      "box": [
+        902,
+        1107,
+        165,
+        232
+      ]
+    },
+    {
+      "id": "kitten",
+      "box": [
+        745,
+        1260,
+        145,
+        150
+      ]
+    },
+    {
+      "id": "bell",
+      "box": [
+        753,
+        1137,
+        140,
+        146
+      ]
+    }
+  ]
+}

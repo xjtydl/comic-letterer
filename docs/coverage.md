@@ -1,5 +1,25 @@
 # Tutorial coverage and implementation boundaries
 
+**v0.2 update:** see the current implementation and visual evidence table immediately below. The v0.1 ledger farther down is historical and documents what was absent at that release.
+
+## Current v0.2 evidence
+
+| Tutorial method | Executable implementation | Actual validation | Remaining boundary |
+|---|---|---|---|
+| Word Arrangement | Independent break offsets, balanced flow, alignment, measured size emphasis | Echo Station final reassurance; private page semantic breaks; source-preservation tests | No language-model phrase inference or real bold/italic runs |
+| Making Word Balloons / Butting Balloons | TV contour, edge clipping, text-safe border placement | Echo Station panel 2 off-panel speech; edge/overflow tests | No automatic crop choice |
+| Creating Tails and Joins / Blambot grammar | Curved joins, explicit interruption opt-in, edge tails, hidden-source squink | Full interruption treatment, same-speaker bridge and behind-door kitten; collision regression | Human reading order required; first balloon owns the identifying tail |
+| Layer Method / Floating Text | Separate layers, floating caption, polygon foreground masks | Roof beam over balloon shell in alternate story; raster mask test | Masks are manually specified; no image segmentation |
+| Multiple Outline SFX / Fighting Words / Curved Type | Hollow fill, depth offsets, arced baseline, per-character scale/rotation, display font | Door impact in the real story; hollow raster exposes original background | No perspective warp, weathering, font design or 3D lighting |
+| Preparing Files for Output | Editable SVG, source/report, two direct vector PNG sizes, local editor export | Drag → undo/redo → save → reload → export browser test | No CMYK, PDF, font outlines or printer certification |
+
+Newly consulted public texts on 2026-11-05: [Butting Balloons](https://balloontales.com/butting-balloons/), [Curved Type](https://balloontales.com/curved-type/) and [Fighting Words](https://balloontales.com/articles/tutorial/part2.html). Their practical principles were applied: crop at panel boundaries with safe words, use deformation for rhythm while preserving legibility, build sound character from varied glyph skeletons and outlines. These are original implementations, not copied Illustrator procedures or code. No blanket claim that every site technique is complete.
+
+See [v0.2 actual-page evidence](v02-validation.md) and [contract](contract.md).
+
+## Historical v0.1 scope
+
+
 Research date: 2026-11-05. This is a bounded, expanding ledger, not a claim to have read either entire site, bought their books, inspected every illustration, or implemented all comic knowledge. “Read” below means the public article text was inspected in this development session. Illustration-only details are not claimed as verified.
 
 The program's algorithms, JSON contract, geometry and synthetic examples are original. Tutorials are teaching references, not code sources. Historical Illustrator menus, point sizes and print recipes are not current universal specifications. Chinese line-breaking rules and numerical defaults are this project's adaptations.

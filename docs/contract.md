@@ -37,7 +37,7 @@ Coordinates are **page-global pixels**. Rectangles are `[x, y, width, height]`, 
 
 Required: `id`, `panel`, `order`, `kind`, `text`, plus `box` or `size`.
 
-`kind`: `speech`, `thought`, `shout`, `whisper`, `weak`, `electronic`, `caption`, `sfx`.
+`kind`: `speech`, `thought`, `shout`, `whisper`, `weak`, `electronic`, `caption`, `sfx`, `floating`.
 
 | Field | Meaning / default |
 |---|---|
@@ -48,8 +48,8 @@ Required: `id`, `panel`, `order`, `kind`, `text`, plus `box` or `size`.
 | `size` | `[width,height]` when searching candidate positions |
 | `candidates` | Optional nonempty list of `xywh` boxes instead of generated 5×5 grid; requires `size` |
 | `target` | Mouth, head (thought), device or explicit source point; required for unjoined voices by layout check |
-| `off_panel` | Reserved boolean; `true` is rejected in v0.1 pending border-tail support |
-| `join_to` | Previous consecutive item ID, same panel/speaker/kind; speech/whisper only. Continuation has no new tail |
+| `off_panel` | Boolean: source target must lie outside the panel; tail reaches and clips at its border |
+| `join_to` | Earlier item ID, same panel/speaker/kind; speech/whisper only. Nonconsecutive requires explicit interruption opt-in. Continuation has no new tail |
 | `padding` | Default `font_size × 0.6`; nonnegative |
 | `line_height` | Baseline distance as font-size multiplier, default 1.25 |
 | `fill`, `stroke`, `text_color` | Hex `#RRGGBB` only; default white (caption cream), dark stroke and text |
@@ -58,7 +58,7 @@ Required: `id`, `panel`, `order`, `kind`, `text`, plus `box` or `size`.
 | `rotation` | SFX only, degrees around box center; default 0 |
 | `outlines` | SFX only; array of `{color,width}`, strictly decreasing widths; empty array disables outlines |
 
-Same-speaker joins also require matching fill/stroke/width. Overlapping joined bubbles merge visually through layer fills; separated bubbles have a straight tapered connector. Complex interruption joins are rejected, even when a human letterer could make them work. `caption` can carry a narrator in `speaker` but needs no target. SFX `speaker` may identify the object; no speech tail is generated.
+Same-speaker joins also require matching fill/stroke/width. Overlapping joined bubbles merge visually through layer fills; separated bubbles have a tapered connector, optionally curved with `join_curve`. Nonconsecutive joins require `allow_interruption: true` and emit an inspection warning. `caption` can carry a narrator in `speaker` but needs no target. SFX `speaker` may identify the object; no speech tail is generated.
 
 ## Text layout
 
@@ -70,8 +70,37 @@ Glyph bounding boxes are checked against padded contours; non-elliptical voice s
 
 `ok` means no error-severity issue; warnings remain visible. `--strict` also fails warnings. Issues carry `code`, `item`, `severity`, `message`. Checks include text overflow, missing glyphs, box/protected overlap, target inside balloon, missing target, conservative tail/join conflicts, rotated SFX bounds, repeated/reversed reading order and small reading text. Duplicate numeric order is structural; suspicious geometric order is a warning.
 
-Protect full hair/hat/face bounds, not just the mouth target. Tail/join collision checks use bounding envelopes, not exact curve intersections. They do not detect arbitrary pixels, tangencies to unmarked art, narrative misattribution, actual font visual weight, or every possible occlusion. Stroke envelopes and SFX checks are conservative, not pixel-perfect clearance guarantees.
+Protect full hair/hat/face bounds, not just the mouth target. Curved speech-tail checks use sampled polygons; tail crossings use polygon intersections and joins use sampled local envelopes. Thought/electronic checks remain conservative. They do not detect arbitrary pixels, tangencies to unmarked art, narrative misattribution, actual font visual weight, or every possible occlusion. Stroke envelopes and SFX checks are conservative, not pixel-perfect clearance guarantees.
 
 SVG group IDs: `art`, `balloons`, `balloon-outlines`, `tails-and-joins`, `balloon-fills`, `text`, `sfx`. Item groups store `data-panel`, `data-order`, `data-speaker`, `data-kind`; metadata retains the JSON and font hash. These are standard SVG groups, not an assurance of native layer UI in every editor. Recompile JSON to change content and recompute geometry. Manual SVG edits do not round-trip back to JSON.
 
 The CLI only embeds explicitly supplied local PNG/JPEG art. It accepts no raw SVG fragments or remote image/font URL. PNG rendering blocks network requests. Use trusted input file paths; this CLI is not an upload service or sandbox for untrusted font parsers.
+
+## v0.2 additions (schema version remains 1)
+
+| Field | Meaning |
+|---|---|
+| `breaks` | Sorted distinct internal **Unicode code-point** offsets; source text stays unchanged. `[]` forces one line unless the source contains LF. Explicit LF remains preserved. |
+| `flow` | `legacy` (default) or `balanced`; legal-boundary line-length optimization, not semantic Chinese segmentation |
+| `align` | `left`, `center` (default), `right` |
+| `emphasis` | Nonoverlapping `{start,end,scale,color?}` ranges; actual resized font metrics, scale ≤3. This is size emphasis, not faux or real bold. |
+| `font_role` | `body` (default), or a configured role such as `display`; unknown roles fail. CLI `--display-font` and `--display-font-index` configure display. Python `fonts={"display":{"path":path,"index":0}}`. Paths stay outside source JSON. |
+| `shape` | `ellipse` or `tv`, only speech/whisper; TV uses a fourth-power superellipse |
+| `butt` | Distinct edges from `top`, `bottom`, `left`, `right`; permits cropping the balloon only at those panel edges. Text must remain within panel. |
+| `join_curve` | Quadratic centerline control point; same page coordinate system |
+| `allow_interruption` | Boolean explicit opt-in for nonconsecutive joins; never suppresses collision errors |
+| `source_mark` | `squink`; hidden source burst at the tip, tail reaches the supplied source |
+| `hollow` | SFX only, `fill=none` with editable outline layers; choose a suitably heavy display font |
+| `arc` | SFX only, baseline arch height in pixels; positive arches upward |
+| `glyphs` | SFX-only list of `{index,dx?,dy?,scale?,rotate?}`; code-point indices, unique, scale ≤4 |
+| `shadow` | SFX-only `{dx,dy,steps,color}`; defaults 5,5,5,#20202A; 1–32 depth steps |
+
+Per-glyph/arc SFX is single-line and cannot also carry range emphasis; use glyph scale instead. It is controlled placement of characters, not arbitrary glyph deformation. Whitespace/combining/complex-script limitations still apply. Depth is stepped flat extrusion, not a 3D lighting model.
+
+Page `occlusions` is an array of `{id, polygon:[[x,y],...], items:[itemID,...]}`. Simple polygons mask only listed items, exposing unchanged original art; they do not segment the artwork automatically. Glyph-region intersection reports possible hidden text. Protected-region and some overlap checks remain conservative even when masks are present. Do not use masks to conceal essential words.
+
+Python `compile_page(..., fonts=...)` and `render_png(..., fonts=...)` must receive the same font configuration. Reports and SVG metadata record every configured font hash. PNG/preview use in-memory WOFF subsets; exported SVG contains no font bytes. Install the same fonts when opening it elsewhere.
+
+## Editor persistence
+
+`edit INPUT --out DIRECTORY --background ART --font FONT [--display-font FONT] [--port PORT]` launches a loopback server. No source overwrite endpoint exists. Save creates `drafts/TIMESTAMP-ID/source.json`; export creates `exports/TIMESTAMP-ID/` with SVG/source/report and optional PNGs. A draft can contain layout errors, but the UI labels it diagnostic. Structural/frozen-text violations fail the operation. A failed PNG export can leave a partial export folder; success is reported only after all requested files are written.

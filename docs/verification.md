@@ -1,4 +1,14 @@
-# v0.1 verification record
+# Verification records
+
+## v0.2 — 2026-11-05
+
+**71 tests passed** locally with Chromium enabled (Python 3.14, macOS arm64). This includes actual editor pointer interactions, undo/redo, frozen-word enforcement, save/reload and SVG/PNG export; local HTTP boundaries; hollow/mask raster pixels; font-role validation; rotated-mask and sampled-tail geometry. Ruff F checks, diff whitespace checks and Skill validation passed.
+
+The wheel was built and installed into an isolated directory, then imported outside the source checkout. All modules and bundled editor HTML were present; the installed compiler passed the full original story with zero issues. Source SVG artwork bytes and all frozen strings were compared against their inputs. Public source was scanned for private paths, book identifiers and credential patterns; none found.
+
+See [actual comic evidence](v02-validation.md). Cross-platform build status is recorded in the [GitHub workflow](https://github.com/xjtydl/comic-letterer/actions/workflows/test.yml); release follows a successful run for the implementation commit.
+
+## Historical v0.1 verification record
 
 2026-11-05. Tested locally on macOS arm64, Python 3.14, Pillow/fontTools, Playwright Chromium. This records observed checks, not universal compatibility or visual acceptance of production pages.
 

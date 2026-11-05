@@ -124,9 +124,9 @@ def test_invalid_collection_is_value_error(page, field):
         compile_page(page)
 
 
-def test_offpanel_not_falsely_supported(page):
-    page["items"][0].update(off_panel=True, target=[700, 300])
-    with pytest.raises(ValueError, match="off-panel"):
+def test_offpanel_requires_external_source(page):
+    page["items"][0].update(off_panel=True, target=[200, 300])
+    with pytest.raises(ValueError, match="outside"):
         compile_page(page)
 
 

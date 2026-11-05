@@ -2,6 +2,7 @@
 
 import base64
 import io
+from functools import lru_cache
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -9,7 +10,7 @@ from fontTools import subset
 from fontTools.ttLib import TTFont
 
 
-def render_png(svg, output, width, font_path, font_index=0):
+def render_png(svg, output, width, font_path, font_index=0, fonts=None):
     from playwright.sync_api import sync_playwright
 
     root = ET.fromstring(svg)
@@ -25,18 +26,11 @@ def render_png(svg, output, width, font_path, font_index=0):
         raise ValueError(
             "PNG dimensions must be 1..16000 and at most 64 million pixels"
         )
-    # Local render only. No font bytes are persisted in the editable SVG.
-    chars = "".join(n.text or "" for n in root.iter() if n.tag.endswith("}tspan"))
-    with TTFont(font_path, fontNumber=font_index) as font:
-        options = subset.Options()
-        sub = subset.Subsetter(options=options)
-        sub.populate(text=chars)
-        sub.subset(font)
-        font.flavor = "woff"
-        buf = io.BytesIO()
-        font.save(buf)
-    data = base64.b64encode(buf.getvalue()).decode("ascii")
-    css = f"@font-face{{font-family:LocalRender;src:url(data:font/woff;base64,{data})}} html,body{{margin:0;background:white}} svg{{display:block;width:{width}px;height:{height}px}} text{{font-family:LocalRender!important}}"
+    font_bank = {"body": {"path": str(font_path), "index": font_index}, **(fonts or {})}
+    css = (
+        font_css(svg, font_bank)
+        + f"html,body{{margin:0;background:white}} svg{{display:block;width:{width}px;height:{height}px}}"
+    )
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
         try:
@@ -46,8 +40,47 @@ def render_png(svg, output, width, font_path, font_index=0):
             page.route("**/*", lambda route: route.abort())
             page.set_content(f"<style>{css}</style>{svg}")
             page.evaluate("document.fonts.ready")
-            if not page.evaluate("document.fonts.check('20px LocalRender')"):
+            if not page.evaluate(
+                "[...document.fonts].every(font => font.status === 'loaded')"
+            ):
                 raise ValueError("Render font failed to load")
             page.screenshot(path=str(Path(output)), omit_background=False)
         finally:
             browser.close()
+
+
+def font_css(svg, font_bank):
+    root = ET.fromstring(svg)
+    css = ""
+    roles = {
+        node.get("data-font-role", "body")
+        for node in root.iter()
+        if node.tag.endswith("}text")
+    }
+    if not roles.issubset(font_bank):
+        raise ValueError("render font configuration must include every SVG font role")
+    for role, spec in font_bank.items():
+        chars = "".join(
+            "".join(node.itertext())
+            for node in root.iter()
+            if node.tag.endswith("}text") and node.get("data-font-role", "body") == role
+        )
+        if not chars:
+            continue
+        data = subset_font(
+            str(spec["path"]), spec.get("index", 0), "".join(sorted(set(chars)))
+        )
+        css += f"@font-face{{font-family:LocalRender_{role};src:url(data:font/woff;base64,{data})}} text[data-font-role='{role}']{{font-family:LocalRender_{role}!important}}"
+    return css
+
+
+@lru_cache(maxsize=8)
+def subset_font(path, index, chars):
+    with TTFont(path, fontNumber=index) as font:
+        sub = subset.Subsetter(options=subset.Options())
+        sub.populate(text=chars)
+        sub.subset(font)
+        font.flavor = "woff"
+        buf = io.BytesIO()
+        font.save(buf)
+    return base64.b64encode(buf.getvalue()).decode("ascii")

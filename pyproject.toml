@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comic-letterer"
-version = "0.1.0"
+version = "0.2.0"
 description = "Independent, Unicode-first comic lettering with editable SVG and explicit narrative metadata"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -24,6 +24,9 @@ comic-letterer = "comic_letterer.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["comic_letterer*"]
+
+[tool.setuptools.package-data]
+comic_letterer = ["web/*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
