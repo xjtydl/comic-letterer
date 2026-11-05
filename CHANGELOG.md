@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0
+
+- `script-import` reconciles a semantic rich-text HTML script with exact page/item IDs, metadata, frozen wording and existing geometry.
+- Real bold/italic font-role spans, separate production notes, guarded complex emphasis, new editable copies and a safe handoff review.
+- Four-page bilingual narrative import and actual-font proofs; missing English bold configuration caught, changed-word copy rejected, original artwork/words preserved. See docs/v09-validation.md.
+
 ## 0.8.0
 
 - `layout-proof` compares authored layouts using intact narrative art and real Unicode lettering with a single uniform transform per panel.

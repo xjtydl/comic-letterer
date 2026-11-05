@@ -2,9 +2,9 @@
 
 An independent, CPU-based comic lettering library, CLI and local visual editor. Exact Unicode text + explicit panel/speaker coordinates → editable SVG + explainable checks + optional PNG.
 
-独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.8** 新增完整画格与真实排字的布局方案校样，检查等比适配、读序、裁切与最终字号；见 [实际布局验证](docs/v08-validation.md)。v0.7 新增带来源保护的全书批量修订和前后漫画对照，已用四页中英文600px阅读版验证。v0.6补入 OpenType、逐行字宽、手修曲线、叠放/跨边、透视字形、材质与原创笔触字体，使用两页《最后一张票》中英文完整剧情验证；随后增加真实全书校样和字体漂移检查。完整目标与能力边界见 [45模块工作入口](docs/WORK_INDEX.md)，不宣称全部漫画/字体能力已经完成。
+独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.9** 新增带完整字项/原文核对的富文本剧本交接，并用中英文四页真实字体成页验证。v0.8 新增完整画格与真实排字的布局方案校样，检查等比适配、读序、裁切与最终字号；见 [实际布局验证](docs/v08-validation.md)。v0.7 新增带来源保护的全书批量修订和前后漫画对照，已用四页中英文600px阅读版验证。v0.6补入 OpenType、逐行字宽、手修曲线、叠放/跨边、透视字形、材质与原创笔触字体，使用两页《最后一张票》中英文完整剧情验证；随后增加真实全书校样和字体漂移检查。完整目标与能力边界见 [45模块工作入口](docs/WORK_INDEX.md)，不宣称全部漫画/字体能力已经完成。
 
-[Download v0.8.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.8.0)
+[Download v0.9.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.9.0)
 
 ![The Last Ticket — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.7.0/theatre-600-p1-zh.png)
 
@@ -101,3 +101,7 @@ Implementation, synthetic examples and the Echo Station story are original. Echo
 ### Layouts with actual narrative content
 
 `layout-proof` takes a frozen page, local art/fonts and an explicit layout plan. It keeps each panel and its lettering together, compares whole-page and segmented reading, and exposes clipping, small type and obvious order conflicts. See [layout contract](docs/contract.md#layout-proofs). This uses existing narrative art; it does not claim image-model generation, freehand thumbnail drawing or automatic visual acceptance.
+
+### Rich-text script handoff
+
+`script-import manuscript.html --book book.json --out new-import --strict` matches semantic HTML table rows to all existing page/item IDs. It preserves words and geometry, maps bold/italic spans to real font roles, and keeps production notes separate. Follow with `book-proof` using local fonts/art. See the [contract](docs/contract.md#script-handoff) and [actual bilingual validation](docs/v09-validation.md).

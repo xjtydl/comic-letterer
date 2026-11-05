@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "active_phase": "actual_narrative_layout_variants_and_reading_checks",
+  "active_phase": "semantic_script_handoff_and_bilingual_actual_proofs",
   "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
   "modules": [
     {
@@ -45,16 +45,16 @@
         "evidence": "comic-production-entry / comic-lettering"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "已有 JSON 与原文冻结；富文本导入待做"
+        "status": "partial_with_actual_handoff_proof",
+        "detail": "v0.9新增受限语义HTML富文本交接，全部字项/冻结原文/声线匹配、真实粗斜体与说明分离；四页中英20项实证；任意Word/PDF导入待做"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v09-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v09-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -941,16 +941,16 @@
         "evidence": "comic-production-entry / comic-letterer"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "保存重载／导出／冻结已有；整本校样和翻译工作流待补"
+        "status": "partial_with_actual_handoff_proof",
+        "detail": "已有全书校样/显式修订；v0.9验证中英交接到成页、原文和强调保真；自动翻译及任意文档解析仍待建"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v09-validation.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v09-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -1249,16 +1249,16 @@
         "evidence": "现有制作验收扩展"
       },
       "implementation": {
-        "status": "partial_with_actual_layout_proof",
-        "detail": "185项测试及多部剧情实页；新增真实布局/故障版和对齐误报回归；全绘画评测与AI训练仍未建立"
+        "status": "partial_with_actual_handoff_proof",
+        "detail": "201项测试及多部剧情实页；新增富文本Unicode/元数据/冻结值保护，真实20项交接与四页渲染；全绘画评测和模型训练仍未建立"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v08-validation.md"
+        "evidence": "../v09-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v08-validation.md"
+        "evidence": "../v09-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"

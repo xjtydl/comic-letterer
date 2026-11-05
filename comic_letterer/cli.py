@@ -12,7 +12,7 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.8.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.9.0")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("check", "render", "edit", "layout-proof"):
         p = sub.add_parser(command)
@@ -65,8 +65,18 @@ def main(argv=None):
     p = sub.add_parser("font-build", help="Build an authored pressure-stroke display alphabet")
     p.add_argument("input", type=Path)
     p.add_argument("--out", type=Path, required=True)
+    p = sub.add_parser("script-import", help="Reconcile a semantic rich-text script with existing page geometry")
+    p.add_argument("input", type=Path)
+    p.add_argument("--book", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--strict", action="store_true")
     args = parser.parse_args(argv)
     try:
+        if args.command == "script-import":
+            from .script_handoff import import_script
+            report = import_script(args.input, args.book, args.out)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 0 if report["ok"] and not (args.strict and report["issues"]) else 1
         job = json.loads(args.input.read_text(encoding="utf-8"))
         if args.command == "book-revise":
             from .revision import revise_book
