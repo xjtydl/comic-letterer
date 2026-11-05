@@ -1,5 +1,10 @@
 # Verification records
 
+## v0.3 — 2026-11-05
+
+87 local tests passed with Chromium enabled, including phrase/tail/fit browser interactions and existing raster tests. Two continuous Chinese pages and one English treatment have zero issues; frozen strings and source-art bytes were checked. See [v0.3 evidence](v03-validation.md). Package and remote CI are checked before publication.
+
+
 ## v0.2 — 2026-11-05
 
 **71 tests passed** locally with Chromium enabled (Python 3.14, macOS arm64). This includes actual editor pointer interactions, undo/redo, frozen-word enforcement, save/reload and SVG/PNG export; local HTTP boundaries; hollow/mask raster pixels; font-role validation; rotated-mask and sampled-tail geometry. Ruff F checks, diff whitespace checks and Skill validation passed.

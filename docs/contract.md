@@ -104,3 +104,28 @@ Python `compile_page(..., fonts=...)` and `render_png(..., fonts=...)` must rece
 ## Editor persistence
 
 `edit INPUT --out DIRECTORY --background ART --font FONT [--display-font FONT] [--port PORT]` launches a loopback server. No source overwrite endpoint exists. Save creates `drafts/TIMESTAMP-ID/source.json`; export creates `exports/TIMESTAMP-ID/` with SVG/source/report and optional PNGs. A draft can contain layout errors, but the UI labels it diagnostic. Structural/frozen-text violations fail the operation. A failed PNG export can leave a partial export folder; success is reported only after all requested files are written.
+
+## v0.3 typography, source geometry and narrative semantics
+
+`emphasis` ranges now accept `font_role`. When a role is present, default `scale` is 1, so a true bold or italic face can be selected without resizing. The role must be configured; measurement, missing-glyph checks and browser subsets all use that face. SVG spans retain actual family/weight/style. Roles are aliases: the configured file determines actual weight/slant, never the role's name. The renderer disables synthetic weight/slant for its embedded local subsets.
+
+CLI `--font-map fonts.json` accepts `{ "bold": {"path":"fonts/bold.ttf", "index":0}, "italic": {"path":"fonts/italic.ttf"} }`. Relative paths resolve against the map file, not the current directory. `body` remains `--font`; `--display-font` overrides a map's display role. Fonts are never bundled automatically.
+
+| Field | Meaning |
+|---|---|
+| `tracking` | Extra spacing in source pixels; -0.2 to 1 em. Nonzero tracking uses explicit character positioning; complex shaping is not promised. |
+| `horizontal_scale` | 0.9–1.1, measured and rendered consistently; explicit only, never an automatic fix for overflow |
+| `keep_together` | `{start,end}` ranges of Unicode code-point offsets; automatic wrapping cannot split them. Conflicting explicit breaks fail. This is manual phrase protection, not NLP segmentation. |
+| `tail` | Optional `{visible,width,length,gap,root_angle,curve}`; sizes in pixels, angle in degrees clockwise from page-right, curve is a global quadratic control point |
+| `caption_type` | `location`, `time`, `inner`, `spoken`, `editorial`; caption/floating only. Inner/spoken require a speaker. Does not rewrite punctuation or apply English conventions. |
+| `voice` | `normal`, `rough`, `breath`, `singing`, `telepathic`; explicitly selected for voiced balloons. Rough modifies contour and tail, breath/telepathy add marks, singing adds a music-note mark. Wavy sung baselines remain unimplemented. |
+| `double_outline` | Outer contour offset 0–24px; 0 disables. Not for caption/floating/SFX. |
+| `style` | Named page style; raw item fields override inherited appearance. No text/source IDs can be supplied by a style. |
+
+Tail `length` is an upper bound: it is shortened before protected source regions, accounting for `gap`. `root_angle` chooses the attachment direction; a poor angle or control point can bend back through the balloon and still needs visual review. Width is full root width. Curved overrides are for smooth tails; thought/electronic curve overrides fail. `visible` defaults to true on the first balloon and false on continuations. You can explicitly suppress the first and enable a later tail; a connected voice group without attribution is reported. Explicit off-panel tailless speech is allowed.
+
+Page `min_tail_length` enables a reading-pixel warning (default 0 for compatibility). It is a configurable diagnostic, not a universal comic rule. `ink_edges:[{id,points:[[x,y],...]}]` with `tangent_distance` (default 3 source pixels) warns when sampled lettering boundaries approach a manually marked ink line. It cannot identify artwork edges on its own or distinguish every intentional overlap.
+
+Page `styles` maps IDs to appearance/semantic definitions: kind, font role/size, padding, line height, fill/stroke/text color, stroke width, shape, tracking, horizontal scale, flow, alignment, voice, caption type and double outline. Styles can be copied between pages; there is no central book manager yet. Metadata preserves original style references, reports expose resolved values.
+
+Editor additions: choose an actual face for a selected emphasis range; protect a selected phrase; adjust tracking/scale; choose caption/voice types; control tail width/length/gap/root angle and drag its orange curve handle; edit shared styles and marked ink edges. Fit searches bounded box dimensions at the current origin with frozen words and the same font size, accepting only candidates without item errors. It may fail and ask for repositioning; it is not whole-page optimization.

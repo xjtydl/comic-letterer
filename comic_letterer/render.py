@@ -52,25 +52,29 @@ def render_png(svg, output, width, font_path, font_index=0, fonts=None):
 def font_css(svg, font_bank):
     root = ET.fromstring(svg)
     css = ""
-    roles = {
-        node.get("data-font-role", "body")
-        for node in root.iter()
-        if node.tag.endswith("}text")
-    }
+    leaves = []
+
+    def collect(node, role="body"):
+        role = node.get("data-font-role", role)
+        if node.tag.endswith("}tspan"):
+            leaves.append((node, role))
+        for child in node:
+            collect(child, role)
+
+    collect(root)
+    roles = {role for node, role in leaves}
     if not roles.issubset(font_bank):
         raise ValueError("render font configuration must include every SVG font role")
     for role, spec in font_bank.items():
         chars = "".join(
-            "".join(node.itertext())
-            for node in root.iter()
-            if node.tag.endswith("}text") and node.get("data-font-role", "body") == role
+            node.text or "" for node, inherited in leaves if inherited == role
         )
         if not chars:
             continue
         data = subset_font(
             str(spec["path"]), spec.get("index", 0), "".join(sorted(set(chars)))
         )
-        css += f"@font-face{{font-family:LocalRender_{role};src:url(data:font/woff;base64,{data})}} text[data-font-role='{role}']{{font-family:LocalRender_{role}!important}}"
+        css += f"@font-face{{font-family:LocalRender_{role};src:url(data:font/woff;base64,{data})}} [data-font-role='{role}']{{font-family:LocalRender_{role}!important;font-weight:normal!important;font-style:normal!important;font-synthesis:none}}"
     return css
 
 

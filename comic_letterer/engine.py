@@ -13,6 +13,7 @@ from xml.etree import ElementTree as ET
 from fontTools.ttLib import TTFont
 from .validation import number, vector, fields, ident, color
 from .typography import typeset
+from .narrative import resolve_item, rough_contour, rough_tail, near_ink_edges
 from .geometry import (
     edge_target,
     intersection,
@@ -181,7 +182,10 @@ def contour(box, kind, shape=None):
     return "M" + " L".join(f"{a:.4f},{b:.4f}" for a, b in pts) + " Z"
 
 
-def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
+def tail_geometry(
+    box, target, fraction, kind, source_regions=(), shape=None, options=None
+):
+    options = options or {}
     cx, cy = center(box)
     tx, ty = target
     dx, dy = tx - cx, ty - cy
@@ -191,6 +195,12 @@ def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
     )
     if q <= 1:
         return None
+    if "root_angle" in options:
+        a = math.radians(options["root_angle"])
+        dx, dy = math.cos(a), math.sin(a)
+        q = (abs(dx / (box[2] / 2)) ** power + abs(dy / (box[3] / 2)) ** power) ** (
+            1 / power
+        )
     bx, by = cx + dx / q, cy + dy / q
     # Shorten against the first enclosing source-region boundary, preserving the
     # source direction. Unrelated obstacles remain reported rather than hidden.
@@ -206,15 +216,23 @@ def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
                 entry, leave = max(entry, t0), min(leave, t1)
         if entry <= leave:
             available = min(available, max(0.0, entry))
-    fraction *= available
+    distance = math.hypot(tx - bx, ty - by)
+    requested = options.get("length", distance * fraction * available)
+    permitted = max(0, distance * available - options.get("gap", 0))
+    fraction = min(requested, permitted) / max(distance, 1e-8)
     tip = (bx + (tx - bx) * fraction, by + (ty - by) * fraction)
     length = math.hypot(dx, dy)
     nx, ny = -dy / length, dx / length
-    half = min(box[2], box[3]) * 0.065
+    half = options.get("width", min(box[2], box[3]) * 0.13) / 2
     root = (cx + dx / q * 0.70, cy + dy / q * 0.70)
     a = (root[0] + nx * half, root[1] + ny * half)
     b = (root[0] - nx * half, root[1] - ny * half)
     control = ((bx + tip[0]) / 2 + nx * half * 0.5, (by + tip[1]) / 2 + ny * half * 0.5)
+    right_control = (bx, by)
+    if "curve" in options:
+        c = options["curve"]
+        control = (c[0] + nx * half * 0.2, c[1] + ny * half * 0.2)
+        right_control = (c[0] - nx * half * 0.2, c[1] - ny * half * 0.2)
     if kind == "electronic":
         mid = ((bx + tip[0]) / 2, (by + tip[1]) / 2)
         p = (mid[0] + nx * half, mid[1] + ny * half)
@@ -222,7 +240,7 @@ def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
         polygon = [a, p, mid, tip, b]
         cells = [bounds(polygon, 2)]
     else:
-        d = f"M{a[0]},{a[1]} Q{control[0]},{control[1]} {tip[0]},{tip[1]} Q{bx},{by} {b[0]},{b[1]} Z"
+        d = f"M{a[0]},{a[1]} Q{control[0]},{control[1]} {tip[0]},{tip[1]} Q{right_control[0]},{right_control[1]} {b[0]},{b[1]} Z"
         left, right, cells = [], [], []
         for j in range(33):
             t = j / 32
@@ -235,7 +253,7 @@ def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
             )
             right.append(
                 tuple(
-                    u * u * b[k] + 2 * u * t * (bx, by)[k] + t * t * tip[k]
+                    u * u * b[k] + 2 * u * t * right_control[k] + t * t * tip[k]
                     for k in (0, 1)
                 )
             )
@@ -245,7 +263,7 @@ def tail_geometry(box, target, fraction, kind, source_regions=(), shape=None):
     return {
         "d": d,
         "tip": tip,
-        "box": bounds([a, b, tip, control], 2),
+        "box": bounds(polygon, 2),
         "boundary": (bx, by),
         "polygon": polygon,
         "cells": cells,
@@ -261,7 +279,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     """
     fields(
         job,
-        "version width height panels items protected reading_width min_reading_font direction occlusions",
+        "version width height panels items protected reading_width min_reading_font direction occlusions styles ink_edges tangent_distance min_tail_length",
         "page",
     )
     if type(job.get("version")) is not int or job["version"] != 1:
@@ -307,11 +325,15 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     with TTFont(path, fontNumber=font_index) as face:
         cmap = face.getBestCmap() or {}
         family = face["name"].getDebugName(1) or "sans-serif"
+        weight = face["OS/2"].usWeightClass if "OS/2" in face else 400
+        style = "italic" if "post" in face and face["post"].italicAngle else "normal"
     report = {
         "version": 1,
         "ok": True,
         "font": {
             "family": family,
+            "weight": weight,
+            "style": style,
             "index": font_index,
             "sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(),
             "embedded": False,
@@ -347,8 +369,12 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
         with TTFont(fp, fontNumber=fi) as face:
             ff = face["name"].getDebugName(1) or "sans-serif"
             cm = face.getBestCmap() or {}
+            fw = face["OS/2"].usWeightClass if "OS/2" in face else 400
+            fst = "italic" if "post" in face and face["post"].italicAngle else "normal"
         meta = {
             "family": ff,
+            "weight": fw,
+            "style": fst,
             "index": fi,
             "sha256": hashlib.sha256(Path(fp).read_bytes()).hexdigest(),
             "embedded": False,
@@ -367,10 +393,10 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     for raw in job.get("items", []):
         fields(
             raw,
-            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role",
+            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail",
             "item",
         )
-        item = dict(raw)
+        item = resolve_item(raw, job.get("styles", {}))
         role = item.get("font_role", "body")
         if not isinstance(role, str) or role not in font_bank:
             raise ValueError("font_role is not configured")
@@ -546,17 +572,30 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 issue(
                     "protected_overlap", iid, f"Box overlaps protected region {name}."
                 )
-        missing = sorted({c for c in text if c != "\n" and ord(c) not in cmap})
-        if missing:
-            issue(
-                "missing_glyph",
-                iid,
-                "Font lacks " + ", ".join(f"U+{ord(c):04X}" for c in missing),
-            )
         layout_item = dict(item, font_size=fs, box=box, padding=pad)
-        layout = typeset(layout_item, path, font_index, box, pad, lh, wrap_text)
+        layout = typeset(
+            layout_item, path, font_index, box, pad, lh, wrap_text, font_bank
+        )
         if kind == "sfx" and ("glyphs" in item or "arc" in item):
             layout = sfx_glyph_layout(layout_item, path, font_index)
+        for seg in layout["segments"]:
+            sr = seg.get("font_role", role)
+            missing = sorted(
+                {
+                    c
+                    for c in seg["text"]
+                    if c != "\n" and ord(c) not in font_bank[sr]["cmap"]
+                }
+            )
+            if missing:
+                issue(
+                    "missing_glyph",
+                    iid,
+                    "Font "
+                    + sr
+                    + " lacks "
+                    + ", ".join(f"U+{ord(c):04X}" for c in missing),
+                )
         lines = layout["lines"]
         positions = layout["positions"]
         overflow = False
@@ -607,7 +646,9 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 "warning",
             )
         tail = None
-        if kind not in ("caption", "sfx", "floating") and not item.get("join_to"):
+        if kind not in ("caption", "sfx", "floating") and item.get("tail", {}).get(
+            "visible", not bool(item.get("join_to"))
+        ):
             if target is None:
                 issue(
                     "missing_target", iid, "Supply the mouth/head/device source point."
@@ -630,7 +671,10 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                     if item.get("off_panel") or item.get("source_mark")
                     else [pb for _, pb in protected if contains(pb, [*target, 0, 0])],
                     item.get("shape"),
+                    item.get("tail"),
                 )
+                if tail and item.get("voice") == "rough":
+                    rough_tail(tail)
                 if tail is None:
                     issue(
                         "target_inside_balloon",
@@ -638,6 +682,18 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                         "Source is inside balloon; reposition balloon.",
                     )
                 else:
+                    visible_length = (
+                        math.dist(tail["boundary"], tail["tip"]) * rw / width
+                    )
+                    if visible_length < number(
+                        job.get("min_tail_length", 0), "min_tail_length"
+                    ):
+                        issue(
+                            "tail_too_short",
+                            iid,
+                            f"Tail is only {visible_length:.1f}px at reading size; move balloon or adjust root.",
+                            "warning",
+                        )
                     for name, pbox in protected:
                         if polygon_box_overlap(
                             tail["polygon"],
@@ -676,6 +732,31 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             _shadow=shadow,
             _family=selected_font["family"],
         )
+        if item.get("double_outline"):
+            g = item["double_outline"]
+            outer = [box[0] - g, box[1] - g, box[2] + 2 * g, box[3] + 2 * g]
+            if not contains(panels[pid], outer):
+                issue("decoration_outside_panel", iid, "Double outline exceeds panel.")
+            for name, pb in protected:
+                if overlap(outer, pb):
+                    issue(
+                        "decoration_protected_overlap",
+                        iid,
+                        "Double outline overlaps " + name,
+                    )
+        for name in near_ink_edges(
+            item,
+            job.get("ink_edges", []),
+            number(job.get("tangent_distance", 3), "tangent_distance"),
+        ):
+            issue(
+                "near_ink_edge",
+                iid,
+                "Lettering approaches marked ink edge "
+                + name
+                + "; inspect tangent/overlap.",
+                "warning",
+            )
         placed.append(item)
     by_id = {i["id"]: i for i in placed}
     for p in placed:
@@ -714,6 +795,30 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 )
             if any(p[k] != other[k] for k in ("fill", "stroke", "stroke_width")):
                 raise ValueError("joined styles must match")
+    for p in placed:
+        if (
+            p["kind"] in ("caption", "floating", "sfx")
+            or p["_tail"]
+            or p.get("off_panel")
+        ):
+            continue
+        component = {p["id"]}
+        changed = True
+        while changed:
+            changed = False
+            for q in placed:
+                if q.get("join_to") and (
+                    q["id"] in component or q["join_to"] in component
+                ):
+                    old = len(component)
+                    component.update((q["id"], q["join_to"]))
+                    changed |= len(component) > old
+        if not any(by_id[i]["_tail"] for i in component):
+            issue(
+                "missing_attribution",
+                p["id"],
+                "Connected voice group needs an identifying tail.",
+            )
     for pid in panels:
         seq = sorted([p for p in placed if p["panel"] == pid], key=lambda i: i["order"])
         for a, b in zip(seq, seq[1:]):
@@ -898,7 +1003,28 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
         item_connectors = elem("g", attrs, connectors)
         item_fills = elem("g", attrs, fills)
         if kind not in ("sfx", "floating"):
-            d = contour(box, kind, p.get("shape"))
+            if p.get("double_outline"):
+                g = p["double_outline"]
+                outer = [box[0] - g, box[1] - g, box[2] + 2 * g, box[3] + 2 * g]
+                elem(
+                    "path",
+                    {
+                        "d": contour(outer, kind, p.get("shape")),
+                        "fill": p["fill"],
+                        "stroke": p["stroke"],
+                        "stroke-width": sw,
+                    },
+                    item_bottom,
+                )
+            d = (
+                rough_contour(box)
+                if p.get("voice") == "rough"
+                else contour(
+                    box,
+                    "thought" if p.get("voice") == "telepathic" else kind,
+                    p.get("shape"),
+                )
+            )
             elem(
                 "path",
                 {
@@ -913,6 +1039,57 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 item_bottom,
             )
             elem("path", {"id": f"fill-{iid}", "d": d, "fill": p["fill"]}, item_fills)
+        voice = p.get("voice", "normal")
+        if voice in ("breath", "telepathic", "singing"):
+            x, y, w, h = box
+            ink = p["stroke"]
+            # Place marks in a reserved corner; exact glyph intersection is reported below.
+            decoration = [x + 3, y + 3, 24, 22]
+            if any(overlap(decoration, gb) for gb in p["_glyphboxes"]):
+                issue(
+                    "decoration_text_overlap",
+                    iid,
+                    "Voice marks overlap text; enlarge padding or move text.",
+                )
+            if voice == "singing":
+                elem(
+                    "path",
+                    {
+                        "d": f"M{x + 19},{y + 7} v15 M{x + 19},{y + 7} q9,1 8,8",
+                        "fill": "none",
+                        "stroke": ink,
+                        "stroke-width": 2,
+                    },
+                    item_fills,
+                )
+                elem(
+                    "ellipse",
+                    {"cx": x + 15, "cy": y + 22, "rx": 5, "ry": 3, "fill": ink},
+                    item_fills,
+                )
+            else:
+                for side in (0, 1) if voice == "telepathic" else (0,):
+                    mx = x + 8 if side == 0 else x + w - 24
+                    my = y + 8 if side == 0 else y + h - 24
+                    elem(
+                        "path",
+                        {
+                            "d": f"M{mx},{my + 11} q4,-7 3,-11 M{mx + 8},{my + 13} q5,-6 5,-10",
+                            "fill": "none",
+                            "stroke": ink,
+                            "stroke-width": 2,
+                            "stroke-linecap": "round",
+                        },
+                        item_fills,
+                    )
+                    if side and any(
+                        overlap([mx, my, 20, 20], gb) for gb in p["_glyphboxes"]
+                    ):
+                        issue(
+                            "decoration_text_overlap",
+                            iid,
+                            "Telepathy marks overlap text.",
+                        )
         tail = p["_tail"]
         if tail:
             if kind == "thought":
@@ -991,6 +1168,8 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 "data-order": p["order"],
                 "data-speaker": p.get("speaker", ""),
                 "data-kind": kind,
+                "data-caption-type": p.get("caption_type", ""),
+                "data-voice": p.get("voice", "normal"),
                 "color": p["text_color"],
                 **attrs,
             },
@@ -1053,7 +1232,19 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             group,
         )
         for seg in p["_segments"]:
-            sa = {"x": seg["x"], "y": seg["y"], "font-size": seg["font_size"]}
+            sr = seg.get("font_role", p.get("font_role", "body"))
+            fm = font_bank[sr]["metadata"]
+            sa = {
+                "x": seg["x"],
+                "y": seg["y"],
+                "font-size": seg["font_size"],
+                "data-font-role": sr,
+                "font-family": font_bank[sr]["family"],
+                "font-weight": fm.get("weight", 400),
+                "font-style": fm.get("style", "normal"),
+            }
+            if seg.get("horizontal_scale", 1) != 1 and seg.get("advance", 0) > 0:
+                sa.update(textLength=seg["advance"], lengthAdjust="spacingAndGlyphs")
             if seg.get("color"):
                 sa["fill"] = seg["color"]
             if "rotate" in seg:
@@ -1104,6 +1295,26 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 "lines": p["_lines"],
                 "glyph_boxes": p["_glyphboxes"],
                 "tail_tip": list(tail["tip"]) if tail else None,
+                "tail_length": math.dist(tail["boundary"], tail["tip"])
+                if tail
+                else None,
+                "caption_type": p.get("caption_type"),
+                "voice": p.get("voice", "normal"),
+                "resolved_style": {
+                    k: p[k]
+                    for k in (
+                        "font_size",
+                        "font_role",
+                        "kind",
+                        "fill",
+                        "stroke",
+                        "text_color",
+                        "shape",
+                        "voice",
+                        "caption_type",
+                    )
+                    if k in p
+                },
                 "text_preserved": "".join(p["_lines"]) == p["text"],
             }
         )

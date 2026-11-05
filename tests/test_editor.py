@@ -142,3 +142,44 @@ def test_real_editor_drag_undo_save_reload_and_export(session, server, tmp_path)
         page.screenshot(path=str(tmp_path / "editor.png"))
         assert not errors
         browser.close()
+
+
+@pytest.mark.skipif(
+    os.environ.get("COMIC_LETTERER_RENDER_TEST") != "1",
+    reason="optional browser integration",
+)
+def test_editor_phrase_tail_and_contour_controls(session, server):
+    from playwright.sync_api import sync_playwright
+
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(viewport={"width": 1400, "height": 1000})
+        page.goto(server)
+        page.wait_for_function("() => window.editorReady")
+        page.locator("#source-text").evaluate(
+            "(el)=>{el.focus();el.setSelectionRange(4,8)}"
+        )
+        page.locator("#keep-phrase").click()
+        page.wait_for_function(
+            '()=>document.getElementById("advanced").value.includes("keep_together")'
+        )
+        page.locator("#tail-width").fill("24")
+        page.locator("#tail-width").press("Tab")
+        page.wait_for_function(
+            '()=>JSON.parse(document.getElementById("advanced").value).tail.width===24'
+        )
+        page.locator("#tail-curve").click()
+        page.locator('[data-handle="tailcurve"]').wait_for()
+        page.locator("#fit").click()
+        page.wait_for_function('()=>!document.getElementById("fit").disabled')
+        page.locator("#save").click()
+        page.wait_for_function(
+            '()=>document.getElementById("status").textContent.includes("drafts")'
+        )
+        page.reload()
+        page.wait_for_function("()=>window.editorReady")
+        value = json.loads(page.locator("#advanced").input_value())
+        assert value["keep_together"] == [{"start": 4, "end": 8}]
+        assert value["tail"]["width"] == 24 and "curve" in value["tail"]
+        assert value["text"] == session.frozen["a"]
+        browser.close()

@@ -12,13 +12,14 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.2.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.3.0")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("check", "render", "edit"):
         p = sub.add_parser(command)
         p.add_argument("input", type=Path)
         p.add_argument("--font", type=Path)
         p.add_argument("--font-index", type=int, default=0)
+        p.add_argument("--font-map", type=Path, help="JSON role-to-font map")
         p.add_argument("--display-font", type=Path)
         p.add_argument("--display-font-index", type=int, default=0)
         p.add_argument(
@@ -59,6 +60,9 @@ def main(argv=None):
             if args.display_font
             else None
         )
+        from .fonts import read_font_map
+
+        fonts = {**read_font_map(args.font_map), **(fonts or {})}
         if args.command == "edit":
             from .editor import serve
 
@@ -93,6 +97,9 @@ def main(argv=None):
                 inputs.add(args.background.resolve())
             if args.font:
                 inputs.add(args.font.resolve())
+            if args.font_map:
+                inputs.add(args.font_map.resolve())
+            inputs.update(Path(spec["path"]).resolve() for spec in fonts.values())
             if args.display_font:
                 inputs.add(args.display_font.resolve())
             if any((args.out / n).resolve() in inputs for n in names):

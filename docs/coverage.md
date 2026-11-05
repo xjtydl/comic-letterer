@@ -1,5 +1,8 @@
 # Tutorial coverage and implementation boundaries
 
+**Current v0.3:** real-font runs, tracking/scaling, manual phrase protection, text-first box fit, independent tails/later attribution, caption types and reusable styles are implemented and tested on continuous Chinese pages plus an English treatment. Rough telephone speech has actual-page evidence; breath/music/telepathy marks and double outlines are only executable/unit-tested. Wavy singing baselines remain missing. See [v0.3 evidence](v03-validation.md). Earlier tables are historical snapshots.
+
+
 **v0.2 update:** see the current implementation and visual evidence table immediately below. The v0.1 ledger farther down is historical and documents what was absent at that release.
 
 ## Current v0.2 evidence

@@ -12,7 +12,7 @@ SFX represents an actual sound event. Its placement and size should clarify the 
 
 Lay out actual words before committing the balloon size. Start with stable typography and enough space. Set `breaks` to character offsets at phrase boundaries; this changes layout without changing the original string. Balanced flow optimizes lengths and punctuation costs but cannot know that a Chinese noun should stay together. Inspect and correct those boundaries.
 
-Join consecutive utterances from the same speaker only when they form an intended sequence. Put the identifying tail on the first balloon. For A1 → B1 → A2, `allow_interruption: true` and `join_curve` can route a bridge above the interruption. The compiler retains an inspection warning. Keep the interruption tail clear of both the first tail and the bridge; revise placement if needed. Check order by reading the whole page without item numbers. `direction` affects a heuristic, not narrative understanding.
+Join consecutive utterances from the same speaker only when they form an intended sequence. Usually identify the voice on the first balloon; v0.3 can put it on a later connected balloon with explicit `tail.visible` settings if that better fits the actual source. For A1 → B1 → A2, `allow_interruption: true` and `join_curve` can route a bridge above the interruption. The compiler retains an inspection warning. Keep the interruption tail clear of both the first tail and the bridge; revise placement if needed. Check order by reading the whole page without item numbers. `direction` affects a heuristic, not narrative understanding.
 
 Mark heads, hands, key props and important sightlines as protected rectangles. Candidate placement searches a small grid; inspect its result. Fix a distant balloon before lengthening a tail. Source anchors denote mouths, heads for thoughts, or actual devices; tails should leave a readable gap. A fixed fraction alone cannot prove ownership.
 
@@ -36,7 +36,7 @@ For loud metallic impact, use a heavy display font with `hollow`, multiple outli
 
 ## Unsupported techniques
 
-Telepathy decorations, music baselines, breath marks, perspective signs, a dedicated decorative-title workflow, true bold/italic font runs, arbitrary glyph distortion and prepress output require another tool or future implementation. Choose those techniques on story grounds, then disclose the implementation gap. Never describe an indexed tutorial as tested software support.
+Telepathy decorations, music baselines, breath marks, perspective signs, a dedicated decorative-title workflow, arbitrary glyph distortion and prepress output require another tool or future implementation. Choose those techniques on story grounds, then disclose the implementation gap. Never describe an indexed tutorial as tested software support.
 
 ## Local editor
 
@@ -51,3 +51,9 @@ Open the printed loopback URL. Drag the selected box, blue resize point, green s
 ## Delivery record
 
 Record actual font family/index/hash, master and reading sizes, CLI result, image inspection and remaining dependencies. Inspect enlarged joins and the full reading-size page. Check exact source text and unchanged art; font substitution can invalidate SVG appearance. Preserve the editable master before making any downstream print conversion. Obtain actual printer specifications when a print deliverable is requested; screen PNG is not press certification.
+
+## v0.3 decisions from real pages
+
+Configure real font files with `--font-map` before choosing emphasis roles. Chinese validation uses Heiti body, Noto Black for stronger words, and Songti Regular for captions; English uses Arial regular/bold/italic/bold-italic. These are local choices, not compulsory style or bundled fonts. Do not mechanically italicize Chinese text. Explicit phrase ranges preserve words during reflow; ambiguous semantic breaks still require editorial judgment.
+
+The continuous station-office page distinguishes time caption, inner caption, a caretaker speaking, and distorted speech from a telephone receiver. The first page now gives the later connected balloon the identifying tail. Check the whole sequence at reading width. In the English version, the telephone sentence needed three lines; keep the words and font size, then correct the breaks.

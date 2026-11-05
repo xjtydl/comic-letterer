@@ -15,6 +15,7 @@ from PIL import Image
 
 from .engine import compile_page, find_font
 from .render import font_css, render_png
+from .fitting import fit_item
 
 
 class EditorSession:
@@ -225,6 +226,9 @@ def create_server(session, port=0):
                 with session.lock:
                     if self.path == "/preview":
                         result = session.preview(data["job"])
+                    elif self.path == "/fit":
+                        fitted = fit_item(data["job"], data["item"], session.compile)
+                        result = {"job": fitted, **session.preview(fitted)}
                     elif self.path == "/save":
                         result = session.save(data["job"])
                     elif self.path == "/export":

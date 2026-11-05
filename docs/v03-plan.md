@@ -1,0 +1,9 @@
+# v0.3 — type, source geometry and narrative grammar
+
+Scope accepted after the website gap review: deepen priorities 1–3, retaining frozen artwork/words. Existing layout/visual language remains for page 1. Read comic-production-entry, lettering and its composition/output references; reuse already-read layout/visual-language guidance.
+
+Implement measured mixed font-role ranges (real supplied bold/italic faces), tracking and controlled horizontal scale, protected word ranges, explicit phrase breaks; optional contour fit to the real text. Tail root width/direction, curve, gap/length controls, final-balloon attribution and short-tail warnings; manually declared ink edges for tangent checks. Caption source types and reusable page style definitions; double-outline and rough voices, breath/music/telepathy decorations only on explicitly declared expressions.
+
+Validate on Echo Station page 1 with unchanged words/art and a new continuous page 2: rain-soaked woman and caretaker take the rescued kitten to the station office, caretaker phones for a box, a distorted telephone response, woman reassures the kitten, then the three wait under warm lamplight. Four panels, no baked letters or balloons. Source art comes first. Protect faces, hands, receiver and kitten. Time/place caption, spoken device source, ordinary speech and quiet end; do not force supernatural or singing effects into this scene. English lettering edition of the original story tests true italic and bold-italic faces on real art. Special expressions without narrative examples remain explicitly labeled unit-tested only.
+
+New generated art and all outputs/builds go to verified NAS outputs/v03. No private book replacement. Inspect reading-size pages and enlarged tails; freeze strings; compare embedded art bytes. Extend actual editor controls, save/reload/export tests, contract and Skill. Release only after meaningful checks and actual review.

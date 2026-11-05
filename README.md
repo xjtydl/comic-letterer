@@ -2,11 +2,11 @@
 
 An independent, CPU-based comic lettering library, CLI and local visual editor. Exact Unicode text + explicit panel/speaker coordinates → editable SVG + explainable checks + optional PNG.
 
-独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.2** 加入本地可视编辑、精确断行、词语强调、贴边与遮罩、曲线连泡和空心立体音效，并以原创故事整页验证。
+独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.3** 增加真实字体混排、词组保护、尾巴精修、旁白类型和可复用样式；用连续两页中文漫画及英文版验证。
 
-[Download v0.2.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.2.0)
+[Download v0.3.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.3.0)
 
-![Echo Station — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.2.0/echo-station-reading.png)
+![Echo Station — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.3.0/echo-station-page2.png)
 
 ## Install
 
@@ -43,15 +43,19 @@ comic-letterer edit examples/echo-station.json \
   --background /path/to/echo-station-art.png --out /path/to/new-output
 ```
 
-Open the printed `http://127.0.0.1:PORT` URL. Drag boxes, resize with the blue handle, move sources with green handles and join curves with purple handles. Change line breaks without rewriting frozen words, select words to emphasize, undo/redo, save a new JSON draft, and export SVG or SVG plus two PNG sizes. Reading-size view displays the configured pixel width. Advanced item JSON exposes the remaining style controls. This is an editor for existing lettering jobs; it does not yet draw panels or import arbitrary scripts.
+Use `--font-map /path/to/fonts.json` for additional roles such as bold, italic and narrator. See the contract for map format.
+
+Open the printed `http://127.0.0.1:PORT` URL. Drag boxes, resize with the blue handle, move sources with green handles and join curves with purple handles. Orange handles adjust tail curves. Phrase protection, face-based emphasis, tail refinement, caption types and bounded contour fit are available in the sidebar. Change line breaks without rewriting frozen words, select words to emphasize, undo/redo, save a new JSON draft, and export SVG or SVG plus two PNG sizes. Reading-size view displays the configured pixel width. Advanced item JSON exposes the remaining style controls. This is an editor for existing lettering jobs; it does not yet draw panels or import arbitrary scripts.
 
 The server binds to loopback only and rejects foreign Host/Origin and unauthenticated writes. Frozen wording is checked on the server against the initial document. Saves are versioned copies; reload returns the last saved draft within that session. Restart with the saved JSON to resume. Browser previews use local font subsets in memory; exports remain dependent on the named fonts.
 
-[Editor screenshot](https://github.com/xjtydl/comic-letterer/releases/download/v0.2.0/editor.png) · [Actual narrative validation](docs/v02-validation.md)
+[Editor screenshot](https://github.com/xjtydl/comic-letterer/releases/download/v0.3.0/editor.png) · [Actual narrative validation](docs/v03-validation.md)
 
 ## Implemented
 
-- Independent break offsets, balanced line lengths, measured range emphasis, alignment and separate dialogue/display fonts.
+- Independent break offsets, manually protected phrases, balanced line lengths, real-font mixed emphasis, tracking, controlled horizontal scale and alignment. `--font-map` supplies actual bold/italic faces.
+- Independent tail width/length/gap/root/curve controls; attribution may live on a continuation. Optional short-tail and marked-ink-edge warnings.
+- Reusable page styles, explicit caption source types, rough/double contours and breath/music/telepathy marks. Special marks beyond the telephone example are unit-tested, not yet validated as story treatments.
 - Measured text wrapping, CJK punctuation boundary handling, explicit newline preservation, missing-glyph checks and optional frozen-text verification. No automatic text rewriting or font shrinking.
 - Speech, thought, shout, whisper, weak, electronic, caption and SFX presets. These are starting styles, not an exhaustive voice taxonomy.
 - Curved speech tails, thought dots, angular electronic tails; TV contours, clipped border-butting, off-panel edge tails and hidden-source squinks. Same-speaker curved joins allow explicit interruption sequences with an inspection warning.
@@ -75,7 +79,7 @@ Copy `skills/comic-letterer` into your agent's skill directory. The [Skill](skil
 
 ## Limits
 
-No image understanding, face detection, automatic story inference, true bold/italic font runs, arbitrary path editing, text-to-path export, PDF/CMYK/prepress certification, perspective lettering or advanced typography shaping. Horizontal CJK and simple Latin are the tested text domains; bidirectional/complex scripts, emoji clusters and vertical typesetting need further work.
+No image understanding, face detection, automatic story inference, arbitrary path editing, text-to-path export, PDF/CMYK/prepress certification, perspective lettering or advanced typography shaping. Horizontal CJK and simple Latin are the tested text domains; bidirectional/complex scripts, emoji clusters and vertical typesetting need further work.
 
 Bounding-envelope checks are conservative. They can report false positives and cannot establish visual acceptance. Candidate placement is greedy, does not optimize the entire page and does not infer character identities. A clean report still requires inspection at reading size. SVG text may reflow visually if the receiving application substitutes fonts.
 

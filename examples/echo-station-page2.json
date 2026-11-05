@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "width": 1086,
+  "height": 1448,
+  "reading_width": 900,
+  "min_reading_font": 17,
+  "min_tail_length": 5,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        10,
+        8,
+        1066,
+        444
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        10,
+        468,
+        528,
+        456
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        553,
+        468,
+        523,
+        456
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        10,
+        943,
+        1066,
+        492
+      ]
+    }
+  ],
+  "styles": {
+    "dialogue": {
+      "kind": "speech",
+      "shape": "tv",
+      "font_size": 24,
+      "padding": 12
+    }
+  },
+  "items": [
+    {
+      "id": "time",
+      "panel": "p1",
+      "order": 1,
+      "text": "十分钟后，值班室里。",
+      "expected_text": "十分钟后，值班室里。",
+      "box": [
+        28,
+        20,
+        345,
+        62
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "caption",
+      "caption_type": "time",
+      "font_role": "narrator",
+      "shape": null,
+      "font_size": 23,
+      "fill": "#E8D8BA"
+    },
+    {
+      "id": "request",
+      "panel": "p1",
+      "order": 2,
+      "text": "找个纸箱吧。它冷得发抖。",
+      "expected_text": "找个纸箱吧。它冷得发抖。",
+      "box": [
+        402,
+        28,
+        277,
+        132
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        344,
+        188
+      ],
+      "breaks": [
+        6
+      ],
+      "emphasis": [
+        {
+          "start": 2,
+          "end": 4,
+          "font_role": "bold"
+        }
+      ],
+      "tail": {
+        "root_angle": 150,
+        "width": 18,
+        "length": 38,
+        "gap": 10
+      }
+    },
+    {
+      "id": "call",
+      "panel": "p2",
+      "order": 1,
+      "text": "小周，帮我拿个纸箱。",
+      "expected_text": "小周，帮我拿个纸箱。",
+      "box": [
+        26,
+        489,
+        220,
+        130
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        368,
+        687
+      ],
+      "breaks": [
+        3,
+        7
+      ],
+      "keep_together": [
+        {
+          "start": 7,
+          "end": 9
+        }
+      ],
+      "tail": {
+        "width": 18,
+        "length": 50,
+        "gap": 8
+      }
+    },
+    {
+      "id": "reply",
+      "panel": "p2",
+      "order": 2,
+      "text": "喂？听不清……",
+      "expected_text": "喂？听不清……",
+      "box": [
+        24,
+        643,
+        202,
+        130
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "electronic",
+      "shape": null,
+      "speaker": "phone_voice",
+      "target": [
+        293,
+        718
+      ],
+      "voice": "rough",
+      "font_size": 23,
+      "breaks": [
+        2
+      ],
+      "tail": {
+        "width": 16,
+        "length": 45,
+        "gap": 8
+      }
+    },
+    {
+      "id": "soothe",
+      "panel": "p3",
+      "order": 1,
+      "text": "别怕，已经暖和了。",
+      "expected_text": "别怕，已经暖和了。",
+      "box": [
+        841,
+        482,
+        220,
+        130
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        794,
+        685
+      ],
+      "font_size": 24,
+      "breaks": [
+        3
+      ],
+      "tail": {
+        "width": 18,
+        "length": 39,
+        "gap": 10
+      },
+      "emphasis": [
+        {
+          "start": 5,
+          "end": 7,
+          "font_role": "bold"
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "panel": "p4",
+      "order": 1,
+      "text": "原来，今晚还有一位乘客。",
+      "expected_text": "原来，今晚还有一位乘客。",
+      "box": [
+        30,
+        963,
+        440,
+        70
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "caption",
+      "shape": null,
+      "caption_type": "inner",
+      "speaker": "lin",
+      "font_role": "narrator",
+      "font_size": 23,
+      "fill": "#E8D8BA"
+    },
+    {
+      "id": "home",
+      "panel": "p4",
+      "order": 2,
+      "text": "今晚先住这儿。",
+      "expected_text": "今晚先住这儿。",
+      "box": [
+        460,
+        1040,
+        175,
+        98
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        746,
+        1082
+      ],
+      "font_size": 24,
+      "breaks": [
+        4
+      ],
+      "tail": {
+        "width": 18,
+        "length": 36,
+        "gap": 8
+      }
+    }
+  ],
+  "protected": [
+    {
+      "id": "woman1",
+      "box": [
+        230,
+        100,
+        139,
+        125
+      ]
+    },
+    {
+      "id": "cat1",
+      "box": [
+        290,
+        212,
+        100,
+        145
+      ]
+    },
+    {
+      "id": "keeper1",
+      "box": [
+        715,
+        117,
+        143,
+        150
+      ]
+    },
+    {
+      "id": "phone1",
+      "box": [
+        932,
+        313,
+        125,
+        90
+      ]
+    },
+    {
+      "id": "keeper2",
+      "box": [
+        263,
+        498,
+        245,
+        262
+      ]
+    },
+    {
+      "id": "receiver",
+      "box": [
+        260,
+        627,
+        93,
+        145
+      ]
+    },
+    {
+      "id": "woman3",
+      "box": [
+        554,
+        480,
+        285,
+        265
+      ]
+    },
+    {
+      "id": "cat3",
+      "box": [
+        850,
+        695,
+        154,
+        180
+      ]
+    },
+    {
+      "id": "woman4",
+      "box": [
+        230,
+        1070,
+        201,
+        210
+      ]
+    },
+    {
+      "id": "keeper4",
+      "box": [
+        660,
+        953,
+        198,
+        214
+      ]
+    },
+    {
+      "id": "cat4",
+      "box": [
+        391,
+        1256,
+        151,
+        134
+      ]
+    }
+  ]
+}

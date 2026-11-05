@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "width": 1086,
+  "height": 1448,
+  "reading_width": 900,
+  "min_reading_font": 16,
+  "min_tail_length": 5,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        10,
+        8,
+        1066,
+        444
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        10,
+        468,
+        528,
+        456
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        553,
+        468,
+        523,
+        456
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        10,
+        943,
+        1066,
+        492
+      ]
+    }
+  ],
+  "styles": {
+    "dialogue": {
+      "kind": "speech",
+      "shape": "tv",
+      "font_size": 24,
+      "padding": 12
+    }
+  },
+  "items": [
+    {
+      "id": "time",
+      "panel": "p1",
+      "order": 1,
+      "text": "TEN MINUTES LATER.",
+      "expected_text": "TEN MINUTES LATER.",
+      "box": [
+        28,
+        20,
+        345,
+        62
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "caption",
+      "caption_type": "time",
+      "shape": null,
+      "font_size": 22,
+      "fill": "#E8D8BA",
+      "breaks": [],
+      "font_role": "italic"
+    },
+    {
+      "id": "request",
+      "panel": "p1",
+      "order": 2,
+      "text": "A cardboard box. It's freezing.",
+      "expected_text": "A cardboard box. It's freezing.",
+      "box": [
+        402,
+        28,
+        277,
+        132
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        344,
+        188
+      ],
+      "breaks": [
+        17
+      ],
+      "tail": {
+        "root_angle": 150,
+        "width": 18,
+        "length": 38,
+        "gap": 10
+      },
+      "font_size": 22,
+      "emphasis": [
+        {
+          "start": 2,
+          "end": 15,
+          "font_role": "bold"
+        }
+      ]
+    },
+    {
+      "id": "call",
+      "panel": "p2",
+      "order": 1,
+      "text": "Zhou, can you bring a box?",
+      "expected_text": "Zhou, can you bring a box?",
+      "box": [
+        26,
+        489,
+        220,
+        140
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        368,
+        687
+      ],
+      "breaks": [
+        6,
+        14
+      ],
+      "tail": {
+        "width": 18,
+        "length": 50,
+        "gap": 8
+      },
+      "font_size": 22
+    },
+    {
+      "id": "reply",
+      "panel": "p2",
+      "order": 2,
+      "text": "Hello? You're breaking up.",
+      "expected_text": "Hello? You're breaking up.",
+      "box": [
+        24,
+        637,
+        215,
+        150
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "electronic",
+      "shape": null,
+      "speaker": "phone_voice",
+      "target": [
+        293,
+        718
+      ],
+      "voice": "rough",
+      "font_size": 22,
+      "breaks": [
+        7,
+        14
+      ],
+      "tail": {
+        "width": 16,
+        "length": 45,
+        "gap": 8
+      },
+      "font_role": "italic"
+    },
+    {
+      "id": "soothe",
+      "panel": "p3",
+      "order": 1,
+      "text": "It's all right. You're warm now.",
+      "expected_text": "It's all right. You're warm now.",
+      "box": [
+        841,
+        482,
+        220,
+        130
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "lin",
+      "target": [
+        794,
+        685
+      ],
+      "font_size": 22,
+      "breaks": [
+        16
+      ],
+      "tail": {
+        "width": 18,
+        "length": 39,
+        "gap": 10
+      }
+    },
+    {
+      "id": "room",
+      "panel": "p4",
+      "order": 1,
+      "text": "One more passenger tonight.",
+      "expected_text": "One more passenger tonight.",
+      "box": [
+        30,
+        963,
+        440,
+        70
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "kind": "caption",
+      "shape": null,
+      "caption_type": "inner",
+      "speaker": "lin",
+      "font_size": 22,
+      "fill": "#E8D8BA",
+      "breaks": [],
+      "font_role": "italic"
+    },
+    {
+      "id": "home",
+      "panel": "p4",
+      "order": 2,
+      "text": "Stay here tonight.",
+      "expected_text": "Stay here tonight.",
+      "box": [
+        460,
+        1040,
+        175,
+        98
+      ],
+      "style": "dialogue",
+      "flow": "balanced",
+      "speaker": "keeper",
+      "target": [
+        746,
+        1082
+      ],
+      "font_size": 22,
+      "breaks": [
+        10
+      ],
+      "tail": {
+        "width": 18,
+        "length": 36,
+        "gap": 8
+      },
+      "emphasis": [
+        {
+          "start": 10,
+          "end": 17,
+          "font_role": "bold_italic"
+        }
+      ]
+    }
+  ],
+  "protected": [
+    {
+      "id": "woman1",
+      "box": [
+        230,
+        100,
+        139,
+        125
+      ]
+    },
+    {
+      "id": "cat1",
+      "box": [
+        290,
+        212,
+        100,
+        145
+      ]
+    },
+    {
+      "id": "keeper1",
+      "box": [
+        715,
+        117,
+        143,
+        150
+      ]
+    },
+    {
+      "id": "phone1",
+      "box": [
+        932,
+        313,
+        125,
+        90
+      ]
+    },
+    {
+      "id": "keeper2",
+      "box": [
+        263,
+        498,
+        245,
+        262
+      ]
+    },
+    {
+      "id": "receiver",
+      "box": [
+        260,
+        627,
+        93,
+        145
+      ]
+    },
+    {
+      "id": "woman3",
+      "box": [
+        554,
+        480,
+        285,
+        265
+      ]
+    },
+    {
+      "id": "cat3",
+      "box": [
+        850,
+        695,
+        154,
+        180
+      ]
+    },
+    {
+      "id": "woman4",
+      "box": [
+        230,
+        1070,
+        201,
+        210
+      ]
+    },
+    {
+      "id": "keeper4",
+      "box": [
+        660,
+        953,
+        198,
+        214
+      ]
+    },
+    {
+      "id": "cat4",
+      "box": [
+        391,
+        1256,
+        151,
+        134
+      ]
+    }
+  ]
+}
