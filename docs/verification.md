@@ -30,4 +30,4 @@ A wheel was built on the designated output volume, installed to an isolated targ
 
 ## Remaining validation
 
-Linux/Python matrix is configured in GitHub Actions; consult the current run for remote status. Other SVG editors, Windows, complex scripts, full Unicode line breaking, print profiles and graphical editing workflows have not been certified. README and coverage ledger delimit unsupported features.
+The initial [GitHub Actions run](https://github.com/xjtydl/comic-letterer/actions/runs/41962367029) passed on Ubuntu with Python 3.10, 3.12 and 3.14, including Chromium rendering. Consult the current run for subsequent commit status. Other SVG editors, Windows, complex scripts, full Unicode line breaking, print profiles and graphical editing workflows have not been certified. README and coverage ledger delimit unsupported features.

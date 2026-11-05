@@ -27,4 +27,3 @@ include = ["comic_letterer*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-
