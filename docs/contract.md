@@ -237,3 +237,45 @@ Text cells support `strong`/`b`, `em`/`i` and balanced nesting, mapped to `bold`
 Page/panel/order/kind/speaker/voice must match resolved existing items; use empty speaker and `normal` voice for absent values. Frozen words must match exactly, including an explicitly frozen empty value. Nonempty existing text also cannot be rewritten. An item with empty/absent text and no expected_text may receive the row's text. Existing nonempty emphasis must equal the imported spans; complex font/scale/color/offset treatments are not silently flattened. Geometry, style, voice, sound source, panel order, layout breaks and book rules remain in the existing project. Notes are preserved separately and do not enter render text.
 
 Output contains new `pages/`, `book.json`, `handoff.json`, a safely reconstructed rich-text `index.html`, and verbatim input bytes as `manuscript-source.txt`. Original files remain unchanged and hashes are recorded. Existing output directories are refused. Schema, coverage, content and metadata mismatches fail before output creation. Book rule diagnostics retain exit 1, with warnings also failing `--strict`. Import does not render, infer a mouth anchor, translate dialogue or certify layout; follow with actual-font `book-proof` and reading-size visual review.
+
+## v0.10 balloon appearance
+
+`appearance` is optional on a balloon/caption item or in a shared style. It is
+not SFX `material`. Omitted/null retains flat rendering; null also disables an
+inherited appearance. Style overrides remain shallow: retain sibling appearance
+values when overriding one. The editor and guarded revisions do this for you.
+
+```json
+{"fill":"#E5D4B9","stroke":"#776150","text_color":"#382E28",
+ "appearance":{"paper":0.14,"grain_scale":1,"seed":17,
+               "glow":3.5,"glow_color":"#E6C793","glow_opacity":0.65}}
+```
+
+| Field | Range / values | Default |
+|---|---|---|
+| paper | 0..0.3, grain strength; 0 disables | 0 |
+| grain_scale | 0.5..4, relative texture size | 1 |
+| seed | integer 0..65535, deterministic variation | 17 |
+| glow | 0..12 source-pixel blur radius; 0 disables | 0 |
+| glow_color | #RRGGBB | #DDC9A0 |
+| glow_opacity | 0..1 | 0.45 |
+| whisper_border | outside / center; center requires whisper | outside |
+
+Paper uses a repeating, stitched, page-space pattern. Shell, tail, thought dots,
+source marks and joins sample the same material; it never textures text or art.
+Glow is drawn under the opaque balloon components, leaving visible edge light;
+text stays sharp. Existing masks/clipping/stack order apply. Halos can extend
+beyond geometric bounds, so inspect page edges and protected art at reading size;
+the layout report does not certify the light's visual extent.
+
+`whisper_border: "center"` places half of each dash over the paper using the
+existing `stroke_width` and dash rhythm. Tail and incoming/outgoing join openings
+are masked out of the front edge, avoiding a seam across the root. Joined items
+must have equal resolved appearance, as well as the existing equal paint rules.
+
+Book expectations and guarded revision fields accept `appearance` as a whole or
+`appearance.<field>` for every field above. Whole-object comparisons use resolved
+defaults; leaf checks are usually simpler. Turning effects off does not change
+fill/ink colors or frozen text. No scene palette inference, automatic hand-painted
+contours, image-model call, CMYK/print certification or raster-text extraction is
+implied. Actual two-page/eight-panel evidence: [v0.10 validation](v010-validation.md).

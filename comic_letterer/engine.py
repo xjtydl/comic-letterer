@@ -16,7 +16,7 @@ from .typography import typeset
 from .type_options import language_advice
 from .custom_path import ray_boundary, box_inside, inside
 from .surface import projected_text
-from . import material
+from . import material, balloon_finish
 from .decorative import prepare_decoration, inset as inset_box, mechanical_radius
 from .narrative import (
     resolve_item, rough_contour, rough_tail, near_ink_edges,
@@ -420,7 +420,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     for raw in job.get("items", []):
         fields(
             raw,
-            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline edge mechanical scroll drop_cap features language line_widths line_scales contour corner surface material sound overlap_with cross_border",
+            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline edge mechanical scroll drop_cap features language line_widths line_scales contour corner surface material sound overlap_with cross_border appearance",
             "item",
         )
         item = resolve_item(raw, job.get("styles", {}))
@@ -889,6 +889,8 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 )
             if any(p[k] != other[k] for k in ("fill", "stroke", "stroke_width")):
                 raise ValueError("joined styles must match")
+            if balloon_finish.resolve(p) != balloon_finish.resolve(other):
+                raise ValueError("joined appearance must match")
     for p in placed:
         if (
             p["kind"] in ("caption", "floating", "sfx")
@@ -1084,6 +1086,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     text_layer = elem("g", {"id": "text"}, root)
     sfx_layer = elem("g", {"id": "sfx"}, root)
     stack_nodes = {}
+    finish_groups = {}
     for p in placed:
         iid = p["id"]
         kind = p["kind"]
@@ -1098,6 +1101,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
         item_bottom = elem("g", attrs, bottom)
         item_connectors = elem("g", attrs, connectors)
         item_fills = elem("g", attrs, fills)
+        finish_groups[iid] = (item_bottom, item_connectors, item_fills)
         if kind not in ("sfx", "floating"):
             if p.get("double_outline"):
                 g = p["double_outline"]
@@ -1229,6 +1233,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             b = center(box)
             half = min(box[2], box[3], other["box"][2], other["box"][3]) * 0.065
             jd, cells = ribbon(a, b, p.get("join_curve"), half)
+            p['_join_cells'] = cells
             for name, pb in protected:
                 if any(overlap(cell, pb) for cell in cells):
                     issue("join_protected_overlap", iid, f"Join crosses {name}.")
@@ -1419,7 +1424,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                         "voice",
                         "caption_type",
                         "baseline",
-                        "edge", "mechanical", "scroll", "drop_cap",
+                        "edge", "mechanical", "scroll", "drop_cap", "appearance",
                     )
                     if k in p
                 },
@@ -1430,6 +1435,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 "language_advice": language_advice(p),
             }
         )
+    balloon_finish.apply_all(placed, finish_groups, defs, elem, width, height)
     if stacked:
         stack_layer=elem("g",{"id":"intentional-stacks"},root)
         for p in sorted((p for p in placed if p["id"] in stacked),key=lambda p:p["order"]):

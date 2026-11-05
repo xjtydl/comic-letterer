@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05",
-  "active_phase": "semantic_script_handoff_and_bilingual_actual_proofs",
+  "updated": "2026-11-06",
+  "active_phase": "core_balloon_appearance_actual_narrative_proof",
   "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
   "modules": [
     {
@@ -29,7 +29,15 @@
         "evidence": null
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "新增原生/可编辑/混合路线选择；新漫画按用户偏好先考虑图文一起生成，独立全书工序仍未接通",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started"
+      }
     },
     {
       "id": "A02",
@@ -169,7 +177,28 @@
         "evidence": "../v08-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "完整八格r01/r02图文融合复核并写入Skill；画稿构图不同，不作严格同底图A/B",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      }
     },
     {
       "id": "A07",
@@ -353,19 +382,47 @@
         "evidence": "comic-visual-language"
       },
       "implementation": {
-        "status": "not_established_in_independent_program",
-        "detail": "已有固定填色；配色系统与绘画光影课程待补"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10以现有fill/stroke/text_color配合appearance统一纸色、墨色和边光；两页实图调深幽灵声线标记；自动配色和完整绘画光影仍待补"
       },
       "automated_validation": {
-        "status": "not_established",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "补气泡与环境色/明度协同方法；r02为暖纸色而非纯白，仍有亮色贴片感；核心未新增配色系统",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "A14",
@@ -381,19 +438,47 @@
         "evidence": "comic-visual-language"
       },
       "implementation": {
-        "status": "not_established_in_independent_program",
-        "detail": "未实现"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10核心新增连续纸纹与轮廓柔光，贯通泡身/尾巴/思想点/连泡；纸张老化、折痕等完整材质体系仍待补"
       },
       "automated_validation": {
-        "status": "not_established",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "r02纸纹及柔光已有完整剧情证据，方法纳入Skill；滤镜仍在制作脚本，未合入核心",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "B01",
@@ -493,19 +578,47 @@
         "evidence": "comic-letterer / comic-visual-language"
       },
       "implementation": {
-        "status": "implemented_with_explicit_scope_boundaries",
-        "detail": "新增圆角平边、可拖控制点的闭合曲线及实际尾根/留白检查，剧院标题和耳语实页验证；病态路径不作精确几何保证"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "现有自然/机械/锯齿/火焰等形状保留；v0.10加入可复用材质与边缘效果，实际把矩形耳语改为自然椭圆；不声称达到所有原生手绘轮廓"
       },
       "automated_validation": {
-        "status": "verified_current_operations",
-        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "补原生轮廓及画面融合方法；r02纸感不等于自然造型完全解决；核心轮廓能力不变",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "B05",
@@ -521,19 +634,47 @@
         "evidence": "comic-visual-language / comic-letterer"
       },
       "implementation": {
-        "status": "implemented_with_explicit_scope_boundaries",
-        "detail": "两页剧院补证咳嗽、心灵、思想、耳语、弱声、歌唱；修复标记不可见，守灯人另验证双轮廓；机械和粗糙声沿用既有实页"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10核心支持轮廓柔光和中心耳语虚线；参数按声音/样式选择，无故事ID硬编码；完整两页/八格验证，未穷尽所有组合"
       },
       "automated_validation": {
-        "status": "verified_current_operations",
-        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "复核r02幽灵柔光和暗背景内侧耳语虚线；只吸收适用判断，仍为分支SVG扩展",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "B06",
@@ -549,19 +690,47 @@
         "evidence": "comic-letterer / comic-lettering"
       },
       "implementation": {
-        "status": "implemented_with_explicit_scope_boundaries",
-        "detail": "实际尾根/认主/间隙已有实页；自定义路径新增射线交点；跨页样式核对进入D04"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10纸纹覆盖尾巴和思想连接点，中心虚线避让尾根；保留已有声源和保护区检查，自动识别嘴部仍未实现"
       },
       "automated_validation": {
-        "status": "verified_current_operations",
-        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "记录r02泡身有纸纹而尾巴/思想点仍平涂的限制；材质连续性要求纳入Skill，未新增核心实现",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "B07",
@@ -577,19 +746,26 @@
         "evidence": "comic-lettering / comic-letterer"
       },
       "implementation": {
-        "status": "implemented_with_explicit_scope_boundaries",
-        "detail": "连泡/插话沿用既有剧情证据；新增显式前后叠放、独立完整壳层与遮字拒绝，剧院思想后耳语实页验证"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10连泡与泡身共用页坐标纹理，拒绝不一致appearance；前景虚线同时避让连段两端，测试覆盖，复杂叠放继续按实图检查"
       },
       "automated_validation": {
-        "status": "verified_current_operations",
-        "evidence": "../v06-validation.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "B08",
@@ -617,7 +793,28 @@
         "evidence": "../v06-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "原生标题/结尾融入留白与程序框式旁白的完整剧情比较；未实现自动构图",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      }
     },
     {
       "id": "B09",
@@ -785,7 +982,15 @@
         "evidence": null
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "补原生故事题头融入画面的实证；不是独立完整标题页/署名系统实现",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started"
+      }
     },
     {
       "id": "C02",
@@ -941,19 +1146,34 @@
         "evidence": "comic-production-entry / comic-letterer"
       },
       "implementation": {
-        "status": "partial_with_actual_handoff_proof",
-        "detail": "已有全书校样/显式修订；v0.9验证中英交接到成页、原文和强调保真；自动翻译及任意文档解析仍待建"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10编辑器可调纸色/墨色/纸纹/柔光/耳语描边，保存重载/继承与禁用保持；既有精确改词边界不变"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v09-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v09-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "直接生成版逐字目视及程序10项Unicode复核；局部生图会改变框外像素，不承诺无损改字",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started"
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "D04",
@@ -969,19 +1189,26 @@
         "evidence": "comic-production-entry / comic-visual-language"
       },
       "implementation": {
-        "status": "partial_with_actual_revision",
-        "detail": "规则/例外、字体哈希与逐页校样已有；v0.7新增带来源/前值保护的显式批量修订和完整前后对照，四页600px剧情验证；多人协作与自动验收未实现"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10全书检查及带前值保护的修订支持appearance参数，完整两页正常及漂移副本验证；完整整本视觉验收仍未宣称"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v07-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v07-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "D05",
@@ -1009,7 +1236,15 @@
         "evidence": "IMPLEMENTATION_LEDGER.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "新增自包含完整剧情对照阅读页；区别栅格原生字、JSON输入与SVG活字；核心导出能力不变",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started"
+      }
     },
     {
       "id": "D06",
@@ -1149,7 +1384,15 @@
         "evidence": null
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "新增原生/程序路线及分支效果索引，并同步现有Skill；未新增网站通读声明",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started"
+      }
     },
     {
       "id": "E02",
@@ -1165,19 +1408,47 @@
         "evidence": "comic-production-entry"
       },
       "implementation": {
-        "status": "partial_with_actual_revision",
-        "detail": "v0.7保存显式目的、35项修改、10项规则变更、前后漫画和失败修订；是单个原创案例过程记录，非完整训练语料"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "新增r02分支到v0.10核心的真实剧情修订、标记偏淡修正及可编辑版本；属于过程记录，未整理为训练数据集"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v07-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v07-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "纳入r01原生/r02程序实页、用户局部反馈与脚本局限；不是训练数据集或已训练模型",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     },
     {
       "id": "E03",
@@ -1249,19 +1520,47 @@
         "evidence": "现有制作验收扩展"
       },
       "implementation": {
-        "status": "partial_with_actual_handoff_proof",
-        "detail": "201项测试及多部剧情实页；新增富文本Unicode/元数据/冻结值保护，真实20项交接与四页渲染；全绘画评测和模型训练仍未建立"
+        "status": "partial_with_core_balloon_appearance",
+        "detail": "v0.10共223项自动测试，包含真实纸纹连续性/文字和背景保持、虚线内缘、编辑器保存及修订保护；完整两页和390宽八格实看，模型训练仍未开始"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v09-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v09-validation.md"
+        "evidence": "../v010-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
-      "model_training": "not_started"
+      "model_training": "not_started",
+      "branch_evidence_20261106": {
+        "status": "reviewed_and_integrated_in_method_not_core",
+        "detail": "新增完整剧情读图和分支来源/原文/离线阅读复核；核心201项为v0.9历史基线，本轮不冒称新跑核心测试",
+        "evidence": "../last-ticket-branch-review-20261106.md",
+        "core_engine_changed": false,
+        "user_feedback": "用户已看r02并认为改善；仍指出气泡与画面不融合，认为直接生成气泡和文字可能更好。不是全模块验收。",
+        "model_training": "not_started",
+        "additional_native_trial": {
+          "name": "r03",
+          "actual_model": "not_exposed_by_tool",
+          "size": [
+            1024,
+            1536
+          ],
+          "source": "same unlettered page 1 as r02; generated result not pixel-locked",
+          "result": "six text entries visually reviewed; warm paper/organic edge/glow and inner whisper dashes visible; cough tail somewhat distant",
+          "program_lettering_applied": false,
+          "core_engine_changed": false,
+          "user_acceptance": "pending_for_r03"
+        }
+      },
+      "core_appearance_20261106": {
+        "version": "0.10.0",
+        "evidence": "../v010-validation.md",
+        "core_implemented": true,
+        "scope": "paper/edge glow/centered whisper outline; no new drawing or model generation",
+        "user_acceptance": "not_recorded_for_v010"
+      }
     }
   ]
 }

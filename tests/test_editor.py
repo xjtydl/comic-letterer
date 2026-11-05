@@ -10,6 +10,43 @@ import pytest
 from comic_letterer.editor import EditorSession, create_server
 
 
+@pytest.mark.skipif(os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1', reason='browser integration')
+def test_appearance_controls_preserve_style_siblings_and_saved_text(session, server):
+    from playwright.sync_api import sync_playwright
+    session.job['styles'] = {'paper': {'appearance': {'paper': .12, 'seed': 23}}}
+    session.job['items'][0]['style'] = 'paper'
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(viewport={'width': 1400, 'height': 1000})
+        page.goto(server)
+        page.wait_for_function('() => window.editorReady')
+        page.locator('#appearance-controls summary').click()
+        page.locator('#edge-glow').fill('3')
+        page.locator('#edge-glow').press('Tab')
+        page.wait_for_function("()=>!!document.querySelector('#glow-a')")
+        current = json.loads(page.locator('#advanced').input_value())
+        assert current['appearance'] == {'paper': .12, 'seed': 23, 'glow': 3}
+        page.locator('#kind').select_option('whisper')
+        page.wait_for_function("()=>document.querySelector('#whisper-border').disabled===false")
+        page.locator('#whisper-border').select_option('center')
+        page.wait_for_function("()=>!!document.querySelector('#whisper-border-a')")
+        page.locator('#save').click()
+        page.wait_for_function("()=>document.querySelector('#status').textContent.includes('drafts')")
+        page.reload()
+        page.wait_for_function('() => window.editorReady')
+        assert page.locator('#source-text').input_value() == 'The door is open.'
+        assert page.locator('#whisper-border').input_value() == 'center'
+        assert page.locator('#paper-seed').input_value() == '23'
+        page.locator('#appearance-controls summary').click()
+        page.locator('#clear-appearance').click()
+        page.wait_for_function("()=>!document.querySelector('#glow-a')")
+        assert json.loads(page.locator('#advanced').input_value())['appearance'] is None
+        page.locator('#kind').select_option('speech')
+        page.wait_for_function("()=>document.querySelector('#whisper-border').disabled")
+        assert json.loads(page.locator('#advanced').input_value())['appearance'] is None
+        browser.close()
+
+
 @pytest.fixture
 def session(tmp_path):
     job = {

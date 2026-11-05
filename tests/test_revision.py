@@ -17,6 +17,22 @@ def setup(tmp_path):
     return book, assets, plan
 
 
+def test_appearance_revision_retains_inherited_material_and_guards_old_value(tmp_path):
+    book, assets, plan = setup(tmp_path)
+    page = json.loads((tmp_path/'p1.json').read_text())
+    page['styles'] = {'paper': {'appearance': {'paper': .1, 'seed': 37}}}
+    page['items'][0]['style'] = 'paper'
+    (tmp_path/'p1.json').write_text(json.dumps(page))
+    plan['page_sha256']['p1'] = hashlib.sha256((tmp_path/'p1.json').read_bytes()).hexdigest()
+    plan['changes'][0].update(field='appearance.paper', before=.1, after=.16)
+    original, pages, _, _, _ = prepare_revision(book, tmp_path, plan)
+    assert pages['p1']['items'][0]['appearance'] == {'paper': .16, 'seed': 37}
+    assert original['p1'] == page
+    plan['changes'][0]['before'] = .2
+    with pytest.raises(ValueError):
+        prepare_revision(book, tmp_path, plan)
+
+
 @pytest.mark.parametrize('failure', ['stale_page', 'stale_book', 'old_value', 'text', 'duplicate', 'reason', 'unknown_item'])
 def test_revision_guards_inputs_before_output(tmp_path, failure):
     book, assets, plan = setup(tmp_path)

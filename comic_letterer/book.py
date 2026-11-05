@@ -4,6 +4,7 @@ from pathlib import Path
 from .narrative import resolve_item
 from .decorative import prepare_decoration
 from .validation import fields, ident, number
+from .balloon_finish import DEFAULTS as APPEARANCE_DEFAULTS, resolve as resolve_appearance
 
 MATCH = 'speaker kind style voice caption_type edition language'
 EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voice caption_type features language '
@@ -11,6 +12,8 @@ EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voi
               'tail.width tail.gap baseline.mode baseline.amplitude '
               'edge.spacing edge.depth mechanical.band mechanical.dash mechanical.gap mechanical.notch '
               'scroll.curl drop_cap.lines drop_cap.font_role').split())
+EXPECT.update('appearance.' + k for k in APPEARANCE_DEFAULTS)
+EXPECT.add('appearance')
 
 
 def value(item, page, key):
@@ -24,6 +27,9 @@ def value(item, page, key):
         width=number(page['width'],'page width',True)
         return number(fs,'font size',True)*number(page.get('reading_width',width),'reading_width',True)/width
     prefix, _, leaf = key.partition('.')
+    if prefix == 'appearance':
+        spec = resolve_appearance(item)
+        return spec if not leaf else spec.get(leaf)
     if prefix in ('edge','mechanical','scroll') and item.get('box'):
         decoration = prepare_decoration(item, item['box'])
         if decoration and leaf in decoration['spec']:

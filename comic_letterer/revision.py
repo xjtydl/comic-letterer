@@ -10,6 +10,7 @@ from .book import EXPECT, audit_book, value
 from .narrative import resolve_item
 from .proof import proof_book
 from .validation import fields, ident
+from .balloon_finish import DEFAULTS as APPEARANCE_DEFAULTS
 
 # No words, speakers, voice kinds, sources, art, panels or protected regions.
 ITEM_FIELDS = set(('font_size font_role fill stroke text_color stroke_width padding '
@@ -17,6 +18,8 @@ ITEM_FIELDS = set(('font_size font_role fill stroke text_color stroke_width padd
                    'line_widths line_scales keep_together tail.width tail.gap '
                    'baseline.amplitude').split())
 PAGE_FIELDS = {'reading_width'}
+ITEM_FIELDS.add('appearance')
+ITEM_FIELDS.update('appearance.' + k for k in APPEARANCE_DEFAULTS)
 
 
 def digest(data):
@@ -45,7 +48,7 @@ def _set_field(raw, effective, field, after):
         raw[field] = copy.deepcopy(after)
     else:
         # Styles are shallow-merged by the renderer; retain inherited siblings.
-        raw[parts[0]] = copy.deepcopy(effective.get(parts[0], {}))
+        raw[parts[0]] = copy.deepcopy(effective.get(parts[0]) or {})
         raw[parts[0]][parts[1]] = copy.deepcopy(after)
 
 

@@ -2,8 +2,9 @@
 
 import math
 from .validation import fields, ident, number, vector
+from .balloon_finish import resolve as resolve_appearance
 
-STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline edge mechanical scroll drop_cap features language"
+STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline edge mechanical scroll drop_cap features language appearance"
 CAPTIONS = ("location", "time", "inner", "spoken", "editorial")
 VOICES = ("normal", "rough", "breath", "singing", "telepathic")
 
@@ -18,6 +19,7 @@ def resolve_item(raw, styles):
     if key is not None and (not isinstance(key, str) or key not in styles):
         raise ValueError("unknown style")
     item = {**styles.get(key, {}), **raw}
+    resolve_appearance(item)
     caption = item.get("caption_type")
     if caption is not None:
         if caption not in CAPTIONS or item.get("kind") not in ("caption", "floating"):

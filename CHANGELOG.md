@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Core balloon `appearance`: deterministic continuous paper across shells/tails/thought dots/joins, edge-only visible glow, and centered whisper dashes with tail/join openings.
+- Editor color/material controls, inherited-style overrides and disabling, book audit and guarded batch revisions for appearance parameters; unchanged flat defaults.
+- Complete Last Ticket two-page and eight-panel core proofs preserve artwork and all ten text entries. No post-render SVG styling or image-model generation in this program pass. See docs/v010-validation.md.
+
 ## 0.9.0
 
 - `script-import` reconciles a semantic rich-text HTML script with exact page/item IDs, metadata, frozen wording and existing geometry.
