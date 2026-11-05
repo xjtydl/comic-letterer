@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0
+
+- Explicit `book-revise` plans with book/page hashes, exact prior values, reasons, targeted inherited-style edits and separate rule updates.
+- New copies, before/after complete page renders, editable sources, preserved exceptions and interactive same-width comparison.
+- Real four-page bilingual 600px reading edition: retain all words/art; reflow and enlarge affected balloons, then correct a visually inadequate singing tail after clean automated checks.
+- 175 local tests and updated D04/A06/E02/E05 evidence across the 45-module ledger. See docs/v07-validation.md.
+
 ## 0.6.0
 
 - Feature-aware OpenType measurement/rendering, authored per-line widths/scales, and non-destructive language advice.

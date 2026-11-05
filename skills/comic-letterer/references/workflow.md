@@ -36,7 +36,7 @@ For loud metallic impact, use a heavy display font with `hollow`, multiple outli
 
 ## Unsupported techniques
 
-Telepathy/music/breath decorations exist, but still need their own narrative validation. Dialogue bounce/wave baselines and organic/tattered contours exist in v0.4. Perspective signs, a dedicated decorative-title workflow, arbitrary glyph distortion and prepress output remain future implementation. Choose those techniques on story grounds, then disclose the implementation gap. Never describe an indexed tutorial as tested software support.
+Complex-script projected outlines, arbitrary glyph distortion, full font families and prepress output remain outside the verified scope. Voice marks and projective surface text gained actual-story evidence in v0.6; read the latest validation before promising an unfamiliar variant. Never describe an indexed tutorial as tested software support.
 
 ## Local editor
 
@@ -75,3 +75,9 @@ Once the requested lettering operations pass their actual pages, use `book-check
 ## v0.6 actual-page completion pass
 
 The Last Ticket two-page Chinese/English story verifies authored phrase/row controls, custom/flat paths, cough/telepathy/thought/whisper/weak/singing, original HOME font on the physical sign, restrained projective piano SFX, independent overlapping shells and an intentional border-crossing caption. Lightkeeper supplies a separate full-page double-outline treatment. Read `docs/v06-validation.md`; sources and 45-module states are in `docs/WORK_INDEX.md`. `book-proof` then renders these four pages together and detects both metadata size drift and actual font drift without rewriting them.
+
+## v0.7 book revision decisions
+
+Copying a 900px reading page to a 600px display produced 16 small-type warnings. Increasing type alone produced overflow and overlapping words. Use explicit page/item revisions, preserving semantic phrases and speaker protection, then inspect complete pages at the new reading size. A singing tail was still visually inadequate after zero diagnostics; moving and reshaping that shell restored attribution. The final four-page bilingual edition has unchanged words/art and a retained revision history.
+
+Use `book-revise book.json --plan revision.json --assets local-assets.json --out new-directory --strict`. Include current book/page hashes and exact old/new values with reasons. Rule expectations must be updated explicitly when changing the house style; retain intentional exceptions and investigate stale ones. Never use outdated plans to overwrite a new source, and never silently rewrite words to force a fit. Keep before/after complete proofs and diagnostic revisions. This records visible production decisions, not private reasoning or a trained model.

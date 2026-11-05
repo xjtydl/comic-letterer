@@ -2,11 +2,11 @@
 
 An independent, CPU-based comic lettering library, CLI and local visual editor. Exact Unicode text + explicit panel/speaker coordinates → editable SVG + explainable checks + optional PNG.
 
-独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.6** 补入 OpenType、逐行字宽、手修曲线、叠放/跨边、透视字形、材质与原创笔触字体，使用两页《最后一张票》中英文完整剧情验证；随后增加真实全书校样和字体漂移检查。完整目标与能力边界见 [45模块工作入口](docs/WORK_INDEX.md)，不宣称全部漫画/字体能力已经完成。
+独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.7** 新增带来源保护的全书批量修订和前后漫画对照，已用四页中英文600px阅读版验证。v0.6补入 OpenType、逐行字宽、手修曲线、叠放/跨边、透视字形、材质与原创笔触字体，使用两页《最后一张票》中英文完整剧情验证；随后增加真实全书校样和字体漂移检查。完整目标与能力边界见 [45模块工作入口](docs/WORK_INDEX.md)，不宣称全部漫画/字体能力已经完成。
 
-[Download v0.6.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.6.0)
+[Download v0.7.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.7.0)
 
-![The Last Ticket — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.6.0/theatre-p1-zh.png)
+![The Last Ticket — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.7.0/theatre-600-p1-zh.png)
 
 ## Install
 
@@ -49,7 +49,7 @@ Open the printed `http://127.0.0.1:PORT` URL. Drag boxes, resize with the blue h
 
 The server binds to loopback only and rejects foreign Host/Origin and unauthenticated writes. Frozen wording is checked on the server against the initial document. Saves are versioned copies; reload returns the last saved draft within that session. Restart with the saved JSON to resume. Browser previews use local font subsets in memory; exports remain dependent on the named fonts.
 
-[Editor screenshot](https://github.com/xjtydl/comic-letterer/releases/download/v0.6.0/editor.png) · [Actual narrative validation](docs/v06-validation.md)
+[Editor screenshot](https://github.com/xjtydl/comic-letterer/releases/download/v0.6.0/editor.png) · [600px before/after](https://github.com/xjtydl/comic-letterer/releases/download/v0.7.0/comparison-p1-zh.png) · [Actual narrative validation](docs/v07-validation.md)
 
 ## Implemented
 
@@ -93,3 +93,7 @@ COMIC_LETTERER_RENDER_TEST=1 python -m pytest
 The optional second command requires Chromium and exercises real PNG output. Use `TMPDIR` and pytest `--basetemp` if your project requires generated files on a separate volume.
 
 Implementation, synthetic examples and the Echo Station story are original. Echo Station art was generated with an image tool; no exact backend model identity is claimed. Public teaching references are acknowledged in the coverage document; no third-party application code, tutorial illustrations, commercial fonts or production comic artwork are included. MIT license applies to this repository's original code and examples; it grants no rights to external fonts or artwork.
+
+### v0.7 全书修订与600px剧情阅读
+
+`book-revise` 将带来源哈希、旧值和理由的计划落实为新副本，同时生成修订前后完整漫画对照。四页中英文《最后一张票》实际改为600px阅读版，保留原文/原画并修复重排后的溢出和声源问题。见 [实际验证](docs/v07-validation.md) 与 [修订契约](docs/contract.md#book-revisions)。

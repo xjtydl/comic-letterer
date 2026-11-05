@@ -1,3 +1,5 @@
+> v0.7增量：全书显式批量修订与前后完整漫画对照已实现，实际四页600px中英文剧情验证，175项测试通过；见 [v07验证](v07-validation.md)。后文保留早期能力节点。
+
 # Latest v0.6 narrative pass
 
 [The Last Ticket actual-page evidence](v06-validation.md) covers the remaining type/path/voice operations, projective materials and authored handwriting. Independent stacking and border crossing were added and visually checked before extending D04 to real book proofs. Earlier tables remain historical; consult WORK_INDEX for present limits.

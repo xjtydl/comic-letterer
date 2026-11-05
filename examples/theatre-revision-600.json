@@ -1,0 +1,490 @@
+{
+  "version": 1,
+  "title": "最后一张票 · 600px阅读版 / 600px reading edition",
+  "book_sha256": "5b2ed740e59919701ee6a1a170214919f5ff5f3a3c6f09ebf7cbc57f560ccc6b",
+  "page_sha256": {
+    "p1-zh": "98c17bba1c21e5c036a48ba5673aec686bb157db3ccdc69ced3978157b6c1e47",
+    "p2-zh": "def5c61fea511ca534c646474f997b475e47ee12a6a2e6366af07bbd47209421",
+    "p1-en": "ab3822483b74f1b81f8ce858ce37caec0721459c0b594b85ff09393d6e2858d7",
+    "p2-en": "34ce89bbe62a870d9724ca105cba5bc406aebcd91f5ce3ab57be1177039fdde7"
+  },
+  "changes": [
+    {
+      "page": "p1-zh",
+      "field": "reading_width",
+      "before": 900,
+      "after": 600,
+      "reason": "600px screen reading edition; preserve the source canvas and art."
+    },
+    {
+      "page": "p1-zh",
+      "item": "title",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-zh",
+      "item": "cough",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-zh",
+      "item": "mind",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-zh",
+      "item": "thought",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-zh",
+      "item": "whisper",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-zh",
+      "field": "reading_width",
+      "before": 900,
+      "after": 600,
+      "reason": "600px screen reading edition; preserve the source canvas and art."
+    },
+    {
+      "page": "p2-zh",
+      "item": "weak",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-zh",
+      "item": "song",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-zh",
+      "item": "close",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-en",
+      "field": "reading_width",
+      "before": 900,
+      "after": 600,
+      "reason": "600px screen reading edition; preserve the source canvas and art."
+    },
+    {
+      "page": "p1-en",
+      "item": "title",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-en",
+      "item": "cough",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-en",
+      "item": "mind",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-en",
+      "item": "thought",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p1-en",
+      "item": "whisper",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-en",
+      "field": "reading_width",
+      "before": 900,
+      "after": 600,
+      "reason": "600px screen reading edition; preserve the source canvas and art."
+    },
+    {
+      "page": "p2-en",
+      "item": "weak",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-en",
+      "item": "song",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-en",
+      "item": "close",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "At 600px, retain the project 18px minimum reading type without changing words."
+    },
+    {
+      "page": "p2-zh",
+      "item": "weak",
+      "field": "box",
+      "before": [
+        175,
+        45,
+        315,
+        155
+      ],
+      "after": [
+        135,
+        45,
+        355,
+        165
+      ],
+      "reason": "Larger type needs a wider shell; retain the same right edge and clear face."
+    },
+    {
+      "page": "p2-zh",
+      "item": "weak",
+      "field": "line_widths",
+      "before": [
+        220,
+        210
+      ],
+      "after": [
+        245,
+        235
+      ],
+      "reason": "Measured row budget for the enlarged type and shell."
+    },
+    {
+      "page": "p2-en",
+      "item": "weak",
+      "field": "box",
+      "before": [
+        175,
+        45,
+        315,
+        155
+      ],
+      "after": [
+        135,
+        45,
+        355,
+        165
+      ],
+      "reason": "Larger type needs a wider shell; retain the same right edge and clear face."
+    },
+    {
+      "page": "p2-en",
+      "item": "weak",
+      "field": "line_widths",
+      "before": [
+        220,
+        210
+      ],
+      "after": [
+        245,
+        235
+      ],
+      "reason": "Measured row budget for the enlarged type and shell."
+    },
+    {
+      "page": "p1-zh",
+      "item": "mind",
+      "field": "box",
+      "before": [
+        80,
+        810,
+        350,
+        150
+      ],
+      "after": [
+        50,
+        800,
+        420,
+        175
+      ],
+      "reason": "Widen the long second phrase and keep both telepathy marks inside the shell."
+    },
+    {
+      "page": "p1-zh",
+      "item": "thought",
+      "field": "box",
+      "before": [
+        545,
+        800,
+        310,
+        125
+      ],
+      "after": [
+        535,
+        790,
+        350,
+        150
+      ],
+      "reason": "Keep 妈妈 together and give two larger rows contour clearance."
+    },
+    {
+      "page": "p1-en",
+      "item": "title",
+      "field": "box",
+      "before": [
+        24,
+        30,
+        250,
+        90
+      ],
+      "after": [
+        24,
+        30,
+        300,
+        90
+      ],
+      "reason": "Preserve a single-line title with larger type."
+    },
+    {
+      "page": "p1-en",
+      "item": "mind",
+      "field": "box",
+      "before": [
+        60,
+        805,
+        390,
+        165
+      ],
+      "after": [
+        35,
+        795,
+        450,
+        210
+      ],
+      "reason": "Give the three mental-voice rows and marks room above the girl."
+    },
+    {
+      "page": "p1-en",
+      "item": "thought",
+      "field": "box",
+      "before": [
+        545,
+        800,
+        310,
+        125
+      ],
+      "after": [
+        535,
+        790,
+        350,
+        155
+      ],
+      "reason": "Retain the memory phrase in two readable rows."
+    },
+    {
+      "page": "p1-en",
+      "item": "whisper",
+      "field": "box",
+      "before": [
+        780,
+        890,
+        225,
+        105
+      ],
+      "after": [
+        730,
+        925,
+        275,
+        105
+      ],
+      "reason": "Keep I remember on one line; lower it to avoid covering thought text."
+    },
+    {
+      "page": "p2-en",
+      "item": "song",
+      "field": "breaks",
+      "before": [
+        19
+      ],
+      "after": [
+        12,
+        24
+      ],
+      "reason": "Three lyric phrases fit the larger type without shrinking or rewriting."
+    },
+    {
+      "page": "p2-en",
+      "item": "song",
+      "field": "box",
+      "before": [
+        535,
+        38,
+        370,
+        175
+      ],
+      "after": [
+        535,
+        8,
+        430,
+        190
+      ],
+      "reason": "Three lyric rows fit above the face; move shell upward to restore a readable tail instead of a tiny nib."
+    },
+    {
+      "page": "p2-en",
+      "item": "close",
+      "field": "breaks",
+      "before": [],
+      "after": [
+        11
+      ],
+      "reason": "Separate This time from the quiet conclusion."
+    },
+    {
+      "page": "p2-en",
+      "item": "close",
+      "field": "box",
+      "before": [
+        490,
+        790,
+        455,
+        88
+      ],
+      "after": [
+        490,
+        790,
+        455,
+        110
+      ],
+      "reason": "Allow two caption rows while retaining the deliberate border crossing."
+    },
+    {
+      "page": "p1-zh",
+      "item": "whisper",
+      "field": "box",
+      "before": [
+        780,
+        890,
+        225,
+        105
+      ],
+      "after": [
+        780,
+        925,
+        225,
+        105
+      ],
+      "reason": "Lower the front whisper to keep both larger thought and whisper words clear."
+    }
+  ],
+  "rule_changes": [
+    {
+      "rule": "zh-caption",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "zh-speech",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "zh-thought",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "zh-whisper",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "zh-weak",
+      "field": "font_size",
+      "before": 26,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "en-caption",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "en-speech",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "en-thought",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "en-whisper",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    },
+    {
+      "rule": "en-weak",
+      "field": "font_size",
+      "before": 24,
+      "after": 32,
+      "reason": "House type size for the 600px reading edition."
+    }
+  ]
+}

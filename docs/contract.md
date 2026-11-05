@@ -185,3 +185,24 @@ An exception is `{page,item,rule,field,value,reason}`. It only applies to that e
 `comic-letterer book-proof book.json --assets local-assets.json --out new-proof-directory --strict` retains the existing book rules and exceptions, compiles every page, renders reading PNGs, compares actual font hashes/indexes for the same role within an edition, and writes `index.html` plus `proof.json`. It refuses an existing output directory and never rewrites inputs. Book matching additionally supports `language`; expectations support `features` and `language`.
 
 The local asset map must exactly match book page IDs; each entry supplies `background` and optional `font`, `font_index`, `font_map`. Asset paths are relative to the asset-map file; font-map paths retain their existing relative semantics. Keep private paths in a local configuration, not a public example. Each output page includes its SVG, JSON and report. The aggregate records source/art hashes, actual font identities, diagnostics and unchanged-source verification. Font comparison uses the first page for that edition/role, not an external licensed-font policy. The proof is a review surface, not automated story/visual/user acceptance or print certification.
+
+## Book revisions
+
+```sh
+comic-letterer book-revise book.json --plan revision-plan.json \
+  --assets local-assets.json --out new-revision --strict
+```
+
+The output must not already exist. This creates new copies, both full rendered proofs and a same-width comparison; it does not overwrite pages or edit dialogue. `--strict` checks the **after** findings, including stale exceptions. Earlier findings remain in the record. Invalid input/render exceptions clear staging; ordinary layout problems retain a clearly diagnostic comparison and return 1.
+
+Plan version 1 contains:
+
+- `title`: nonempty description of this revision.
+- `book_sha256`: hash of the source manifest using `comic_letterer.revision.book_digest(book)` (UTF-8, sorted keys, compact separators). This guards rules, edition assignments, page order and exceptions.
+- `page_sha256`: exact map of every page ID to SHA-256 of that input file's bytes. A plan must be rebuilt/reviewed if any source differs.
+- `changes`: array of `{page, item?, field, before, after, reason}`. Without `item`, only page `reading_width` is supported. For items: `font_size`, `font_role`, `fill`, `stroke`, `text_color`, `stroke_width`, `padding`, `tracking`, `horizontal_scale`, `line_height`, `features`, `box`, `breaks`, `line_widths`, `line_scales`, `keep_together`, `tail.width`, `tail.gap`, `baseline.amplitude`. All regular compiler validation remains active.
+- `rule_changes`: optional array of `{rule, field, before, after, reason}` for existing rule expectations only. Selectors and exceptions are retained; no automatic rule repair.
+
+At least one change is required. Unknown fields, duplicate targets, absent reasons and unchanged values are rejected. `before` for style/audit fields is the resolved effective value including existing defaults; for layout arrays it is the explicit value, or `null` if absent. `reading_width` defaults to canvas width. Multiple fields on the same item compare to the original state, then apply together. A nested item override copies inherited siblings before changing its leaf, preserving unrelated settings. Words, speakers, sound types, source anchors, art and panel structure are outside this command's edit scope.
+
+`book.json` and `pages/` are the new editable version; `before-book.json` and `before-pages/` preserve the prior inputs. `before/` and `after/` contain complete proofs. `plan.json`, `revision.json` and `index.html` contain reasons, hashes, diagnostics, exact exceptions and visual comparison. Asset maps remain external; supply the same local licensed fonts/art for a later render. The viewer offers 450/600/900px preview widths; only the configured `reading_width` is measured for font-size checks. No acceptance is inferred from preview controls or clean output. See `examples/theatre-revision-600.json` for the real bilingual revision.

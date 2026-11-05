@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "active_phase": "lettering_gap_pass_verified_then_rendered_book_proof",
+  "active_phase": "rendered_book_revision_and_600px_narrative_validation",
   "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
   "modules": [
     {
@@ -157,16 +157,16 @@
         "evidence": "american-comic-layout / comic-visual-language"
       },
       "implementation": {
-        "status": "partial",
-        "detail": "保护区及局部摆位已有；画面理解待补"
+        "status": "partial_with_actual_revision",
+        "detail": "保护区与摆位已有；v0.7中英文600px整页改版实际修复溢出、遮字与歌唱短尾；自动画面理解待补"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v07-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v07-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -969,16 +969,16 @@
         "evidence": "comic-production-entry / comic-visual-language"
       },
       "implementation": {
-        "status": "partial_with_actual_proof",
-        "detail": "先完成本轮排字补缺再新增真实全书校样：规则/例外、字体哈希、逐页渲染、连续阅读与输入保护；四页20项及故障副本验证；不自动代签视觉验收"
+        "status": "partial_with_actual_revision",
+        "detail": "规则/例外、字体哈希与逐页校样已有；v0.7新增带来源/前值保护的显式批量修订和完整前后对照，四页600px剧情验证；多人协作与自动验收未实现"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v07-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v07-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -1165,16 +1165,16 @@
         "evidence": "comic-production-entry"
       },
       "implementation": {
-        "status": "not_established_in_independent_program",
-        "detail": "现有 JSON／输出可作为起点；完整过程语料未建"
+        "status": "partial_with_actual_revision",
+        "detail": "v0.7保存显式目的、35项修改、10项规则变更、前后漫画和失败修订；是单个原创案例过程记录，非完整训练语料"
       },
       "automated_validation": {
-        "status": "not_established",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "verified_named_operations",
+        "evidence": "../v07-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "verified_named_cases_not_full_module",
+        "evidence": "../v07-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -1249,16 +1249,16 @@
         "evidence": "现有制作验收扩展"
       },
       "implementation": {
-        "status": "partial_with_actual_proof",
-        "detail": "164项Letterer测试及多部完整剧情页；新增四页全书校样和字号/字体故障对照；全绘画评测与AI训练未建立"
+        "status": "partial_with_actual_revision",
+        "detail": "175项Letterer测试及多部剧情实页；新增四页600px修订、陈旧输入/冻结文字/规则/例外保护回归；全绘画评测和AI训练未建立"
       },
       "automated_validation": {
         "status": "verified_named_operations",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v07-validation.md"
       },
       "narrative_visual_review": {
         "status": "verified_named_cases_not_full_module",
-        "evidence": "../v06-validation.md"
+        "evidence": "../v07-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
