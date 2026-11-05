@@ -4,9 +4,9 @@ An independent, CPU-based comic lettering library, CLI and local visual editor. 
 
 独立原创漫画排字工具。保留真实中文和审定原文，把字体度量、气泡、尾巴、连泡、拟声字、图层和检查做成程序；把叙事与视觉判断交给配套 Skill。**v0.4** 在真实字体混排、尾巴精修和旁白样式基础上，增加对白起伏基线、强调基线位移、自然气泡和破损旁白框；用已有剧情页保留原文、原画验证。完整漫画目标按 [45模块工作入口](docs/WORK_INDEX.md) 继续，尚未宣称全部完成。
 
-[Download v0.4.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.4.0)
+[Download v0.5.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.5.0)
 
-![Echo Station — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.4.0/echo-station-page2-expressive.png)
+![The Lightkeeper — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.5.0/lightkeeper-zh.png)
 
 ## Install
 

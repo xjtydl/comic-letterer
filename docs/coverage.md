@@ -1,3 +1,7 @@
+# Latest v0.5 increment
+
+Mechanical three-stroke contours, arc-length sawtooth/flame density, scroll captions and measured Chinese/Latin dropped initials are implemented, editable and checked in a complete narrative. [Actual evidence](v05-validation.md). After these five operations passed, D04 gained `book-check` for explicit read-only style rules. Remaining broader gaps are kept in [the work index](WORK_INDEX.md).
+
 # Latest v0.4 increment
 
 Measured dialogue bounce/wave and emphasis baseline shifts, organic speech and tattered captions are implemented. See [actual page evidence](research/IMPLEMENTATION_LEDGER.md) and [complete scope](WORK_INDEX.md). This supersedes older “unsupported” rows for these specific operations; other gaps remain.

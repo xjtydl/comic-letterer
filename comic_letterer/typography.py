@@ -5,6 +5,7 @@ import math
 import unicodedata
 from PIL import ImageFont
 from .validation import fields, number, color
+from .initials import layout_initial
 
 OPEN = set("（【《「『〔〈([{“‘")
 CLOSE = set("，。！？；：、）》」』】〕〉,.;:!?)]}”’")
@@ -192,6 +193,9 @@ def typeset(item, path, font_index, box, pad, lh, wrap_fn, font_bank=None):
             sum(r[4] for r in runs(a, b))
             + max(0, len(text[a:b].replace("\n", "")) - 1) * tracking
         )
+
+    if item.get("drop_cap") is not None:
+        return layout_initial(item, box, pad, lh, bank, styles, fonts, runs, measure, forbidden, legal_break)
 
     inner = max(1, box[2] - 2 * pad)
     if item["kind"] not in ("caption", "sfx", "floating"):

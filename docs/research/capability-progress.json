@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "active_phase": "balloons_and_text_first",
+  "active_phase": "requested_five_operations_verified_then_D04",
   "note": "No module is marked wholly complete. Latest event details and exceptions remain in IMPLEMENTATION_LEDGER.md.",
   "modules": [
     {
@@ -494,15 +494,15 @@
       },
       "implementation": {
         "status": "partial",
-        "detail": "椭圆／TV／自然不对称和基础声线已有；火焰、锯齿密度等未完成"
+        "detail": "椭圆／TV／自然形、锯齿/火焰及弧长密度已实现并实页验证；任意手工路径/平边细化待补"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+        "status": "partial_module_requested_operations_passed",
+        "evidence": "../v05-validation.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+        "status": "requested_operations_reviewed",
+        "evidence": "../v05-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -522,15 +522,15 @@
       },
       "implementation": {
         "status": "partial",
-        "detail": "基本预设已有；多数缺完整剧情验收，机械分层样式未做"
+        "detail": "机械分层虚线已在《守灯人》实页验证；其他基本声线部分仍缺合适剧情验证"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "partial_module_requested_operations_passed",
+        "evidence": "../v05-validation.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "IMPLEMENTATION_LEDGER.md"
+        "status": "requested_operations_reviewed",
+        "evidence": "../v05-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -606,15 +606,15 @@
       },
       "implementation": {
         "status": "partial",
-        "detail": "旁白类型、浮动字及破损框已有；首字与卷轴框未做"
+        "detail": "旁白类型、浮动字、破损/卷轴框、中文/拉丁下沉首字及绕排已实现并实页验证"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; tests/test_expressive.py and tests/test_editor.py (relative to repo root)"
+        "status": "partial_module_requested_operations_passed",
+        "evidence": "../v05-validation.md"
       },
       "narrative_visual_review": {
-        "status": "partial",
-        "evidence": "../v04-validation.md; Echo Station page2-expressive, 900px review, remaining subfeatures not accepted"
+        "status": "requested_operations_reviewed",
+        "evidence": "../v05-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"
@@ -970,15 +970,15 @@
       },
       "implementation": {
         "status": "partial",
-        "detail": "页样式已有；书籍级管理未做"
+        "detail": "页样式已有；新增只读全书样式规则/精确例外检查；批量样式更新、完整书籍管理待做"
       },
       "automated_validation": {
-        "status": "partial",
-        "evidence": "../coverage.md; IMPLEMENTATION_LEDGER.md"
+        "status": "partial_module_requested_operations_passed",
+        "evidence": "../v05-validation.md"
       },
       "narrative_visual_review": {
-        "status": "not_established_for_full_module",
-        "evidence": null
+        "status": "metadata_audit_only",
+        "evidence": "../v05-validation.md"
       },
       "user_acceptance": "not_recorded_for_full_module",
       "model_training": "not_started"

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-11-05
+
+Adds mechanical three-stroke/notched balloons, arc-length sawtooth and flame contours with controlled density, scroll captions with reserved fold space, and real-font dropped initials with actual multi-line wraparound. All new operations have editor controls, persistence and PNG export coverage. Verified on the original six-panel Lightkeeper Chinese and English story, retaining exact words and unchanged artwork.
+
+After these five operations passed, adds read-only `book-check` with explicit style rules, exact documented exceptions, stale/unmatched warnings and frozen-word checks. This starts D04 metadata consistency without claiming complete book production.
+
+
 ## 0.4.0 — 2026-11-05
 
 Adds measured bounce/wave dialogue baselines, independent emphasis baseline shifts, subtle organic speech contours and tattered caption borders. Editor controls, saved JSON and SVG glyph positions share the same fields. Original narrative-page validation caught and corrected a contour overflow while preserving wording and artwork.

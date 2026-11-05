@@ -191,3 +191,42 @@ def test_editor_phrase_tail_and_contour_controls(session, server):
         assert value["tail"]["width"] == 24 and "curve" in value["tail"]
         assert value["text"] == session.frozen["a"]
         browser.close()
+
+
+@pytest.mark.skipif(
+    os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1',
+    reason='optional browser integration',
+)
+def test_decorative_controls_roundtrip_and_export(session, server, tmp_path):
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as pw:
+        browser=pw.chromium.launch()
+        page=browser.new_page(viewport={'width':1400,'height':1100})
+        errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+        page.goto(server);page.wait_for_function('()=>window.editorReady')
+        page.locator('#shape').select_option('mechanical')
+        page.locator('#mechanical-broken-a').wait_for(state='attached')
+        page.locator('#mechanical-band').fill('9');page.locator('#mechanical-band').press('Tab')
+        page.wait_for_function("()=>Number(document.querySelector('#outline-a').getAttribute('stroke-width'))===18")
+        page.locator('#shape').select_option('sawtooth')
+        page.locator('#edge-spacing').fill('18');page.locator('#edge-spacing').press('Tab')
+        page.wait_for_function("()=>JSON.parse(document.querySelector('#advanced').value).edge.spacing===18")
+        page.locator('#shape').select_option('flame')
+        page.wait_for_function("()=>document.querySelector('#fill-a').getAttribute('d').includes('C')")
+        page.locator('#kind').select_option('caption')
+        page.locator('#shape').select_option('scroll')
+        page.locator('#scroll-fold-a-0').wait_for(state='attached')
+        page.locator('#drop-enabled').check()
+        page.wait_for_function("()=>Number(document.querySelector('#text-a tspan').getAttribute('font-size'))>24")
+        page.locator('#save').click()
+        page.wait_for_function("()=>document.querySelector('#status').textContent.includes('drafts')")
+        page.reload();page.wait_for_function('()=>window.editorReady')
+        assert page.locator('#drop-enabled').is_checked()
+        value=json.loads(page.locator('#advanced').input_value())
+        assert value['shape']=='scroll' and value['drop_cap']['lines']==2
+        assert value['text']==session.frozen['a']
+        page.locator('#export-png').click()
+        page.locator('#files a',has_text='reading.png').wait_for(timeout=60000)
+        assert len(list(tmp_path.glob('exports/*/reading.png')))==1
+        assert not errors
+        browser.close()

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "p1",
+      "path": "echo-station-v03.json",
+      "edition": "zh"
+    },
+    {
+      "id": "p2",
+      "path": "echo-station-page2-expressive.json",
+      "edition": "zh"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ordinary-dialogue",
+      "match": {
+        "kind": "speech"
+      },
+      "expect": {
+        "font_role": "body",
+        "font_size": 24,
+        "stroke_width": 2,
+        "voice": "normal"
+      }
+    }
+  ],
+  "exceptions": [
+    {
+      "page": "p1",
+      "item": "lin_reveal",
+      "rule": "ordinary-dialogue",
+      "field": "font_size",
+      "value": 25,
+      "reason": "保留既有末格验证稿的25px字号差异；这是显式记录，不代表全书风格已最终批准。"
+    },
+    {
+      "page": "p1",
+      "item": "keeper_kind",
+      "rule": "ordinary-dialogue",
+      "field": "font_size",
+      "value": 25,
+      "reason": "保留既有末格验证稿的25px字号差异；这是显式记录，不代表全书风格已最终批准。"
+    }
+  ]
+}

@@ -139,3 +139,27 @@ Editor additions: choose an actual face for a selected emphasis range; protect a
 - `baseline` may be inherited from a page style. The editor exposes baseline mode/amplitude/group, emphasis shift and both contours. Saving/reloading retains these fields and frozen words.
 
 These effects are choices, not automatic voice classification. The actual Echo Station page uses a small wave for the distorted receiver, organic speech and a worn inner-caption frame. Bounce has automated coverage; song/drunkenness/telepathy narrative treatments are still separately pending.
+
+## v0.5 decorative contours and initials
+
+| Field | Contract |
+|---|---|
+| `shape: mechanical` | Speech/shout/electronic. Four notches, three stroke layers, broken middle stroke. |
+| `mechanical` | `{band:7, dash:7, gap:5, notch:0.09}` defaults. Band 2–24px and ≤12% of smaller box dimension; dash/gap 1–80px; notch .02–.16. |
+| `shape: sawtooth` / `flame` | Speech/shout/electronic. Straight leaning teeth versus curved asymmetric cusps. |
+| `edge` | `{spacing:24, depth:min(10, min_dimension*0.08)}`. Spacing 8–128px; depth 1px to 16% of smaller dimension. Arc-length sampling recomputes count (minimum 8, maximum 512; excessive requested count errors). Report includes count and actual spacing. |
+| `shape: scroll` | Caption only; curled sides, seams/shade and reserved central text area. |
+| `scroll` | `{curl:min(18,height*0.2)}`; at least 4px and no larger than 16% of width/30% of height. |
+| `drop_cap` | Caption/floating only, left aligned. `{lines:2, count:1, font_role?, gap?, color?}`. Lines 2–4; initial prefix count 1–4 Unicode code points, extended through following combining marks. Gap defaults .3em, bounded 0–2em. Actual font size is measured to span the specified body rows. Following rows use full width. |
+
+The initial and body are separate measured runs, but one exact Unicode source. Body emphasis remains supported; emphasis intersecting the initial is rejected because its face/color are controlled by `drop_cap`. A protected phrase cannot be split by the initial. Explicit breaks use original source offsets and must follow the initial. Automatic drop-cap wrapping is left-aligned per available row width; it does not run the uniform-width balanced-line optimizer.
+
+`edge`, `mechanical`, `scroll` and `drop_cap` may be inherited from styles; explicit `null` disables inherited settings. A parameter object on the wrong shape is rejected. New voiced contours cannot combine with rough/telepathic contour replacements or double_outline. These restrictions avoid silently ignoring either requested construction. Scroll/initial glyph bounds participate in normal overflow and occlusion checks.
+
+## Book style audit (first D04 operation)
+
+`comic-letterer book-check book.json [--strict]` reads page JSON paths relative to the book manifest. It writes no source or output files; JSON report goes to stdout. The manifest has `version:1`, nonempty `pages:[{id,path,edition?}]`, `rules:[{id,match,expect}]`, and optional `exceptions`.
+
+`match` may specify `speaker`, resolved `kind`, `style`, `voice`, `caption_type`, or the page entry's `edition`. `expect` checks explicitly chosen metadata fields (see `book.py` EXPECT), including resolved defaults and optional `reading_font_size`. Numeric comparison tolerance is 1e-6; this is not an optical tolerance. Font roles are labels, not a proof that the same actual font file is installed.
+
+An exception is `{page,item,rule,field,value,reason}`. It only applies to that exact mismatch value and remains visible in `recorded_exceptions`. Unmatched rules or stale exceptions warn; `--strict` fails warnings too. Frozen-text mismatches are errors. `ok` means no unexplained metadata errors, not that all pages look good or every style decision is approved. The command neither compiles pages nor verifies layout; run ordinary page checks/rendering separately.

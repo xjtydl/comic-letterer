@@ -603,11 +603,12 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text reviewed; image/video review may remain",
+      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
       "capabilities": [
         "B04",
         "D04"
-      ]
+      ],
+      "method_reference": "../v05-validation.md"
     },
     {
       "id": "C378",
@@ -733,10 +734,11 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text reviewed; image/video review may remain",
+      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
       "capabilities": [
         "B05"
-      ]
+      ],
+      "method_reference": "../v05-validation.md"
     },
     {
       "id": "C421",
@@ -821,10 +823,11 @@
         "Lettering",
         "Tips"
       ],
-      "review": "public text reviewed; image/video review may remain",
+      "review": "public text re-reviewed for v0.5; tutorial GIFs/book-page details not claimed visually reviewed",
       "capabilities": [
         "B08"
-      ]
+      ],
+      "method_reference": "../v05-validation.md"
     },
     {
       "id": "C397",

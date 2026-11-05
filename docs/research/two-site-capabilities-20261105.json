@@ -220,7 +220,7 @@
     "scope": "椭圆、TV、自然不对称、爆炸、锯齿、火焰、平边；齿距保持",
     "program": "可编辑路径、可缩放样式与轮廓密度",
     "skill": "comic-letterer / comic-visual-language",
-    "current": "椭圆／TV／自然不对称和基础声线已有；火焰、锯齿密度等未完成",
+    "current": "椭圆／TV／自然形、锯齿/火焰及弧长密度已实现并实页验证；任意手工路径/平边细化待补",
     "sources": [
       "C407",
       "C373",
@@ -237,7 +237,7 @@
     "scope": "思想、弱声、耳语、设备、怪物、心灵、喘息、歌唱、机械虚线",
     "program": "声线形状、装饰及匹配文字表现",
     "skill": "comic-visual-language / comic-letterer",
-    "current": "基本预设已有；多数缺完整剧情验收，机械分层样式未做",
+    "current": "机械分层虚线已在《守灯人》实页验证；其他基本声线部分仍缺合适剧情验证",
     "sources": [
       "B-grammar",
       "C384",
@@ -278,7 +278,7 @@
     "scope": "时地、内心、说话、编辑、无框旁白、首字、破损／卷轴框",
     "program": "旁白语义、首字排版、装饰轮廓",
     "skill": "comic-letterer / comic-visual-language",
-    "current": "旁白类型、浮动字及破损框已有；首字与卷轴框未做",
+    "current": "旁白类型、浮动字、破损/卷轴框、中文/拉丁下沉首字及绕排已实现并实页验证",
     "sources": [
       "C409",
       "C369",
@@ -464,7 +464,7 @@
     "scope": "角色声线、字体、尾根、描边、齿距、色板与版本",
     "program": "全书样式库、依赖更新、例外记录",
     "skill": "comic-production-entry / comic-visual-language",
-    "current": "页样式已有；书籍级管理未做",
+    "current": "页样式已有；新增只读全书样式规则/精确例外检查；批量样式更新、完整书籍管理待做",
     "sources": [
       "B-TIP-006",
       "B-TIP-016",

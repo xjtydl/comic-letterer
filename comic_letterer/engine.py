@@ -13,6 +13,7 @@ from xml.etree import ElementTree as ET
 from fontTools.ttLib import TTFont
 from .validation import number, vector, fields, ident, color
 from .typography import typeset
+from .decorative import prepare_decoration, inset as inset_box, mechanical_radius
 from .narrative import (
     resolve_item, rough_contour, rough_tail, near_ink_edges,
     organic_radius, tattered_contour, tattered_depth,
@@ -217,6 +218,10 @@ def tail_geometry(
     if shape == "organic":
         radius = organic_radius(math.atan2((by - cy) / (box[3] / 2), (bx - cx) / (box[2] / 2)))
         bx, by = cx + (bx - cx) * radius, cy + (by - cy) * radius
+    if shape == "mechanical":
+        angle = math.atan2((by - cy) / (box[3] / 2), (bx - cx) / (box[2] / 2))
+        radius = mechanical_radius(angle, options.get("_notch", .09))
+        bx, by = cx + (bx-cx)*radius, cy + (by-cy)*radius
     # Shorten against the first enclosing source-region boundary, preserving the
     # source direction. Unrelated obstacles remain reported rather than hidden.
     available = 1.0
@@ -408,7 +413,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     for raw in job.get("items", []):
         fields(
             raw,
-            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline",
+            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline edge mechanical scroll drop_cap",
             "item",
         )
         item = resolve_item(raw, job.get("styles", {}))
@@ -458,10 +463,14 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             if flag in item and not isinstance(item[flag], bool):
                 raise ValueError(f"{flag} must be boolean")
         shape = item.get("shape")
-        if shape not in (None, "ellipse", "tv", "organic", "tattered"):
+        if shape not in (None, "ellipse", "tv", "organic", "tattered", "mechanical", "sawtooth", "flame", "scroll"):
             raise ValueError("unknown shape")
-        if shape == "tattered" and kind != "caption":
-            raise ValueError("tattered shape requires caption")
+        if shape in ("tattered", "scroll") and kind != "caption":
+            raise ValueError("tattered/scroll shape requires caption")
+        if shape in ("mechanical", "sawtooth", "flame") and kind not in ("speech", "shout", "electronic"):
+            raise ValueError("decorative balloon requires speech/shout/electronic")
+        if shape in ("mechanical", "sawtooth", "flame", "scroll") and item.get("double_outline"):
+            raise ValueError("decorative contour has its own border; double_outline is unsupported")
         if shape in ("ellipse", "tv", "organic") and kind not in ("speech", "whisper"):
             raise ValueError("balloon shape override supports speech and whisper")
         butt = item.get("butt", [])
@@ -590,9 +599,11 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 issue(
                     "protected_overlap", iid, f"Box overlaps protected region {name}."
                 )
+        decoration = prepare_decoration(item, box)
+        text_box = decoration.get("text_box", box) if decoration else box
         layout_item = dict(item, font_size=fs, box=box, padding=pad)
         layout = typeset(
-            layout_item, path, font_index, box, pad, lh, wrap_text, font_bank
+            layout_item, path, font_index, text_box, pad, lh, wrap_text, font_bank
         )
         if kind == "sfx" and ("glyphs" in item or "arc" in item):
             layout = sfx_glyph_layout(layout_item, path, font_index)
@@ -621,10 +632,10 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             contour_pad = max(pad, tattered_depth(box)) if shape == "tattered" else pad
             if not contains(
                 [
-                    box[0] + contour_pad,
-                    box[1] + contour_pad,
-                    max(0, box[2] - 2 * contour_pad),
-                    max(0, box[3] - 2 * contour_pad),
+                    text_box[0] + contour_pad,
+                    text_box[1] + contour_pad,
+                    max(0, text_box[2] - 2 * contour_pad),
+                    max(0, text_box[3] - 2 * contour_pad),
                 ],
                 glyphbox,
             ):
@@ -641,6 +652,10 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                     if kind in ("thought", "weak", "electronic")
                     else 1
                 )
+                if shape in ("sawtooth", "flame"):
+                    inset = 1 - 2 * decoration["spec"]["depth"] / min(box[2:])
+                elif shape == "mechanical":
+                    inset = (1 - decoration["spec"]["notch"]) * (1 - 2 * decoration["spec"]["band"] / min(box[2:]))
                 rx = (box[2] / 2 - pad) * inset
                 ry = (box[3] / 2 - pad) * inset
                 cx, cy = center(box)
@@ -683,8 +698,12 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 actual_fraction = (
                     1 if item.get("off_panel") or item.get("source_mark") else fraction
                 )
+                tail_box = inset_box(box, decoration["spec"]["band"]) if shape == "mechanical" else box
+                tail_options = dict(item.get("tail", {}))
+                if shape == "mechanical":
+                    tail_options["_notch"] = decoration["spec"]["notch"]
                 tail = tail_geometry(
-                    box,
+                    tail_box,
                     actual_target,
                     actual_fraction,
                     kind,
@@ -692,7 +711,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                     if item.get("off_panel") or item.get("source_mark")
                     else [pb for _, pb in protected if contains(pb, [*target, 0, 0])],
                     item.get("shape"),
-                    item.get("tail"),
+                    tail_options,
                 )
                 if tail and item.get("voice") == "rough":
                     rough_tail(tail)
@@ -744,6 +763,8 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             stroke_width=sw,
             rotation=rotation,
             outlines=outlines,
+            _decoration=decoration,
+            _initial=layout.get("initial"),
             _positions=positions,
             _tail=tail,
             _lines=lines,
@@ -1037,7 +1058,9 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                     },
                     item_bottom,
                 )
+            decoration = p["_decoration"]
             d = (
+                decoration["path"] if decoration else
                 rough_contour(box)
                 if p.get("voice") == "rough"
                 else contour(
@@ -1053,13 +1076,30 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                     "d": d,
                     "fill": p["fill"],
                     "stroke": p["stroke"],
-                    "stroke-width": sw * 2,
+                    "stroke-width": decoration["spec"]["band"] * 2 if p.get("shape") == "mechanical" else sw * 2,
                     "stroke-linejoin": "round",
                     **dash,
                 },
                 item_bottom,
             )
+            if p.get("shape") == "mechanical":
+                spec = decoration["spec"]
+                for suffix, stroke_color, stroke_width, extra in (
+                    ("broken", p["fill"], spec["band"] * 1.4, {"stroke-dasharray": f'{spec["dash"]} {spec["gap"]}'}),
+                    ("inner", p["stroke"], min(sw * 2, spec["band"] * .55), {}),
+                ):
+                    elem("path", {"id": f"mechanical-{suffix}-{iid}", "d": d,
+                        "fill": "none", "stroke": stroke_color, "stroke-width": stroke_width,
+                        "stroke-linejoin": "round", **extra}, item_bottom)
             elem("path", {"id": f"fill-{iid}", "d": d, "fill": p["fill"]}, item_fills)
+            if p.get("shape") == "scroll":
+                for j, roll in enumerate(decoration["rolls"]):
+                    elem("path", {"id": f"scroll-roll-{iid}-{j}", "d": roll,
+                        "fill": p["stroke"], "fill-opacity": .12}, item_fills)
+                for j, fold in enumerate(decoration["folds"]):
+                    elem("path", {"id": f"scroll-fold-{iid}-{j}", "d": fold,
+                        "fill": "none", "stroke": p["stroke"], "stroke-width": sw,
+                        "stroke-linecap": "round"}, item_fills)
         voice = p.get("voice", "normal")
         if voice in ("breath", "telepathic", "singing"):
             x, y, w, h = box
@@ -1319,6 +1359,8 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 "tail_length": math.dist(tail["boundary"], tail["tip"])
                 if tail
                 else None,
+                "decoration": {k: v for k, v in (p["_decoration"] or {}).items() if k not in ("path", "folds", "rolls")},
+                "drop_cap": p["_initial"],
                 "caption_type": p.get("caption_type"),
                 "voice": p.get("voice", "normal"),
                 "resolved_style": {
@@ -1334,6 +1376,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                         "voice",
                         "caption_type",
                         "baseline",
+                        "edge", "mechanical", "scroll", "drop_cap",
                     )
                     if k in p
                 },

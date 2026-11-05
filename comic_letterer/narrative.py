@@ -3,7 +3,7 @@
 import math
 from .validation import fields, ident, number, vector
 
-STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline"
+STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline edge mechanical scroll drop_cap"
 CAPTIONS = ("location", "time", "inner", "spoken", "editorial")
 VOICES = ("normal", "rough", "breath", "singing", "telepathic")
 

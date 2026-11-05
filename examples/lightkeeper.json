@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "width": 1024,
+  "height": 1536,
+  "reading_width": 900,
+  "min_reading_font": 18,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        6,
+        6,
+        1012,
+        356
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        6,
+        373,
+        501,
+        383
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        518,
+        373,
+        500,
+        383
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        6,
+        769,
+        501,
+        369
+      ]
+    },
+    {
+      "id": "p5",
+      "box": [
+        518,
+        769,
+        500,
+        369
+      ]
+    },
+    {
+      "id": "p6",
+      "box": [
+        6,
+        1152,
+        1012,
+        375
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "legend",
+      "panel": "p1",
+      "kind": "caption",
+      "order": 1,
+      "text": "那一夜，灯塔的火忽然熄灭了。",
+      "expected_text": "那一夜，灯塔的火忽然熄灭了。",
+      "box": [
+        30,
+        28,
+        425,
+        132
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "line_height": 1.25,
+      "shape": "scroll",
+      "scroll": {
+        "curl": 18
+      },
+      "align": "left",
+      "drop_cap": {
+        "lines": 2,
+        "font_role": "narrator",
+        "color": "#914126",
+        "gap": 9
+      },
+      "font_role": "narrator",
+      "fill": "#F1DFB3",
+      "text_color": "#38291F",
+      "caption_type": "editorial",
+      "breaks": [
+        8
+      ]
+    },
+    {
+      "id": "warning",
+      "panel": "p2",
+      "kind": "electronic",
+      "order": 1,
+      "text": "过热。即将封闭灯室。",
+      "expected_text": "过热。即将封闭灯室。",
+      "box": [
+        208,
+        387,
+        287,
+        142
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "line_height": 1.25,
+      "shape": "mechanical",
+      "mechanical": {
+        "band": 7,
+        "dash": 7,
+        "gap": 5,
+        "notch": 0.09
+      },
+      "speaker": "robot",
+      "target": [
+        308,
+        717
+      ],
+      "breaks": [
+        3,
+        7
+      ],
+      "tail": {
+        "width": 18,
+        "length": 75,
+        "gap": 10
+      }
+    },
+    {
+      "id": "fire",
+      "panel": "p3",
+      "kind": "speech",
+      "order": 1,
+      "text": "别关门！我还在里面！",
+      "expected_text": "别关门！我还在里面！",
+      "box": [
+        525,
+        375,
+        290,
+        120
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "line_height": 1.25,
+      "shape": "flame",
+      "edge": {
+        "spacing": 30,
+        "depth": 10
+      },
+      "speaker": "flame",
+      "target": [
+        803,
+        685
+      ],
+      "breaks": [
+        4
+      ],
+      "tail": {
+        "width": 24,
+        "length": 75,
+        "gap": 8
+      },
+      "fill": "#FFF5DD",
+      "stroke": "#723C26"
+    },
+    {
+      "id": "halt",
+      "panel": "p4",
+      "kind": "shout",
+      "order": 1,
+      "text": "等等！先断电！",
+      "expected_text": "等等！先断电！",
+      "box": [
+        16,
+        778,
+        150,
+        174
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "line_height": 1.25,
+      "shape": "sawtooth",
+      "edge": {
+        "spacing": 22,
+        "depth": 9
+      },
+      "speaker": "engineer",
+      "target": [
+        308,
+        931
+      ],
+      "breaks": [
+        3
+      ],
+      "tail": {
+        "width": 24,
+        "length": 50,
+        "gap": 8
+      },
+      "font_role": "bold"
+    },
+    {
+      "id": "promise",
+      "panel": "p6",
+      "kind": "speech",
+      "order": 1,
+      "text": "这次，换我们守护你。",
+      "expected_text": "这次，换我们守护你。",
+      "box": [
+        20,
+        1160,
+        280,
+        100
+      ],
+      "font_size": 24,
+      "padding": 12,
+      "line_height": 1.25,
+      "shape": "organic",
+      "speaker": "engineer",
+      "target": [
+        462,
+        1308
+      ],
+      "breaks": [
+        6
+      ],
+      "tail": {
+        "width": 18,
+        "length": 35,
+        "gap": 8
+      }
+    }
+  ],
+  "protected": [
+    {
+      "id": "engineer1",
+      "box": [
+        759,
+        143,
+        208,
+        215
+      ]
+    },
+    {
+      "id": "robot1",
+      "box": [
+        925,
+        233,
+        82,
+        84
+      ]
+    },
+    {
+      "id": "engineer2",
+      "box": [
+        6,
+        470,
+        190,
+        283
+      ]
+    },
+    {
+      "id": "robot2",
+      "box": [
+        254,
+        605,
+        158,
+        149
+      ]
+    },
+    {
+      "id": "flame3",
+      "box": [
+        763,
+        578,
+        106,
+        126
+      ]
+    },
+    {
+      "id": "lampcap3",
+      "box": [
+        741,
+        497,
+        123,
+        45
+      ]
+    },
+    {
+      "id": "engineer4",
+      "box": [
+        193,
+        815,
+        187,
+        192
+      ]
+    },
+    {
+      "id": "hand4",
+      "box": [
+        367,
+        890,
+        74,
+        109
+      ]
+    },
+    {
+      "id": "lever4",
+      "box": [
+        30,
+        971,
+        175,
+        165
+      ]
+    },
+    {
+      "id": "engineer5",
+      "box": [
+        543,
+        770,
+        251,
+        216
+      ]
+    },
+    {
+      "id": "rescue5",
+      "box": [
+        766,
+        875,
+        183,
+        193
+      ]
+    },
+    {
+      "id": "engineer6",
+      "box": [
+        306,
+        1217,
+        208,
+        210
+      ]
+    },
+    {
+      "id": "robot6",
+      "box": [
+        162,
+        1271,
+        149,
+        151
+      ]
+    },
+    {
+      "id": "flame6",
+      "box": [
+        578,
+        1234,
+        111,
+        112
+      ]
+    },
+    {
+      "id": "boat6",
+      "box": [
+        838,
+        1331,
+        102,
+        79
+      ]
+    }
+  ]
+}

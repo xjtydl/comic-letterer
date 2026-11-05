@@ -64,8 +64,10 @@ Use small bounce/wave baseline offsets only for an intended vocal effect. The ve
 
 The editor exposes mode, amplitude, group size and emphasis baseline shift. These are measured effects with glyph bounds; a clean report still needs a reading-size inspection. Wave on this telephone scene is visually reviewed; bounce, song, breath and telepathy are not thereby narratively accepted. The tattered frame is not a scroll or decorative initial.
 
-## v0.4 expressive lettering decisions
+## v0.5 decorative lettering and book audit
 
-Use small bounce/wave baseline offsets only for an intended vocal effect. The verified station-office revision uses a 2.5px wave on the distorted receiver, a -2px emphasis shift on the reassurance, subtly organic speech and a tattered inner-caption frame. It preserves every word and the original art. Enlarging the final organic balloon solved a measured overflow without reducing type size.
+The Lightkeeper story deliberately separates the robot's three-layer mechanical contour, the living flame's curved cusp contour, and the engineer's straight sawtooth shout. The narrator uses rolled parchment with a measured initial; the final reassurance returns to ordinary speech. Do not apply all effects to a quiet scene simply because they are available.
 
-The editor exposes mode, amplitude, group size and emphasis baseline shift. These are measured effects with glyph bounds; a clean report still needs a reading-size inspection. Wave on this telephone scene is visually reviewed; bounce, song, breath and telepathy are not thereby narratively accepted. The tattered frame is not a scroll or decorative initial.
+Set `edge.spacing` rather than scaling a fixed small tooth pattern across unrelated sizes. Use the actual caption text before sizing scrolls; curl regions are excluded from text layout. A dropped initial is a separate real-font run, with body rows reserving its width and later rows returning to full width. Count Unicode code points, retain punctuation and spaces, and review Chinese and Latin independently. Read `docs/v05-validation.md` for actual corrections and limits.
+
+Once the requested lettering operations pass their actual pages, use `book-check` for explicit cross-page style rules. Keep legitimate exceptions visible with an exact value and reason; do not erase differences or rewrite source pages to manufacture a clean report. No matching items and obsolete exceptions are warnings. Layout, font-file identity, narrative and visual continuity still need their own checks.

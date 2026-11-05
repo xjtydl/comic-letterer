@@ -12,7 +12,7 @@ from .engine import compile_page, find_font
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="comic-letterer")
-    parser.add_argument("--version", action="version", version="comic-letterer 0.4.0")
+    parser.add_argument("--version", action="version", version="comic-letterer 0.5.0")
     sub = parser.add_subparsers(dest="command", required=True)
     for command in ("check", "render", "edit"):
         p = sub.add_parser(command)
@@ -46,9 +46,17 @@ def main(argv=None):
             p.add_argument(
                 "--force", action="store_true", help="Replace known output files"
             )
+    p = sub.add_parser("book-check", help="Read-only audit against explicit book style rules")
+    p.add_argument("input", type=Path)
+    p.add_argument("--strict", action="store_true")
     args = parser.parse_args(argv)
     try:
         job = json.loads(args.input.read_text(encoding="utf-8"))
+        if args.command == "book-check":
+            from .book import audit_book
+            report = audit_book(job, args.input.resolve().parent)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 0 if report["ok"] and not (args.strict and report["issues"]) else 1
         font = str(args.font or find_font())
         fonts = (
             {
