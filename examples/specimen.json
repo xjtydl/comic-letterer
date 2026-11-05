@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "width": 1200,
+  "height": 1580,
+  "reading_width": 800,
+  "min_reading_font": 16,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        40,
+        160,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        620,
+        160,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        40,
+        500,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        620,
+        500,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "p5",
+      "box": [
+        40,
+        840,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "p6",
+      "box": [
+        620,
+        840,
+        540,
+        320
+      ]
+    },
+    {
+      "id": "joinpanel",
+      "box": [
+        40,
+        1180,
+        1120,
+        355
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "voice1",
+      "panel": "p1",
+      "kind": "speech",
+      "order": 1,
+      "speaker": "demo",
+      "text": "雨停了，\n我们出发吧。",
+      "expected_text": "雨停了，\n我们出发吧。",
+      "font_size": 32,
+      "box": [
+        75,
+        222,
+        450,
+        180
+      ],
+      "target": [
+        420,
+        450
+      ]
+    },
+    {
+      "id": "voice2",
+      "panel": "p2",
+      "kind": "thought",
+      "order": 1,
+      "speaker": "demo",
+      "text": "钥匙会不会\n还在桌上？",
+      "expected_text": "钥匙会不会\n还在桌上？",
+      "font_size": 32,
+      "box": [
+        655,
+        222,
+        450,
+        180
+      ],
+      "target": [
+        1000,
+        450
+      ]
+    },
+    {
+      "id": "voice3",
+      "panel": "p3",
+      "kind": "shout",
+      "order": 1,
+      "speaker": "demo",
+      "text": "快看那边！",
+      "expected_text": "快看那边！",
+      "font_size": 32,
+      "box": [
+        75,
+        562,
+        450,
+        180
+      ],
+      "target": [
+        420,
+        790
+      ]
+    },
+    {
+      "id": "voice4",
+      "panel": "p4",
+      "kind": "whisper",
+      "order": 1,
+      "speaker": "demo",
+      "text": "轻一点，\n它睡着了。",
+      "expected_text": "轻一点，\n它睡着了。",
+      "font_size": 32,
+      "box": [
+        655,
+        562,
+        450,
+        180
+      ],
+      "target": [
+        1000,
+        790
+      ]
+    },
+    {
+      "id": "voice5",
+      "panel": "p5",
+      "kind": "weak",
+      "order": 1,
+      "speaker": "demo",
+      "text": "让我……\n休息一会儿。",
+      "expected_text": "让我……\n休息一会儿。",
+      "font_size": 32,
+      "box": [
+        75,
+        902,
+        450,
+        180
+      ],
+      "target": [
+        420,
+        1130
+      ]
+    },
+    {
+      "id": "voice6",
+      "panel": "p6",
+      "kind": "electronic",
+      "order": 1,
+      "speaker": "demo",
+      "text": "前方到站，\n请准备下车。",
+      "expected_text": "前方到站，\n请准备下车。",
+      "font_size": 32,
+      "box": [
+        655,
+        902,
+        450,
+        180
+      ],
+      "target": [
+        1000,
+        1130
+      ]
+    },
+    {
+      "id": "joinfirst",
+      "panel": "joinpanel",
+      "kind": "speech",
+      "order": 1,
+      "speaker": "guide",
+      "text": "先听雨声。",
+      "expected_text": "先听雨声。",
+      "font_size": 32,
+      "box": [
+        75,
+        1250,
+        320,
+        140
+      ],
+      "target": [
+        280,
+        1495
+      ]
+    },
+    {
+      "id": "joinsecond",
+      "panel": "joinpanel",
+      "kind": "speech",
+      "order": 2,
+      "speaker": "guide",
+      "text": "再推开门。",
+      "font_size": 32,
+      "box": [
+        450,
+        1250,
+        320,
+        140
+      ],
+      "join_to": "joinfirst"
+    },
+    {
+      "id": "door",
+      "panel": "joinpanel",
+      "kind": "sfx",
+      "order": 3,
+      "text": "吱呀",
+      "font_size": 70,
+      "box": [
+        860,
+        1280,
+        220,
+        170
+      ],
+      "rotation": -10,
+      "text_color": "#D8843A",
+      "outlines": [
+        {
+          "color": "#20202A",
+          "width": 12
+        },
+        {
+          "color": "#FFFFFF",
+          "width": 6
+        }
+      ],
+      "padding": 12
+    }
+  ]
+}
