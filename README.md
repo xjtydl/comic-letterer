@@ -2,11 +2,11 @@
 
 An independent, CPU-based comic lettering library, CLI and local visual editor. Exact Unicode text + explicit panel/speaker coordinates → editable SVG + explainable checks + optional PNG.
 
-独立原创漫画排字工具。保留审定文字和原画，生成可编辑气泡与文字。**v0.10** 新增连续纸纹、轮廓柔光和暗背景可见的耳语虚线，覆盖泡身、尾巴、思想点与连泡，并接入编辑器及全书样式检查/修订。已用《最后一张票》完整两页和八格长条验证；见 [实际成页与边界](docs/v010-validation.md)。程序排字与图像模型直接生成气泡文字是两条可选路线；本轮仅优化程序，没有重新生成漫画画面。完整范围见 [45模块工作入口](docs/WORK_INDEX.md)。
+独立原创漫画排字工具。保留审定文字和原画，生成可编辑气泡与文字。**v0.11** 在纸纹/柔光基础上增加可调自然轮廓和连续实底淡染；编辑器及全书检查/修订可用。用《最后一张票》完整双页、八格长条验证，并精修短曲尾、无框旁白；见[实页、失败修正与边界](docs/v011-validation.md)。本轮只优化程序气泡文字，没有重新生成画面。完整范围见[45模块工作入口](docs/WORK_INDEX.md)。
 
-[Download v0.10.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.10.0)
+[Download v0.11.0](https://github.com/xjtydl/comic-letterer/releases/tag/v0.11.0)
 
-![The Last Ticket — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.10.0/last-ticket-page-1.png)
+![The Last Ticket — original narrative page](https://github.com/xjtydl/comic-letterer/releases/download/v0.11.0/last-ticket-page-1.png)
 
 ## Install
 

@@ -3,8 +3,9 @@
 import math
 from .validation import fields, ident, number, vector
 from .balloon_finish import resolve as resolve_appearance
+from .organic import resolve as resolve_organic
 
-STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline edge mechanical scroll drop_cap features language appearance"
+STYLE_FIELDS = "kind font_role font_size padding line_height fill stroke text_color stroke_width shape tracking horizontal_scale flow align voice caption_type double_outline baseline edge mechanical scroll drop_cap features language appearance organic"
 CAPTIONS = ("location", "time", "inner", "spoken", "editorial")
 VOICES = ("normal", "rough", "breath", "singing", "telepathic")
 
@@ -20,6 +21,7 @@ def resolve_item(raw, styles):
         raise ValueError("unknown style")
     item = {**styles.get(key, {}), **raw}
     resolve_appearance(item)
+    resolve_organic(item)
     caption = item.get("caption_type")
     if caption is not None:
         if caption not in CAPTIONS or item.get("kind") not in ("caption", "floating"):
@@ -156,6 +158,8 @@ def near_ink_edges(item, edges, tolerance):
             )
             for a in (math.tau * i / 128 for i in range(128))
         ]
+    if (item.get("_decoration") or {}).get("polygon"):
+        points = item["_decoration"]["polygon"][:]
     if item["_tail"]:
         points += item["_tail"]["polygon"]
     near = []

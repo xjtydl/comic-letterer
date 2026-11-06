@@ -134,7 +134,7 @@ Editor additions: choose an actual face for a selected emphasis range; protect a
 
 - `baseline`: `{mode, amplitude, group}`. `mode` is `straight` (default), `bounce` or `wave`. `amplitude` is page pixels, default `0.08 × font_size`, bounded to `0..0.25 × font_size`; `group` is an integer `1..12` (default 2). Bounce alternates groups, wave follows a six-group cycle. Use on dialogue/captions; SFX retains its separate `arc`/`glyphs` system. Combining marks follow their base. This is not complex-script shaping or an OpenType replacement; splitting runs can change kerning across a group boundary, and the compiler measures those same runs.
 - `emphasis[].baseline_shift`: explicit pixel offset; negative moves up, positive down, within ±one base em. When present without `scale`, size stays unchanged. Shifted glyph bounds and extra line spacing are measured and checked. Centering includes the added ascent/descent, so the final block also recenters inside the balloon.
-- `shape: organic`: speech/whisper only. Subtle deterministic asymmetry within the specified bounds. Tail length starts at the actual radial contour; text uses a conservative inner envelope.
+- `shape: organic`: originally speech/whisper only, with fixed asymmetry. v0.11 adds optional profiles and thought/weak support; see below. Old speech/whisper without a profile keeps its original geometry.
 - `shape: tattered`: caption only. Small inward roughness and divots, bounded by the declared rectangle. Text checks include edge wear. This does not implement scroll ends or drop caps.
 - `baseline` may be inherited from a page style. The editor exposes baseline mode/amplitude/group, emphasis shift and both contours. Saving/reloading retains these fields and frozen words.
 
@@ -279,3 +279,53 @@ defaults; leaf checks are usually simpler. Turning effects off does not change
 fill/ink colors or frozen text. No scene palette inference, automatic hand-painted
 contours, image-model call, CMYK/print certification or raster-text extraction is
 implied. Actual two-page/eight-panel evidence: [v0.10 validation](v010-validation.md).
+
+## v0.11 scene integration
+
+`shape: "organic"` accepts `organic` on an item or shared style:
+
+```json
+{"shape":"organic","organic":{"variation":0.65,"roundness":2.4,"seed":19},
+ "appearance":{"paper":0.075,"wash_color":"#92755C",
+               "wash_opacity":0.22,"wash_angle":65}}
+```
+
+| Organic field | Range | Default |
+|---|---|---|
+| variation | 0..1, low-frequency asymmetry | 0.55 |
+| roundness | 2..3, ellipse to fuller rounded shell | 2.3 |
+| seed | integer 0..65535, reproducible outline | 17 |
+
+Profiles support speech, whisper, thought and weak balloons. Thought/telepathic
+profiles retain cloud lobes; weak profiles retain a shallower wavering edge.
+The voice, thought-dot chain and exact text are unchanged. All sampled contour
+points stay inside the declared box. The actual polygon is used for type padding,
+voice-mark containment, tail attachment and the advisory ink-edge check. Changing
+a profile can cause overflow; enlarge/reflow, then inspect at reading size.
+Rough voice and double outlines cannot combine with an explicit organic profile.
+No profile/null on speech/whisper preserves the old organic geometry. Thought/weak
+with organic shape use the new defaults. Null on other shapes clears an inherited
+profile. Existing manual custom paths remain available.
+
+| Added appearance field | Range | Default |
+|---|---|---|
+| wash_color | #RRGGBB | #92785C |
+| wash_opacity | 0..0.35, endpoint tint mixing amount | 0 (off) |
+| wash_angle | -180..180 degrees; 0 right, 90 down | 90 |
+
+Wash is an **opaque color blend**, not balloon transparency. It runs from the
+base fill to its blend with wash_color across a page-space gradient covering
+the shell and tail. Connected balloons use one field covering the group/joins.
+Paper is multiplied over this field without restarting the tint at texture-tile
+boundaries. Art and ink remain separate. Select colors/direction from the actual
+scene; there is no image sampling or automatic light estimation.
+
+Editor controls save these values and preserve inherited siblings. Book rules
+and guarded revisions support `organic`/`organic.<field>` and the new appearance
+fields. Whole-object rule dictionaries resolve omitted defaults on both sides,
+so older appearance rules do not drift solely because new defaults were added.
+Revision does not automatically change shape, move a tail or solve a new layout.
+
+[v0.11 actual-story proof](v011-validation.md) includes the unchanged Last Ticket
+art/words, shorter authored curves using existing tail controls, and unboxed
+opening/closing narration using the existing floating/editorial treatment.

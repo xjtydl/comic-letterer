@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "width": 1024,
+  "height": 1536,
+  "reading_width": 600,
+  "min_reading_font": 18,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        6,
+        6,
+        501,
+        756
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        518,
+        6,
+        500,
+        756
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        6,
+        773,
+        501,
+        753
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        518,
+        773,
+        500,
+        753
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "title",
+      "panel": "p1",
+      "kind": "floating",
+      "order": 1,
+      "text": "最后一张票。",
+      "expected_text": "最后一张票。",
+      "box": [
+        24,
+        30,
+        250,
+        90
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "font_role": "narrator",
+      "padding": 10,
+      "style": "narration"
+    },
+    {
+      "id": "sign",
+      "panel": "p1",
+      "kind": "floating",
+      "order": 2,
+      "text": "HOME",
+      "expected_text": "HOME",
+      "box": [
+        82,
+        190,
+        330,
+        200
+      ],
+      "font_size": 100,
+      "language": "zh-CN",
+      "font_role": "hand",
+      "padding": 6,
+      "text_color": "#E2CDA0",
+      "surface": [
+        [
+          88,
+          297
+        ],
+        [
+          399,
+          190
+        ],
+        [
+          399,
+          293
+        ],
+        [
+          88,
+          383
+        ]
+      ],
+      "material": {
+        "wear": 0.04,
+        "seed": 11
+      }
+    },
+    {
+      "id": "cough",
+      "panel": "p2",
+      "kind": "speech",
+      "order": 1,
+      "text": "咳、咳……",
+      "expected_text": "咳、咳……",
+      "box": [
+        594,
+        224,
+        280,
+        130
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "courier",
+      "target": [
+        805,
+        517
+      ],
+      "voice": "breath",
+      "tail": {
+        "width": 32,
+        "length": 58,
+        "gap": 16,
+        "curve": [
+          768,
+          375
+        ]
+      },
+      "style": "paper",
+      "shape": "organic"
+    },
+    {
+      "id": "mind",
+      "panel": "p3",
+      "kind": "thought",
+      "order": 1,
+      "text": "别怕。我只是在等结尾。",
+      "expected_text": "别怕。我只是在等结尾。",
+      "box": [
+        46,
+        807,
+        424,
+        175
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "ghost",
+      "target": [
+        290,
+        1160
+      ],
+      "voice": "telepathic",
+      "breaks": [
+        3
+      ],
+      "tail": {
+        "length": 120,
+        "gap": 14
+      },
+      "style": "spirit"
+    },
+    {
+      "id": "thought",
+      "panel": "p4",
+      "kind": "thought",
+      "order": 1,
+      "text": "这首曲子……妈妈唱过。",
+      "expected_text": "这首曲子……妈妈唱过。",
+      "box": [
+        538,
+        796,
+        370,
+        168
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "courier",
+      "target": [
+        710,
+        1120
+      ],
+      "breaks": [
+        6
+      ],
+      "tail": {
+        "length": 90,
+        "gap": 16
+      },
+      "keep_together": [
+        {
+          "start": 6,
+          "end": 8
+        }
+      ],
+      "style": "spirit"
+    },
+    {
+      "id": "whisper",
+      "panel": "p4",
+      "kind": "whisper",
+      "order": 2,
+      "text": "我记得。",
+      "expected_text": "我记得。",
+      "box": [
+        780,
+        925,
+        225,
+        105
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "courier",
+      "target": [
+        712,
+        1222
+      ],
+      "shape": "organic",
+      "tail": {
+        "width": 29,
+        "length": 67,
+        "gap": 20,
+        "curve": [
+          835,
+          1040
+        ]
+      },
+      "overlap_with": [
+        "thought"
+      ],
+      "style": "whisper"
+    }
+  ],
+  "protected": [
+    {
+      "id": "boy1",
+      "box": [
+        65,
+        422,
+        160,
+        175
+      ]
+    },
+    {
+      "id": "boy2",
+      "box": [
+        727,
+        395,
+        160,
+        150
+      ]
+    },
+    {
+      "id": "girl",
+      "box": [
+        245,
+        1120,
+        80,
+        96
+      ]
+    },
+    {
+      "id": "boy4",
+      "box": [
+        588,
+        1035,
+        196,
+        249
+      ]
+    },
+    {
+      "id": "ticket",
+      "box": [
+        653,
+        1380,
+        179,
+        140
+      ]
+    }
+  ],
+  "styles": {
+    "narration": {
+      "text_color": "#E8D7B8",
+      "caption_type": "editorial"
+    },
+    "paper": {
+      "fill": "#DED2BD",
+      "stroke": "#766354",
+      "text_color": "#322A25",
+      "stroke_width": 1.45,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.65,
+        "roundness": 2.4,
+        "seed": 19
+      },
+      "appearance": {
+        "paper": 0.075,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "wash_color": "#92755C",
+        "wash_opacity": 0.22,
+        "wash_angle": 65
+      }
+    },
+    "spirit": {
+      "fill": "#DCD4C5",
+      "stroke": "#81756B",
+      "text_color": "#35302D",
+      "stroke_width": 1.25,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.5,
+        "roundness": 2.35,
+        "seed": 31
+      },
+      "appearance": {
+        "paper": 0.07,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "glow": 2.8,
+        "glow_color": "#D8C9A9",
+        "glow_opacity": 0.4,
+        "wash_color": "#9B9189",
+        "wash_opacity": 0.2,
+        "wash_angle": 110
+      }
+    },
+    "whisper": {
+      "fill": "#DCD0B9",
+      "stroke": "#58483C",
+      "text_color": "#322A25",
+      "stroke_width": 2.6,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.65,
+        "roundness": 2.3,
+        "seed": 7
+      },
+      "appearance": {
+        "paper": 0.075,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "whisper_border": "center",
+        "wash_color": "#967359",
+        "wash_opacity": 0.23,
+        "wash_angle": 70
+      }
+    },
+    "caption": {
+      "fill": "#D6C6AA",
+      "stroke": "#8D7863",
+      "text_color": "#382E28",
+      "stroke_width": 1.1,
+      "appearance": {
+        "paper": 0.08,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "wash_color": "#8E705A",
+        "wash_opacity": 0.2,
+        "wash_angle": 60
+      }
+    }
+  }
+}

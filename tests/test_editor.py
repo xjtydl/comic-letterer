@@ -11,6 +11,38 @@ from comic_letterer.editor import EditorSession, create_server
 
 
 @pytest.mark.skipif(os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1', reason='browser integration')
+def test_organic_and_wash_controls_save_reload_and_clear_inheritance(session, server):
+    from playwright.sync_api import sync_playwright
+    session.job['styles'] = {'soft': {'shape': 'organic', 'organic': {'variation': .4, 'seed': 23},
+                                     'appearance': {'paper': .1, 'wash_color': '#876B54'}}}
+    session.job['items'][0]['style'] = 'soft'
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(viewport={'width': 1400, 'height': 1000})
+        errors = []; page.on('pageerror', lambda error: errors.append(str(error)))
+        page.goto(server); page.wait_for_function('() => window.editorReady')
+        page.locator('#organic-controls summary').click()
+        page.locator('#organic-roundness').fill('2.6'); page.locator('#organic-roundness').press('Tab')
+        page.wait_for_function("()=>JSON.parse(document.querySelector('#advanced').value).organic?.roundness===2.6")
+        current = json.loads(page.locator('#advanced').input_value())
+        assert current['organic'] == {'variation': .4, 'roundness': 2.6, 'seed': 23}
+        page.locator('#appearance-controls summary').click()
+        page.locator('#wash-opacity').fill('0.25'); page.locator('#wash-opacity').press('Tab')
+        page.wait_for_function("()=>!!document.querySelector('linearGradient[id^=wash-]')")
+        page.locator('#save').click()
+        page.wait_for_function("()=>document.querySelector('#status').textContent.includes('drafts')")
+        page.reload(); page.wait_for_function('() => window.editorReady')
+        current = json.loads(page.locator('#advanced').input_value())
+        assert current['appearance'] == {'paper': .1, 'wash_color': '#876B54', 'wash_opacity': .25}
+        assert current['text'] == session.frozen['a'] and current['organic']['seed'] == 23
+        page.locator('#shape').select_option('ellipse')
+        page.wait_for_function("()=>JSON.parse(document.querySelector('#advanced').value).shape==='ellipse'")
+        assert json.loads(page.locator('#advanced').input_value())['organic'] is None
+        assert not errors
+        browser.close()
+
+
+@pytest.mark.skipif(os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1', reason='browser integration')
 def test_appearance_controls_preserve_style_siblings_and_saved_text(session, server):
     from playwright.sync_api import sync_playwright
     session.job['styles'] = {'paper': {'appearance': {'paper': .12, 'seed': 23}}}

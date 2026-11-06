@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "width": 1024,
+  "height": 1536,
+  "reading_width": 600,
+  "min_reading_font": 18,
+  "panels": [
+    {
+      "id": "p1",
+      "box": [
+        6,
+        6,
+        501,
+        756
+      ]
+    },
+    {
+      "id": "p2",
+      "box": [
+        518,
+        6,
+        500,
+        756
+      ]
+    },
+    {
+      "id": "p3",
+      "box": [
+        6,
+        773,
+        501,
+        753
+      ]
+    },
+    {
+      "id": "p4",
+      "box": [
+        518,
+        773,
+        500,
+        753
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "weak",
+      "panel": "p1",
+      "kind": "weak",
+      "order": 1,
+      "text": "我快忘记自己的声音了。",
+      "expected_text": "我快忘记自己的声音了。",
+      "box": [
+        135,
+        45,
+        355,
+        165
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "ghost",
+      "target": [
+        315,
+        387
+      ],
+      "breaks": [
+        6
+      ],
+      "line_scales": [
+        0.98,
+        1.02
+      ],
+      "line_widths": [
+        245,
+        235
+      ],
+      "tail": {
+        "width": 33,
+        "length": 69,
+        "gap": 15,
+        "curve": [
+          296,
+          239
+        ]
+      },
+      "style": "spirit"
+    },
+    {
+      "id": "song",
+      "panel": "p2",
+      "kind": "speech",
+      "order": 1,
+      "text": "晚风带你回家。",
+      "expected_text": "晚风带你回家。",
+      "box": [
+        535,
+        38,
+        310,
+        155
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "speaker": "courier",
+      "target": [
+        716,
+        380
+      ],
+      "voice": "singing",
+      "baseline": {
+        "mode": "wave",
+        "amplitude": 2,
+        "group": 1
+      },
+      "breaks": [
+        4
+      ],
+      "tail": {
+        "width": 32,
+        "length": 64,
+        "gap": 14,
+        "curve": [
+          725,
+          214
+        ]
+      },
+      "style": "paper"
+    },
+    {
+      "id": "chime",
+      "panel": "p3",
+      "kind": "sfx",
+      "order": 1,
+      "text": "叮——",
+      "expected_text": "叮——",
+      "box": [
+        70,
+        830,
+        310,
+        140
+      ],
+      "font_size": 72,
+      "language": "zh-CN",
+      "font_role": "narrator",
+      "padding": 10,
+      "surface": [
+        [
+          80,
+          850
+        ],
+        [
+          365,
+          823
+        ],
+        [
+          380,
+          955
+        ],
+        [
+          85,
+          990
+        ]
+      ],
+      "text_color": "#F8D988",
+      "material": {
+        "gradient": [
+          "#FFF5CC",
+          "#C88E36"
+        ],
+        "wear": 0.012,
+        "seed": 4
+      },
+      "outlines": [
+        {
+          "color": "#412C20",
+          "width": 1.2
+        }
+      ],
+      "sound": {
+        "event": "final piano note",
+        "source": [
+          370,
+          1430
+        ],
+        "material": "piano strings and wooden soundboard",
+        "intensity": "quiet",
+        "duration": "soft attack, sustained decay",
+        "direction": [
+          0,
+          -1
+        ]
+      }
+    },
+    {
+      "id": "close",
+      "panel": "p4",
+      "kind": "floating",
+      "order": 1,
+      "text": "这一次，她听见了结尾。",
+      "expected_text": "这一次，她听见了结尾。",
+      "box": [
+        535,
+        790,
+        455,
+        88
+      ],
+      "font_size": 32,
+      "language": "zh-CN",
+      "font_role": "narrator",
+      "padding": 12,
+      "breaks": [],
+      "style": "narration"
+    }
+  ],
+  "protected": [
+    {
+      "id": "ghost1",
+      "box": [
+        248,
+        299,
+        105,
+        131
+      ]
+    },
+    {
+      "id": "boy2",
+      "box": [
+        595,
+        257,
+        164,
+        171
+      ]
+    },
+    {
+      "id": "ghost2",
+      "box": [
+        850,
+        356,
+        95,
+        128
+      ]
+    },
+    {
+      "id": "ghost3",
+      "box": [
+        25,
+        1003,
+        175,
+        190
+      ]
+    },
+    {
+      "id": "hand3",
+      "box": [
+        190,
+        1266,
+        220,
+        115
+      ]
+    },
+    {
+      "id": "boy4",
+      "box": [
+        639,
+        1140,
+        83,
+        200
+      ]
+    },
+    {
+      "id": "ticket",
+      "box": [
+        726,
+        1390,
+        216,
+        93
+      ]
+    }
+  ],
+  "styles": {
+    "narration": {
+      "text_color": "#E8D7B8",
+      "caption_type": "editorial"
+    },
+    "paper": {
+      "fill": "#DED2BD",
+      "stroke": "#766354",
+      "text_color": "#322A25",
+      "stroke_width": 1.45,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.65,
+        "roundness": 2.4,
+        "seed": 19
+      },
+      "appearance": {
+        "paper": 0.075,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "wash_color": "#92755C",
+        "wash_opacity": 0.22,
+        "wash_angle": 65
+      }
+    },
+    "spirit": {
+      "fill": "#DCD4C5",
+      "stroke": "#81756B",
+      "text_color": "#35302D",
+      "stroke_width": 1.25,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.5,
+        "roundness": 2.35,
+        "seed": 31
+      },
+      "appearance": {
+        "paper": 0.07,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "glow": 2.8,
+        "glow_color": "#D8C9A9",
+        "glow_opacity": 0.4,
+        "wash_color": "#9B9189",
+        "wash_opacity": 0.2,
+        "wash_angle": 110
+      }
+    },
+    "whisper": {
+      "fill": "#DCD0B9",
+      "stroke": "#58483C",
+      "text_color": "#322A25",
+      "stroke_width": 2.6,
+      "shape": "organic",
+      "organic": {
+        "variation": 0.65,
+        "roundness": 2.3,
+        "seed": 7
+      },
+      "appearance": {
+        "paper": 0.075,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "whisper_border": "center",
+        "wash_color": "#967359",
+        "wash_opacity": 0.23,
+        "wash_angle": 70
+      }
+    },
+    "caption": {
+      "fill": "#D6C6AA",
+      "stroke": "#8D7863",
+      "text_color": "#382E28",
+      "stroke_width": 1.1,
+      "appearance": {
+        "paper": 0.08,
+        "grain_scale": 1.15,
+        "seed": 17,
+        "wash_color": "#8E705A",
+        "wash_opacity": 0.2,
+        "wash_angle": 60
+      }
+    }
+  }
+}

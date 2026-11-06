@@ -2,11 +2,13 @@
 import copy
 import hashlib
 import json
+import math
 
 from .validation import fields, number, color
 
 DEFAULTS = dict(paper=0, grain_scale=1, seed=17, glow=0,
-                glow_color='#DDC9A0', glow_opacity=.45, whisper_border='outside')
+                glow_color='#DDC9A0', glow_opacity=.45, whisper_border='outside',
+                wash_color='#92785C', wash_opacity=0, wash_angle=90)
 
 
 def resolve(item):
@@ -18,12 +20,14 @@ def resolve(item):
         raise ValueError('appearance requires a balloon or caption shell')
     spec = {**DEFAULTS, **raw}
     for key, low, high in [('paper', 0, .3), ('grain_scale', .5, 4),
-                           ('glow', 0, 12), ('glow_opacity', 0, 1)]:
+                           ('glow', 0, 12), ('glow_opacity', 0, 1),
+                           ('wash_opacity', 0, .35), ('wash_angle', -180, 180)]:
         if not low <= number(spec[key], 'appearance ' + key) <= high:
             raise ValueError(f'appearance {key} must be {low}..{high}')
     if type(spec['seed']) is not int or not 0 <= spec['seed'] <= 65535:
         raise ValueError('appearance seed must be an integer 0..65535')
     color(spec['glow_color'])
+    color(spec['wash_color'])
     if spec['whisper_border'] not in ('outside', 'center'):
         raise ValueError('appearance whisper_border must be outside or center')
     if spec['whisper_border'] == 'center' and item.get('kind') != 'whisper':
@@ -31,14 +35,14 @@ def resolve(item):
     return spec
 
 
-def _paper(fill, spec, defs, elem, cache):
-    key = (fill, spec['paper'], spec['grain_scale'], spec['seed'])
+def _paper(fill, spec, defs, elem, cache, canvas=None):
+    key = (fill, spec['paper'], spec['grain_scale'], spec['seed'], canvas)
     if key in cache:
         return cache[key]
     suffix = hashlib.sha256(json.dumps(key).encode()).hexdigest()[:16]
     pid, fid = 'paper-' + suffix, 'grain-' + suffix
     scale = spec['grain_scale']
-    tile = 128 * scale
+    tw, th = canvas or (128 * scale, 128 * scale)
     filt = elem('filter', {'id': fid, 'x': 0, 'y': 0, 'width': '100%', 'height': '100%',
                           'color-interpolation-filters': 'sRGB'}, defs)
     elem('feTurbulence', {'type': 'fractalNoise', 'baseFrequency': .18 / scale,
@@ -52,11 +56,54 @@ def _paper(fill, spec, defs, elem, cache):
     elem('feBlend', {'in2': 'SourceGraphic', 'mode': 'multiply'}, filt)
     elem('feComposite', {'in2': 'SourceGraphic', 'operator': 'in'}, filt)
     pattern = elem('pattern', {'id': pid, 'patternUnits': 'userSpaceOnUse',
-                               'x': 0, 'y': 0, 'width': tile, 'height': tile}, defs)
-    elem('rect', {'width': tile, 'height': tile, 'fill': fill,
+                               'x': 0, 'y': 0, 'width': tw, 'height': th}, defs)
+    elem('rect', {'width': tw, 'height': th, 'fill': fill,
                   'filter': f'url(#{fid})'}, pattern)
     cache[key] = f'url(#{pid})'
     return cache[key]
+
+
+def _wash(fill, spec, box, defs, elem, cache):
+    """Opaque page-space tint: no scenery or noise is mixed into the type."""
+    key = (fill, spec['wash_color'], spec['wash_opacity'], spec['wash_angle'], tuple(box))
+    if key in cache:
+        return cache[key]
+    gid = 'wash-' + hashlib.sha256(json.dumps(key).encode()).hexdigest()[:16]
+    x, y, w, h = box
+    angle = math.radians(spec['wash_angle'])
+    dx, dy = math.cos(angle), math.sin(angle)
+    radius = (abs(dx)*w + abs(dy)*h) / 2
+    gradient = elem('linearGradient', {'id': gid, 'gradientUnits': 'userSpaceOnUse',
+        'x1': x+w/2-dx*radius, 'y1': y+h/2-dy*radius,
+        'x2': x+w/2+dx*radius, 'y2': y+h/2+dy*radius,
+        'color-interpolation': 'sRGB'}, defs)
+    a = [int(fill[i:i+2], 16) for i in (1, 3, 5)]
+    b = [int(spec['wash_color'][i:i+2], 16) for i in (1, 3, 5)]
+    tint = '#' + ''.join(f'{round(v+(u-v)*spec["wash_opacity"]):02X}' for v, u in zip(a, b))
+    elem('stop', {'offset': 0, 'stop-color': fill}, gradient)
+    elem('stop', {'offset': 1, 'stop-color': tint}, gradient)
+    cache[key] = f'url(#{gid})'
+    return cache[key]
+
+
+def _wash_boxes(placed):
+    # Connected balloons share one light field, including the whole connector.
+    members = {p['id']: {p['id']} for p in placed}
+    for p in placed:
+        if p.get('join_to'):
+            group = members[p['id']] | members[p['join_to']]
+            for key in group:
+                members[key] = group
+    by_id = {p['id']: p for p in placed}
+    result = {}
+    for iid, group in members.items():
+        boxes = []
+        for key in group:
+            p = by_id[key]
+            boxes += [p['box']] + ([p['_tail']['box']] if p['_tail'] else []) + p.get('_join_cells', [])
+        x, y = min(b[0] for b in boxes), min(b[1] for b in boxes)
+        result[iid] = [x, y, max(b[0]+b[2] for b in boxes)-x, max(b[1]+b[3] for b in boxes)-y]
+    return result
 
 
 def _silhouette(node):
@@ -71,6 +118,8 @@ def _silhouette(node):
 def apply_all(placed, groups, defs, elem, width, height):
     """Apply after geometry exists, so incoming joins can clear inset borders."""
     paper_cache = {}
+    wash_cache = {}
+    wash_boxes = _wash_boxes(placed)
     joins = {}
     for p in placed:
         if p.get('join_to'):
@@ -79,7 +128,7 @@ def apply_all(placed, groups, defs, elem, width, height):
             joins.setdefault(p['join_to'], []).append(path)
     for p in placed:
         spec = resolve(p)
-        if not (spec['paper'] or spec['glow'] or spec['whisper_border'] == 'center'):
+        if not (spec['paper'] or spec['glow'] or spec['wash_opacity'] or spec['whisper_border'] == 'center'):
             continue
         iid = p['id']
         bottom, connectors, fills = groups[iid]
@@ -89,8 +138,15 @@ def apply_all(placed, groups, defs, elem, width, height):
         # samples the same pixels instead of starting a new grain field.
         shells = [n for n in list(bottom) + list(connectors) + [body]
                   if n.get('fill') == p['fill']]
-        if spec['paper']:
-            paint = _paper(p['fill'], spec, defs, elem, paper_cache)
+        if spec['paper'] or spec['wash_opacity']:
+            paint = p['fill']
+            if spec['wash_opacity']:
+                paint = _wash(paint, spec, wash_boxes[iid], defs, elem, wash_cache)
+            if spec['paper']:
+                # A tinted sheet spans the page once; a small repeating tile
+                # would incorrectly restart the gradient every 128 pixels.
+                paint = _paper(paint, spec, defs, elem, paper_cache,
+                               (width, height) if spec['wash_opacity'] else None)
             for n in shells:
                 n.set('fill', paint)
             for n in bottom:

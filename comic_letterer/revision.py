@@ -11,6 +11,7 @@ from .narrative import resolve_item
 from .proof import proof_book
 from .validation import fields, ident
 from .balloon_finish import DEFAULTS as APPEARANCE_DEFAULTS
+from .organic import DEFAULTS as ORGANIC_DEFAULTS
 
 # No words, speakers, voice kinds, sources, art, panels or protected regions.
 ITEM_FIELDS = set(('font_size font_role fill stroke text_color stroke_width padding '
@@ -19,6 +20,8 @@ ITEM_FIELDS = set(('font_size font_role fill stroke text_color stroke_width padd
                    'baseline.amplitude').split())
 PAGE_FIELDS = {'reading_width'}
 ITEM_FIELDS.add('appearance')
+ITEM_FIELDS.add('organic')
+ITEM_FIELDS.update('organic.' + k for k in ORGANIC_DEFAULTS)
 ITEM_FIELDS.update('appearance.' + k for k in APPEARANCE_DEFAULTS)
 
 

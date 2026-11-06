@@ -420,7 +420,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
     for raw in job.get("items", []):
         fields(
             raw,
-            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline edge mechanical scroll drop_cap features language line_widths line_scales contour corner surface material sound overlap_with cross_border appearance",
+            "id panel kind order speaker text expected_text font_size box size candidates target off_panel join_to padding line_height fill stroke text_color stroke_width tail_fraction rotation outlines breaks emphasis flow align shape butt join_curve allow_interruption hollow arc glyphs shadow source_mark font_role tracking horizontal_scale keep_together style caption_type voice double_outline tail baseline edge mechanical scroll drop_cap features language line_widths line_scales contour corner surface material sound overlap_with cross_border appearance organic",
             "item",
         )
         item = resolve_item(raw, job.get("styles", {}))
@@ -479,8 +479,10 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             raise ValueError("decorative balloon requires speech/shout/electronic")
         if shape in ("mechanical", "sawtooth", "flame", "scroll") and item.get("double_outline"):
             raise ValueError("decorative contour has its own border; double_outline is unsupported")
-        if shape in ("ellipse", "tv", "organic") and kind not in ("speech", "whisper"):
+        if shape in ("ellipse", "tv") and kind not in ("speech", "whisper"):
             raise ValueError("balloon shape override supports speech and whisper")
+        if shape == "organic" and kind not in ("speech", "whisper", "thought", "weak"):
+            raise ValueError("organic shape requires speech, whisper, thought or weak")
         if shape in ("flat", "custom") and kind not in ("speech", "whisper", "caption"):
             raise ValueError("flat/custom supports speech, whisper or caption")
         if "contour" in item and shape != "custom":
@@ -669,7 +671,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 overflow = True
             if (butt or cross_border) and not contains(panels[pid], glyphbox):
                 overflow = True
-            if shape in ("flat", "custom"):
+            if decoration and "polygon" in decoration:
                 if not box_inside(glyphbox, decoration["polygon"], pad):
                     overflow = True
             elif kind not in ("caption", "sfx", "floating"):
@@ -738,7 +740,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
                 )
                 tail_box = inset_box(box, decoration["spec"]["band"]) if shape == "mechanical" else box
                 tail_options = dict(item.get("tail", {}))
-                if shape in ("flat", "custom"):
+                if decoration and "polygon" in decoration:
                     tail_options["_polygon"] = decoration["polygon"]
                 if shape == "mechanical":
                     tail_options["_notch"] = decoration["spec"]["notch"]
@@ -1184,7 +1186,7 @@ def compile_page(job, font_path=None, font_index=0, background=None, fonts=None)
             for mark in marks:
                 if any(overlap(mark,gb) for gb in glyphs):issue("decoration_text_overlap",iid,"Voice marks overlap text.")
                 cx,cy=center(box);rx,ry=box[2]/2-3,box[3]/2-3
-                if any(((xx-cx)/rx)**2+((yy-cy)/ry)**2>1 for xx in (mark[0],mark[0]+mark[2]) for yy in (mark[1],mark[1]+mark[3])):
+                if (not box_inside(mark, decoration["polygon"], 3) if decoration and "polygon" in decoration else any(((xx-cx)/rx)**2+((yy-cy)/ry)**2>1 for xx in (mark[0],mark[0]+mark[2]) for yy in (mark[1],mark[1]+mark[3]))):
                     issue("voice_mark_outside_shell",iid,"Voice mark exceeds the safe shell; enlarge/reflow balloon.")
             p["_voice_marks"] = marks
         tail = p["_tail"]

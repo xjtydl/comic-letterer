@@ -133,6 +133,13 @@ def scroll_geometry(box, spec):
 
 def prepare_decoration(item, box):
     shape=item.get('shape')
+    from .organic import prepare
+    organic = prepare(item, box)
+    if organic:
+        for key in ('edge', 'mechanical', 'scroll'):
+            if item.get(key) is not None:
+                raise ValueError(key+' parameters require their matching shape')
+        return organic
     if shape in ("flat", "custom"):
         from .custom_path import prepare_path
         if item.get("voice") in ("rough","telepathic") or item.get("double_outline"):

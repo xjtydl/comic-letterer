@@ -64,6 +64,26 @@ def test_inherited_nested_override_retains_siblings_and_other_items(tmp_path):
     assert original['p1'] == page and revised == book
 
 
+def test_organic_and_wash_revision_guards_and_retains_siblings(tmp_path):
+    book, assets, plan = setup(tmp_path)
+    page = json.loads((tmp_path/'p1.json').read_text())
+    page['styles'] = {'soft': {'shape': 'organic', 'organic': {'variation': .4, 'seed': 23},
+                             'appearance': {'paper': .1, 'wash_opacity': .2}}}
+    # This check uses a voiced item; preserve setup's frozen wording.
+    page['items'][0].update(kind='speech', speaker='A', style='soft')
+    (tmp_path/'p1.json').write_text(json.dumps(page))
+    plan['page_sha256']['p1'] = hashlib.sha256((tmp_path/'p1.json').read_bytes()).hexdigest()
+    plan['changes'][0].update(field='organic.variation', before=.4, after=.7)
+    plan['changes'].append({**plan['changes'][0], 'field': 'appearance.wash_opacity', 'before': .2, 'after': .3})
+    original, pages, _, _, _ = prepare_revision(book, tmp_path, plan)
+    assert pages['p1']['items'][0]['organic'] == {'variation': .7, 'seed': 23}
+    assert pages['p1']['items'][0]['appearance'] == {'paper': .1, 'wash_opacity': .3}
+    assert original['p1'] == page
+    plan['changes'][0]['before'] = .5
+    with pytest.raises(ValueError, match='previous value mismatch'):
+        prepare_revision(book, tmp_path, plan)
+
+
 @pytest.mark.skipif(os.environ.get('COMIC_LETTERER_RENDER_TEST') != '1', reason='optional browser integration')
 def test_real_revision_renders_and_preserves_exact_exception(tmp_path):
     book, assets, plan = setup(tmp_path)

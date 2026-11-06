@@ -1,0 +1,84 @@
+{
+  "narration": {
+    "text_color": "#E8D7B8",
+    "caption_type": "editorial"
+  },
+  "paper": {
+    "fill": "#DED2BD",
+    "stroke": "#766354",
+    "text_color": "#322A25",
+    "stroke_width": 1.45,
+    "shape": "organic",
+    "organic": {
+      "variation": 0.65,
+      "roundness": 2.4,
+      "seed": 19
+    },
+    "appearance": {
+      "paper": 0.075,
+      "grain_scale": 1.15,
+      "seed": 17,
+      "wash_color": "#92755C",
+      "wash_opacity": 0.22,
+      "wash_angle": 65
+    }
+  },
+  "spirit": {
+    "fill": "#DCD4C5",
+    "stroke": "#81756B",
+    "text_color": "#35302D",
+    "stroke_width": 1.25,
+    "shape": "organic",
+    "organic": {
+      "variation": 0.5,
+      "roundness": 2.35,
+      "seed": 31
+    },
+    "appearance": {
+      "paper": 0.07,
+      "grain_scale": 1.15,
+      "seed": 17,
+      "glow": 2.8,
+      "glow_color": "#D8C9A9",
+      "glow_opacity": 0.4,
+      "wash_color": "#9B9189",
+      "wash_opacity": 0.2,
+      "wash_angle": 110
+    }
+  },
+  "whisper": {
+    "fill": "#DCD0B9",
+    "stroke": "#58483C",
+    "text_color": "#322A25",
+    "stroke_width": 2.6,
+    "shape": "organic",
+    "organic": {
+      "variation": 0.65,
+      "roundness": 2.3,
+      "seed": 7
+    },
+    "appearance": {
+      "paper": 0.075,
+      "grain_scale": 1.15,
+      "seed": 17,
+      "whisper_border": "center",
+      "wash_color": "#967359",
+      "wash_opacity": 0.23,
+      "wash_angle": 70
+    }
+  },
+  "caption": {
+    "fill": "#D6C6AA",
+    "stroke": "#8D7863",
+    "text_color": "#382E28",
+    "stroke_width": 1.1,
+    "appearance": {
+      "paper": 0.08,
+      "grain_scale": 1.15,
+      "seed": 17,
+      "wash_color": "#8E705A",
+      "wash_opacity": 0.2,
+      "wash_angle": 60
+    }
+  }
+}

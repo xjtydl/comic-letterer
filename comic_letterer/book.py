@@ -6,6 +6,8 @@ from .decorative import prepare_decoration
 from .validation import fields, ident, number
 from .balloon_finish import DEFAULTS as APPEARANCE_DEFAULTS, resolve as resolve_appearance
 
+from .organic import DEFAULTS as ORGANIC_DEFAULTS, resolve as resolve_organic
+
 MATCH = 'speaker kind style voice caption_type edition language'
 EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voice caption_type features language '
               'line_height padding tracking horizontal_scale reading_font_size '
@@ -14,6 +16,8 @@ EXPECT = set(('font_size font_role fill stroke text_color stroke_width shape voi
               'scroll.curl drop_cap.lines drop_cap.font_role').split())
 EXPECT.update('appearance.' + k for k in APPEARANCE_DEFAULTS)
 EXPECT.add('appearance')
+EXPECT.add('organic')
+EXPECT.update('organic.' + k for k in ORGANIC_DEFAULTS)
 
 
 def value(item, page, key):
@@ -27,6 +31,9 @@ def value(item, page, key):
         width=number(page['width'],'page width',True)
         return number(fs,'font size',True)*number(page.get('reading_width',width),'reading_width',True)/width
     prefix, _, leaf = key.partition('.')
+    if prefix == 'organic':
+        spec = resolve_organic(item) if item.get('shape') == 'organic' and (item.get('organic') is not None or item.get('kind') in ('thought', 'weak')) else None
+        return spec if not leaf else (spec.get(leaf) if spec else None)
     if prefix == 'appearance':
         spec = resolve_appearance(item)
         return spec if not leaf else spec.get(leaf)
@@ -91,6 +98,11 @@ def audit_book(book, base_dir):
                 hits[rid]+=1;checked+=1
                 for field,expected in rule['expect'].items():
                     actual=value(item,page,field)
+                    if field in ('appearance', 'organic') and isinstance(expected, dict):
+                        # New optional defaults must not create drift in older
+                        # whole-object rules. Validate and resolve both sides.
+                        expected = (resolve_organic({**item, 'shape': 'organic', 'organic': expected})
+                                    if field == 'organic' else value({**item, field: expected}, page, field))
                     equal=(abs(actual-expected)<1e-6 if type(actual) in (int,float) and type(expected) in (int,float) else actual==expected)
                     if equal:continue
                     issue={'page':pid,'item':iid,'rule':rid,'field':field,'expected':expected,'actual':actual,'code':'style_drift','severity':'error'}

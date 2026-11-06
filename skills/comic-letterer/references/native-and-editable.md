@@ -1,3 +1,5 @@
+> v0.11 adds controllable organic shells and opaque scene-tinted wash; Last Ticket uses existing authored tail curves and floating editorial narration. Full evidence: `docs/v011-validation.md`. This remains a procedural, editable route; user visual acceptance is separate.
+
 # Native artwork and editable lettering
 
 Update, v0.10: this tool now has core `appearance` controls for continuous paper, edge glow and centered whisper dashes, including the editor and book audit/revision. See [the contract](../../../docs/contract.md) and [actual-story verification](../../../docs/v010-validation.md). The r02 discussion below records its historical branch-only state. Two routes here mean **balloons plus text**: program-rendered or directly image-generated; choosing one does not authorize regenerating approved artwork.

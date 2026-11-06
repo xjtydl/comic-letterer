@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.11.0 — scene-integrated balloons
+
+- Add reproducible organic profiles for speech, whisper, thought and weak balloons, with actual-path type/voice-mark clearance and tail attachment.
+- Add opaque, continuous directional wash across shells, tails, thought dots and joined groups, without tinting text/art or restarting at grain tiles.
+- Expose profiles/wash in the editor and guarded book revisions. Preserve old organic geometry and normalize whole-object rule defaults.
+- Verify on both complete Last Ticket pages and the eight-panel strip; preserve art/wording/type size, refine short curved tails and use existing unboxed editorial narration.
+- Record overflow correction, full reading proof and 12 of 45 module increments. See `docs/v011-validation.md`; visual acceptance and training remain separate.
+
+
 ## 0.10.0
 
 - Core balloon `appearance`: deterministic continuous paper across shells/tails/thought dots/joins, edge-only visible glow, and centered whisper dashes with tail/join openings.
